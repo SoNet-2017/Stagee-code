@@ -1,0 +1,21 @@
+<div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Sembra ci sia un errore nel tuo indirizzo e-mail o password. </div>
+
+
+<form id="frmLogin" role="form" ng-submit="signIn()">
+    <h2>Stagee</h2>
+    <h3>Conquista la scena!</h3>
+
+    <div class="form-group">
+        <label for="txtEmail">Email address</label><!--se sbaglia password nn deve entrare-->
+
+        <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" name="email" ng-model="user.email" />
+    </div>
+    <div class="form-group">
+        <label for="txtPass">Password</label>
+        <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" ng-model="user.password" />
+        <a>Ho dimenticato la password</a>
+    </div>
+    <button type="login" class="btn btn-success center-block" ng-click="signIn();">Login</button>
+</form>
+
+

@@ -1,0 +1,93 @@
+<div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}</div>
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Stagee</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#!/bachecaView"><span class="glyphicon glyphicon-home"></span></a></li>
+                <li ><a href="#!/profiloView"><span class="glyphicon glyphicon-user"></span></a>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" onclick="event.preventDefault();" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-cog" ></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="" onclick="event.preventDefault();" >Filtri<button type="button" class=" btn-filtri" data-toggle="modal" data-target="#myModal"  ></button></a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">Nav header</li>
+                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">One more separated link</a></li>
+                    </ul>
+                </li>
+                <li><a href="#!/chat" onclick="event.preventDefault();"><span class="glyphicon glyphicon-comment"></span></a></li></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+
+        <!--fabio-->
+
+            <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}" >
+                <ng-map center="current-location" zoom="15" disable-default-u-i="true" >
+                    <marker position="current-location"
+                            title="You are here"
+                            centered="true"></marker>
+                </ng-map>
+            </div>
+
+
+
+
+    </div>
+</nav>
+<!--non dipende da html.. perchè?-->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<form id="frmProfilo" role="form" >
+    <div class="modal fade" id = "myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Filtri</h5>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body" id="pagina_filtri" >
+                    <div class="containerfiltri">
+                        <div class="row">
+                            <div class="col-sm-4" style="border-right: 1px; border-right-style: solid; border-right-color: silver">
+                                <ul class="filtri">
+                                    <li id="areageografica">Area geografica</li>
+                                    <li id="ambito">Ambito</li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-8">
+                                <p>Modal body text goes here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button><!-- qui c era secondary anzichè primary-->
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

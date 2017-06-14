@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Stagee</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css"/>
+  <link rel="stylesheet" href="app.css"/>
+  <link rel="stylesheet" href="../lib/agency.min.css"/>
+  <link rel="stylesheet" href="../lib/font-awesome.min.css"/>
+
+
+  <!-- Angular -->
+  <script src="../lib/angular/angular.min.js"></script>
+  <script src="../lib/angular/angular-route.min.js"></script>
+  <script src="../lib/angular/angular-resource.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+
+  <script src="../lib/bootstrap/bootstrap.min.js"></script>
+  <script src="../lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../lib/bootstrap/css/navbar-fixed-top.css" rel="stylesheet">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+  <!--Angular X-Editable-->
+  <link href="../lib/angular-xeditable/css/xeditable.css" rel="stylesheet">
+  <script src="../lib/angular-xeditable/js/xeditable.js"></script>
+
+
+    <script src="app.js"></script>
+  <script src="paginizialeView/paginizialeView.js"></script>
+  <script src="profiloView/profiloView.js"></script>
+  <script src="components/pizze/pizza.js"></script>
+  <script src="components/pizze/pizza-service.js"></script>
+  <script src="components/pizze/single-pizza-service.js"></script>
+      <!--components eventi-->
+  <script src="components/eventi/evento.js"></script>
+  <script src="components/eventi/evento-service.js"></script>
+  <script src="components/eventi/single-evento-service.js"></script>
+
+  <script src="detailsView/detailsView.js"></script>
+  <script src="loginView/loginView.js"></script>
+  <script src="bachecaView/bachecaView.js"></script>
+  <script src="registrazioneView/registrazioneView.js"></script>
+  <script src="filtriView/filtriView.js"></script>
+  <script src="eventoView/eventoView.js"></script>
+  <script src="components/authentication/authentication.js"></script>
+  <script src="components/authentication/authentication-service.js"></script>
+
+  <!--fabio-->
+  <script src="../lib/ng-map.min.js"></script>
+
+
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+
+
+<div class="container-fluid" ng-view>
+
+</div>
+
+
+
+</body>
+</html>
