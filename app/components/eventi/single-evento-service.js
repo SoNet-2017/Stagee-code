@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.evento.singlePizzaService', [])
+angular.module('myApp.evento.singleEventoService', [])
 
     .factory('SingleEvento', function($firebaseObject) {
         var singleEventoService = {

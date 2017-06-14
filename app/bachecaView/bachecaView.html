@@ -35,23 +35,16 @@
                 <li><a href="#!/chat" onclick="event.preventDefault();"><span class="glyphicon glyphicon-comment"></span></a></li></li>
             </ul>
         </div><!--/.nav-collapse -->
-
-        <!--fabio-->
-
-            <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}" >
-                <ng-map center="current-location" zoom="15" disable-default-u-i="true" >
-                    <marker position="current-location"
-                            title="You are here"
-                            centered="true"></marker>
-                </ng-map>
-            </div>
-
-
-
-
     </div>
 </nav>
 <!--non dipende da html.. perchè?-->
+
+<!--fabio-->
+<div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}" >
+    <ng-map center="45.071087, 7.686567" zoom="13" disable-default-u-i="true" >
+        <marker ng-repeat="pos in dati.vm.positions" position="{{pos.address}}"></marker>
+    </ng-map>
+</div>
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
