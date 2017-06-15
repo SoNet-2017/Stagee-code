@@ -24,7 +24,9 @@ angular.module('myApp', [
     'myApp.registrazioneView',
     'myApp.bachecaView',
     'myApp.eventoView',
-    'myApp.authentication'
+    'myApp.authentication',
+    'myApp.profilo',
+
    // 'myApp.filtriView'
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

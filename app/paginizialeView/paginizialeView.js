@@ -41,4 +41,5 @@ angular.module('myApp.paginizialeView', ['ngRoute'])
 
 
         };
+
     }]);

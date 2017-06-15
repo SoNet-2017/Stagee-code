@@ -24,5 +24,23 @@ angular.module('myApp.eventoView', ['ngRoute'])
 
         })
     }])
-    .controller('EventoCtrl',  function($scope) {
+    .controller('EventoCtrl',  '$rootScope', 'Profilo', function($scope, $rootScope, Profilo) {
+
+        $scope.dati = {};
+        $scope.dati = this;
+        $scope.dati.elenco = [];
+        //set the variable that is used in the main template to show the active button
+        $rootScope.dati.currentView = "evento";
+
+        $scope.dati.profili = Profilo.getData();
+        //when the information about the pizza will be loaded, then the map will be created adding a marker in the Pizzeria location
+        $scope.dati.profili.$loaded().then(function () {
+            for (var i = 0; i < $scope.dati.profili.length; i++) {
+                var idSingoloProfilo = $scope.dati.profili[i].id_profilo;
+
+                var prof_user = $scope.dati.profili[i].prof_user;
+                $scope.dati.elenco.push({prof_user: prof_user});
+            }
+        });
+
     });

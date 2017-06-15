@@ -1,14 +1,45 @@
+
+@import url('https://fonts.googleapis.com/css?family=Overpass');
+.overlay {
+  color:#fff;
+  position:absolute;
+  z-index:12;
+  bottom:200%;
+  left:0;
+  width:100%;
+  text-align:center;
+  font-family: 'Overpass', sans-serif;
+}
+
+.btn-custom {
+  background-color: hsl(42, 97%, 28%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fbb40d", endColorstr="#8c6302");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#fbb40d), to(#8c6302));
+  background-image: -moz-linear-gradient(top, #fbb40d, #8c6302);
+  background-image: -ms-linear-gradient(top, #fbb40d, #8c6302);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fbb40d), color-stop(100%, #8c6302));
+  background-image: -webkit-linear-gradient(top, #fbb40d, #8c6302);
+  background-image: -o-linear-gradient(top, #fbb40d, #8c6302);
+  background-image: linear-gradient(#fbb40d, #8c6302);
+  border-color: #8c6302 #8c6302 hsl(42, 97%, 22%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.39);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+
 form{
 
   text-align: center;
 
 }
 
-
-/* Main content */
 body {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  background-color: black;
+  font-family: 'Overpass', sans-serif;
+
 }
 
 .media-object {
@@ -25,12 +56,10 @@ button{/*non va*/
 
 }
 
-
 .elemento-left
 {
   float:left; !important;
 }
-
 
 .elemento-right
 {
@@ -41,9 +70,6 @@ button{/*non va*/
   padding-bottom: 20px;
 }
 
-body {
-  background: #F1F3FA;
-}
 
 @media (min-width: 1200px) {
   .containerfiltri {
@@ -138,8 +164,6 @@ filtri>li:visited {
   border-bottom: none;
   width: 100%;
   height: 100%;
-  /*border-bottom-color: white;*/
-
 
 }
 /* Profile container */
@@ -246,14 +270,6 @@ filtri>li:visited {
   min-height: 460px;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,200italic);
-body {
-  background: black;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 300;
-}
-
-
 .quote-card {
   background: #F9A825;
   color: #222222;
@@ -311,15 +327,6 @@ body {
   }
 }
 
-
-.carousel-inner img {
-  /* make all photos black and white */
-  width: 100%; /* Set width to 100% */
-  margin: auto;
-}
-
-
-
 .person {
   border: 10px solid transparent;
   margin-bottom: 25px;
@@ -340,8 +347,4 @@ section, summary {
   display: block;
 }
 
-.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
+
