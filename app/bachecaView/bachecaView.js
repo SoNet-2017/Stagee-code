@@ -18,6 +18,8 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
             }
         })
     }])
+
+
     //prova
 
 
@@ -31,12 +33,24 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
 
     .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', function($scope, $rootScope, Evento, SingleEvento) {
 
+        /*
+        $rootScope.mouseover = function() {
+            console.log('mouseover', this);
+            this.style.backgroundColor = 'grey';
+        };
+        $rootScope.mouseout = function() {
+            this.style.backgroundColor = 'white';
+        };
+        $rootScope.click = function() {console.log('click')};
+        */
+
         // .controller( 'mapCtrl', ['$scope', 'Evento', function($scope, Evento)
         $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEHR5Dl1jOAT4Cb5Sdx738pid0D7LRwfc";
         //initialize variables
         $scope.dati = {};
         $scope.dati.vm = this;
         $scope.dati.vm.positions = [];
+        $scope.dati.vm.tags = [];
         //set the variable that is used in the main template to show the active button
         $rootScope.dati.currentView = "home";
 
@@ -48,6 +62,9 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
 
                 var address = $scope.dati.eventi[i].address;
                 $scope.dati.vm.positions.push({address: address});
+
+                var tag = $scope.dati.eventi[i].nome_evento;
+                $scope.dati.vm.tags.push({tags: tag});
             }
         });
 
