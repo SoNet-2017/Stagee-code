@@ -39,7 +39,11 @@ angular.module('myApp.profiloView', ['ngRoute'])
 
         };
 
+        $scope.redirectToCv= function() {
 
+            $location.path("/CvView");
+
+        };
 
         $scope.redirectToAreageografica = function() {
 
