@@ -42,7 +42,33 @@
 <!--fabio-->
 <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapsUrl}}" >
     <ng-map center="45.065698, 7.670945" zoom="14" disable-default-u-i="true" >
-        <marker ng-repeat="pos in dati.vm.positions" position="{{pos.address}}">
+        <marker ng-repeat="pos in dati.vm.positions" position="{{pos.address}}"
+                optimized="false"
+                icon="{
+                url:'images_stagee/pin.png',
+                scaledSize:[40,40],
+                origin: [0,0],
+                anchor: [50,50]
+                      }"
+                on-click ="map.showInfoWindow(event, 'bar')"
+        >
+
+            <info-window ng-repeat="tag in dati.vm.tags" tag="{{tag.tags}}" id="bar" max-width="150">
+                <div ng-non-bindable>
+                    <div id="siteNotice"></div>
+                    <h1 id="firstHeading" class="firstHeading">EVENTO</h1>
+                    <div id="bodyContent">
+                        <p>
+                            <b></b>informazioni evento bello
+                        </p>
+                        <p>
+                            <a href="http://gph.is/28No1ow">
+                                link evento
+                            </a>
+
+                    </div>
+                </div>
+            </info-window>
 
         </marker>
     </ng-map>
