@@ -15,9 +15,9 @@ firebase.initializeApp(config);
 angular.module('myApp', [
     "firebase",
     "xeditable",
-  'ngMap',
-  'ngRoute',
-  'myApp.profiloView',
+    'ngMap',
+    'ngRoute',
+    'myApp.profiloView',
     'myApp.evento',
     'myApp.loginView',
     'myApp.paginizialeView',
@@ -26,7 +26,7 @@ angular.module('myApp', [
     'myApp.eventoView',
     'myApp.authentication',
     'myApp.profilo',
-
+    'myApp.CvView'
    // 'myApp.filtriView'
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

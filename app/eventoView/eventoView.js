@@ -24,7 +24,7 @@ angular.module('myApp.eventoView', ['ngRoute'])
 
         })
     }])
-    .controller('EventoCtrl',  '$rootScope', 'Profilo', function($scope, $rootScope, Profilo) {
+    .controller('EventoCtrl', '$scope', '$rootScope', 'Profilo', function($scope, $rootScope, Profilo) {
 
         $scope.dati = {};
         $scope.dati = this;
