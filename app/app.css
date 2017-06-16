@@ -36,10 +36,10 @@ form{
 
 }
 
-body {
-  background-color: black;
-  font-family: 'Overpass', sans-serif;
 
+
+body{
+  font-family: 'Overpass', sans-serif;
 }
 
 .media-object {
@@ -352,19 +352,8 @@ section, summary {
   width: 45%;
 }*/
 
-#slides_control > div{
-  height: 200px;
-}
 img{
   margin:auto;
-  width: 400px;
-}
-#slides_control {
-  position:absolute;
-  width: 400px;
-  left:50%;
-  top:20px;
-  margin-left:-200px;
 }
 /* css dei custom markers
  */
