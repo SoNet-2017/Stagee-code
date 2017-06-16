@@ -36,10 +36,10 @@ form{
 
 }
 
-body {
-  background-color: black;
-  font-family: 'Overpass', sans-serif;
 
+
+body{
+  font-family: 'Overpass', sans-serif;
 }
 
 .media-object {
@@ -352,6 +352,9 @@ section, summary {
   width: 45%;
 }*/
 
+img{
+  margin:auto;
+}
 /* css dei custom markers
  */
 
