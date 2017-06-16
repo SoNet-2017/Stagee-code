@@ -4,7 +4,7 @@
   color:#fff;
   position:absolute;
   z-index:12;
-  bottom:400%;
+  bottom:200%;
   left:0;
   width:100%;
   text-align:center;
@@ -347,6 +347,10 @@ section, summary {
   display: block;
 }
 
+/*.img-cv{
+  height: 45%;
+  width: 45%;
+}*/
 
 #slides_control > div{
   height: 200px;
@@ -361,4 +365,17 @@ img{
   left:50%;
   top:20px;
   margin-left:-200px;
+}
+/* css dei custom markers
+ */
+
+.custom-marker {
+  font-size: 1.5em;
+  padding: 10px;
+  background: #2aabd2;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border: #7F7F7F solid 1px;
+  display: block;
 }
