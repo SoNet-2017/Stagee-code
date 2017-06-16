@@ -22,7 +22,7 @@ angular.module('myApp.profilo.insertProfiloService', [])
             },
             updateEvento: function (id_profilo) {
                 //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("eventi").child(id_profilo);
+                var ref = firebase.database().ref().child("profili").child(id_profilo);
                 // create a synchronized array
                 ref.update({
                     id: id_profilo

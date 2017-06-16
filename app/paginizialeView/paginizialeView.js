@@ -42,4 +42,22 @@ angular.module('myApp.paginizialeView', ['ngRoute'])
 
         };
 
+        $scope.Carousel = function($scope){
+            $scope.myInterval = 3000;
+            $scope.slides = [
+                {
+                    image: 'http://www.koreos.it/assets/uploads/galleries//17/13_Dollarphotoclub_35434001.jpg'
+                },
+                {
+                    image: 'images_stagee/Danza_Stagee.png'
+                },
+                {
+                    image: 'images_stagee/Teatro_Stagee.png'
+                },
+                {
+                    image: 'images_stagee/Artboard1.jpg'
+                }
+            ];
+        }
+
     }]);

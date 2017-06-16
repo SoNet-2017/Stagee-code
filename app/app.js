@@ -25,7 +25,7 @@ angular.module('myApp', [
     'myApp.bachecaView',
     'myApp.eventoView',
     'myApp.authentication',
-    'myApp.profilo',
+    'myApp.profilo'
 
    // 'myApp.filtriView'
 ])
