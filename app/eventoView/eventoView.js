@@ -40,6 +40,7 @@ angular.module('myApp.eventoView', ['ngRoute'])
 
                 var prof_user = $scope.dati.profili[i].prof_user;
                 $scope.dati.elenco.push({prof_user: prof_user});
+
             }
         });
 

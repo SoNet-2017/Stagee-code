@@ -52,6 +52,7 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
         // .controller( 'mapCtrl', ['$scope', 'Evento', function($scope, Evento)
         $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEHR5Dl1jOAT4Cb5Sdx738pid0D7LRwfc";
         //initialize variables
+
         $scope.dati = {};
         $scope.dati.vm = this;
         $scope.dati.vm.positions = [];
@@ -70,8 +71,12 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
 
                 var tag = $scope.dati.eventi[i].nome_evento;
                 $scope.dati.vm.tags.push({tags: tag});
+
+
             }
         });
+
+
 
 
     }]);
