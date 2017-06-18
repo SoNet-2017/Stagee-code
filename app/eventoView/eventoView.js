@@ -24,7 +24,7 @@ angular.module('myApp.eventoView', ['ngRoute'])
 
         })
     }])
-    .controller('EventoCtrl', '$scope', '$rootScope', 'Profilo', function($scope, $rootScope, Profilo) {
+    .controller('EventoCtrl',[ '$scope', '$rootScope', 'Profilo', function($scope, $rootScope, Profilo) {
 
         $scope.dati = {};
         $scope.dati = this;
@@ -43,4 +43,44 @@ angular.module('myApp.eventoView', ['ngRoute'])
             }
         });
 
-    });
+        $scope.dati.area = 'areaGeografica';
+        $('#myModal').modal('show');
+        $scope.redirectToAreageografica = function() {
+
+            $scope.dati.area = 'areaGeografica';
+
+
+        };
+
+        $scope.redirectToAmbito= function() {
+
+            $scope.dati.area = 'ambito';
+
+        };
+
+        $scope.isAreaGeografica = function()
+        {
+            if ($scope.dati.area == 'areaGeografica')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        $scope.isAmbito = function()
+        {
+            if ($scope.dati.area == 'ambito')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+}]);

@@ -24,7 +24,7 @@ angular.module('myApp.CvView', ['ngRoute'])
 
         })
     }])
-    .controller('CvCtrl', '$scope', function($scope) {
+    .controller('CvCtrl', ['$scope', function($scope) {
 
         $scope.dati.area = 'areaGeografica';
         $('#myModal').modal('show');
@@ -65,4 +65,4 @@ angular.module('myApp.CvView', ['ngRoute'])
             }
         }
 
-    });
+    }]);

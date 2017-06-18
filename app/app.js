@@ -27,7 +27,7 @@ angular.module('myApp', [
     'myApp.authentication',
     'myApp.profilo',
     'myApp.CvView'
-   // 'myApp.filtriView'
+    // 'myApp.filtriView'
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');

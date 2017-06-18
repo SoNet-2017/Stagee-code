@@ -1,13 +1,7 @@
-body {
-  background: #111;
-  font-family: Avenir, Helvetica, sans-serif;
-}
 
-main a {
-  text-decoration: none;
-}
+main_cal a { text-decoration: none; }
 
-section {
+section_cal {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16,7 +10,7 @@ section {
   font-size: 0;
 }
 
-section time {
+section_cal time {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -29,11 +23,11 @@ section time {
   transition: .35s opacity;
 }
 
-section time.blank {
+section_cal time.blank {
   min-height: 14vw;
 }
 
-section time a {
+section_cal time a {
   display: inline-block;
   width: 100%;
   height: 100%;
@@ -42,7 +36,7 @@ section time a {
   outline: none;
 }
 
-section time span {
+section_cal time span {
   position: absolute;
 }
 
@@ -52,11 +46,11 @@ span.caldate {
   z-index: 2;
 }
 
-section time.blank span.caldate {
+section_cal time.blank span.caldate {
   color: #333;
 }
 
-section time a span.title {
+section_cal time a span.title {
   width: 100%;
   height: 100%;
   line-height: 1.1;
@@ -70,12 +64,12 @@ section time a span.title {
   transition: .4s opacity;
 }
 
-section time:hover a span.title {
+section_cal time:hover a span.title {
   background: rgba(0, 0, 0, 0.8);
   opacity: 1;
 }
 
-section time a:hover {
+section_cal time a:hover {
   border-bottom: none;
 }
 
@@ -84,7 +78,7 @@ time:not(.blank) span {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
 
-section time a img {
+section_cal time a img {
   width: 100%;
 }
 
@@ -93,11 +87,11 @@ section time a img {
 }
 
 @media all and (max-width: 950px) {
-  section time.blank {
+  section_cal time.blank {
     display: none;
   }
 
-  section time {
+  section_cal time {
     min-width: 20%;
     max-height: 20vw;
     max-width: 20vw;
@@ -105,14 +99,14 @@ section time a img {
   }
 }
 @media all and (max-width: 750px) {
-  section time {
+  section_cal time {
     min-width: 33%;
     max-height: 33vw;
     font-size: 5vw;
   }
 }
 @media all and (max-width: 450px) {
-  section time {
+  section_cal time {
     min-width: 50%;
     max-height: 50vw;
     font-size: 5vw;
