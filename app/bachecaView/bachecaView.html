@@ -1,6 +1,6 @@
 <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}</div>
 
-
+<link href="../lib/bootstrap/css/navbar-fixed-top.css" rel="stylesheet">
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -255,17 +255,23 @@
                 on-click ="map.showInfoWindow(event, 'bar')"
         >
 
-            <info-window ng-repeat="tag in dati.vm.tags" tag="{{tag.tags}}" id="bar" max-width="150">
+            <info-window ng-controller="mapCtrl" id="bar" max-width="150">
                 <div ng-non-bindable>
                     <div id="siteNotice"></div>
-                    <h1 id="firstHeading" class="firstHeading">EVENTO</h1>
+
+                    <h3 id="firstHeading" class="firstHeading" ng-repeat="tag in dati.vm.tags">
+                        {{tag.tags}}
+                    </h3>
+
+
+
                     <div id="bodyContent">
                         <p>
-                            <b></b>informazioni evento bello
+                            <b></b>Info
                         </p>
                         <p>
                             <a href="http://gph.is/28No1ow">
-                                link evento
+                                Link evento
                             </a>
 
                     </div>
@@ -275,6 +281,8 @@
         </marker>
     </ng-map>
 </div>
+
+
 
 <!-- parte eliminata dalla mappa per prove
 

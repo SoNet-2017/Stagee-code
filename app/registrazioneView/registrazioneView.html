@@ -1,5 +1,5 @@
 
-<form id="frmLogin" role="form" ng-submit="signIn()" class="center-block">
+<form id="frmLogin" role="form" ng-submit="signUp()" class="center-block">
     <h2>Stagee</h2>
     <h3>Partecipa, organizza, condividi e certifica esperienze lavorative e formative.</h3>
 
@@ -21,16 +21,19 @@
     <div class="form-group">
         <input type="password" class="form-control" id="password" placeholder="Password" name="password" ng-model="user.password" required="required"/>
     </div>
+    <div class="form-group">
+        <input type="password" class="form-control" id="txtPass2" placeholder="Conferma la password" name="password2" ng-model="user.password2" required="required"/>
+    </div>
 
-
-    <label class="checkbox-inline">
-        <input type="checkbox" value="">Performer
+<p>Chi sei?</p>
+    <label class="radio-inline"><input type="radio" name="tipo" value="performer" ng-model="user.tipo" required="required">Performer
+    </label>
+    <label class="radio-inline"><input type="radio" name="tipo" value="organizzatore" ng-model="user.tipo" required="required">Organizzatore
     </label>
 
-    <label class="checkbox-inline">
-        <input type="checkbox" value="">Organizzatore
-    </label>
+<p>
 
+</p>
     <button type="submit" class="btn btn-primary center-block" >Iscriviti</button>
 
 </form>

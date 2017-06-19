@@ -2,8 +2,7 @@
 
 <link rel="stylesheet" href="../lib/agency.min.css"/>
 <link rel="stylesheet" href="../lib/font-awesome.min.css"/>
-
-
+<link href="../lib/bootstrap/css/navbar-fixed-top.css" rel="stylesheet">
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -46,6 +45,7 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -248,156 +248,177 @@
 </form>
 
 
-<div class="row profile">
-    <div class="col-md-1"></div>
-    <div class="col-md-3">
-        <div class="profile-sidebar">
-            <!-- SIDEBAR USERPIC -->
-            <div class="profile-userpic">
-                <img src="images_stagee/Artboard1.jpg" class="img-responsive" alt="Immagine profilo">
-            </div>
-            <!-- END SIDEBAR USERPIC -->
-            <!-- SIDEBAR USER TITLE -->
-            <div class="profile-usertitle">
-                <div class="profile-usertitle-name">
-                    Nome Cognome
+    <div class="row profile">
+        <div class="col-md-1"> </div>
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="images_stagee/Artboard1.jpg" class="img-responsive" alt="Immagine profilo">
                 </div>
-                <div class="profile-usertitle-job">
-                    Performer/Organizzatore
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        Nome Cognome
+                    </div>
+                    <div class="profile-usertitle-job">
+                        Performer/Organizzatore
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                    <button type="button" class="btn btn-warning btn-sm">Follow</button>
+                    <button type="button" class="btn btn-info btn-sm" ng-click="redirectToCv();">Visualizza CV</button>
+
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+
+                <blockquote class="quote-card yellow card">
+                    <p>
+                        Citazione preferita.
+                    </p>
+
+                    <cite>
+                        Autore citazione
+                    </cite>
+                </blockquote>
+
+
+
+            </div>
+        </div>
+        <div class="col-md-4">
+
+                Ciao
+                    <a href="#" editable-text="user.name" data-e-label="User Name">{{ user.name || 'empty' }}</a>
+
+
+
+        <!-- CALENDARIO -->
+
+            <div class="datepicker hasDatepicker" id="dp1497624745244">
+                <div class="datepicker-header"></div>
+                <div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"
+                     style="display: block;">
+                    <div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">
+                        <a class="ui-datepicker-prev ui-corner-all" data-handler="prev" data-event="click"
+                           title="<i class=&quot;fa fa-fw fa-angle-left&quot;></i>">
+                            <span class="ui-icon ui-icon-circle-triangle-w">
+                                <i class="fa fa-fw fa-angle-left"></i>
+                            </span>
+                        </a>
+                        <a class="ui-datepicker-next ui-corner-all" data-handler="next" data-event="click"
+                           title="<i class=&quot;fa fa-fw fa-angle-right&quot;></i>">
+                            <span class="ui-icon ui-icon-circle-triangle-e"><i
+                                    class="fa fa-fw fa-angle-right"></i></span></a>
+                        <div class="ui-datepicker-title"><span class="ui-datepicker-month">June</span>&nbsp;<span
+                                class="ui-datepicker-year">2017</span></div>
+                    </div>
+                    <table class="ui-datepicker-calendar">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="ui-datepicker-week-end"><span title="Sunday">Su</span></th>
+                            <th scope="col"><span title="Monday">Mo</span></th>
+                            <th scope="col"><span title="Tuesday">Tu</span></th>
+                            <th scope="col"><span title="Wednesday">We</span></th>
+                            <th scope="col"><span title="Thursday">Th</span></th>
+                            <th scope="col"><span title="Friday">Fr</span></th>
+                            <th scope="col" class="ui-datepicker-week-end"><span title="Saturday">Sa</span></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">
+                                &nbsp;
+                            </td>
+                            <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;
+                            </td>
+                            <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;
+                            </td>
+                            <td class=" ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">&nbsp;
+                            </td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">1</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">2</a></td>
+                            <td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click"
+                                data-month="5" data-year="2017"><a class="ui-state-default" href="#">3</a></td>
+                        </tr>
+                        <tr>
+                            <td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click"
+                                data-month="5" data-year="2017"><a class="ui-state-default" href="#">4</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">5</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">6</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">7</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">8</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">9</a></td>
+                            <td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click"
+                                data-month="5" data-year="2017"><a class="ui-state-default" href="#">10</a></td>
+                        </tr>
+                        <tr>
+                            <td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click"
+                                data-month="5" data-year="2017"><a class="ui-state-default" href="#">11</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">12</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">13</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">14</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">15</a></td>
+                            <td class=" ui-datepicker-days-cell-over  ui-datepicker-current-day ui-datepicker-today"
+                                data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default ui-state-highlight ui-state-active ui-state-hover" href="#">16</a>
+                            </td>
+                            <td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click"
+                                data-month="5" data-year="2017"><a class="ui-state-default" href="#">17</a></td>
+                        </tr>
+                        <tr>
+                            <td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click"
+                                data-month="5" data-year="2017"><a class="ui-state-default" href="#">18</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">19</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">20</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">21</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">22</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">23</a></td>
+                            <td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click"
+                                data-month="5" data-year="2017"><a class="ui-state-default" href="#">24</a></td>
+                        </tr>
+                        <tr>
+                            <td class=" ui-datepicker-week-end " data-handler="selectDay" data-event="click"
+                                data-month="5" data-year="2017"><a class="ui-state-default" href="#">25</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">26</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">27</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">28</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">29</a></td>
+                            <td class=" " data-handler="selectDay" data-event="click" data-month="5" data-year="2017"><a
+                                    class="ui-state-default" href="#">30</a></td>
+                            <td class=" ui-datepicker-week-end ui-datepicker-other-month ui-datepicker-unselectable ui-state-disabled">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <!-- END SIDEBAR USER TITLE -->
-            <!-- SIDEBAR BUTTONS -->
-            <div class="profile-userbuttons">
-                <button type="button" class="btn btn-warning btn-sm">Follow</button>
-                <button type="button" class="btn btn-info btn-sm" ng-click="redirectToCv();">Visualizza CV</button>
-
-            </div>
-            <!-- END SIDEBAR BUTTONS -->
-
-            <blockquote class="quote-card yellow card">
-                <p>
-                    Citazione preferita.
-                </p>
-
-                <cite>
-                    Autore citazione
-                </cite>
-            </blockquote>
-
 
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="profile-content">
-            Ciao
-
-            <a href="#" editable-text="user.name" data-e-label="User Name">{{ user.name || 'empty' }}</a>
-        </div>
-    </div>
-<div class="col-md-4">
-    <main_cal>
-        <section_cal>
-            <time datetime="2015-07-26" class="blank"><span class="caldate">26</span></time>
-            <time datetime="2015-07-27" class="hidden">
-                <a href="http://thenewcode.com/1054/SVG-Meetup-Presentation-Interactive-Imagemaps"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/svg-meetup-thumb.png" alt="SVG Meetup Presentation: Interactive Imagemaps" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/svg-meetup-thumb.png 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/svg-meetup-2x-thumb.png 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/svg-meetup-2x.png 125w">
-                    <span
-                            class="caldate">27</span><span class="title">Interactive Imagemaps Presentation</span></a>
-            </time>
-            <time datetime="2015-07-28" class="hidden">
-                <a href="http://thenewcode.com/1055/12-Palette-Extractors-and-Resources-for-Site-Color-Inspiration"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/peacock-thumb.jpg" alt="12 Palette Extractors and Resources for Site Color Inspiration" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/peacock-thumb.jpg 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/peacock-2x-thumb.jpg 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/peacock-2x.jpg 125w">
-                    <span
-                            class="caldate">28</span><span class="title">Palette Extractors & Resources</span></a>
-            </time>
-            <time datetime="2015-07-29" class="blank"><span class="caldate">29</span></time>
-            <time datetime="2015-07-30" class="hidden">
-                <a href="http://thenewcode.com/1056/Better-Diagrams-with-SVG-and-Blend-Modes"><img src="http://thenewcode.com/assets/svg/venn.svg" alt><span class="caldate">30</span><span class="title"> SVG Diagrams w/ Blend Modes</span></a>
-            </time>
-            <time datetime="2015-07-31" class="blank"><span class="caldate">31</span></time>
-            <time datetime="2015-08-01" class="blank"><span class="caldate">01</span></time>
-            <time datetime="2015-08-02" class="hidden">
-                <a href="http://thenewcode.com/1057/SVG-Patterns-of-Japan"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/waves-thumb.png" alt="SVG Patterns of Japan" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/waves-thumb.png 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/waves-2x-thumb.png 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/waves-2x.png 125w">
-
-                    <span
-                            class="caldate">02</span><span class="title">SVG Patterns of Japan</span></a>
-            </time>
-            <time datetime="2015-08-03" class="hidden">
-                <a href="http://thenewcode.com/1058/Overlapping-Action-with-CSS-Animation"><img src="http://thenewcode.com/assets/svg/redbars.svg" alt><span class="caldate">03</span><span class="title">CSS Overlapping Animation</span></a>
-            </time>
-            <time datetime="2015-08-04" class="blank"><span class="caldate">04</span></time>
-            <time datetime="2015-08-05" class="blank"><span class="caldate">05</span></time>
-            <time datetime="2015-08-06" class="hidden">
-                <a href="http://thenewcode.com/1059/Responsive-Image-Hinting-Using-the-w-Descriptor"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/toubana-diver-thumb.jpg" alt="Responsive Image Hinting: Using the w Descriptor" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/toubana-diver-thumb.jpg 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/toubana-diver-2x-thumb.jpg 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/toubana-diver-2x.jpg 125w">
-                    <span
-                            class="caldate">06</span><span class="title">Using the w Descriptor</span></a>
-            </time>
-            <time datetime="2015-08-07" class="blank"><span class="caldate">07</span></time>
-            <time datetime="2015-08-08" class="blank"><span class="caldate">08</span></time>
-            <time datetime="2015-08-09" class="hidden">
-                <a href="http://thenewcode.com/1060/SVG-Patterns-of-Africa"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/african-patterns-thumb.png" alt="SVG Patterns of Africa" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/african-patterns-thumb.png 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/african-patterns-2x-thumb.png 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/african-patterns-2x-thumb.png 125w">
-                    <span
-                            class="caldate">09</span><span class="title">SVG African Patterns</span></a>
-            </time>
-            <time datetime="2015-08-10" class="hidden">
-                <a href="http://thenewcode.com/1061/Bokeh-Backgrounds-with-SVG-and-JS"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/bokeh-thumb.png" alt="Bokeh Backgrounds with SVG and JS" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/bokeh-thumb.png 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/bokeh-2x-thumb.png 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/bokeh-2x.png 125w">
-                    <span
-                            class="caldate">10</span><span class="title">SVG Bokeh Backgrounds</span></a>
-            </time>
-            <time datetime="2015-08-11" class="blank"><span class="caldate">11</span></time>
-            <time datetime="2015-08-12" class="blank"><span class="caldate">12</span></time>
-            <time datetime="2015-08-13" class="hidden">
-                <a href="http://thenewcode.com/1062/Scribble-Image-Reveal-with-SVG-and-Blend-Modes"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/olga-thumb.jpg" alt="“Scribble” Image Reveal with SVG and Blend Modes" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/olga-thumb.jpg 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/olga-2x-thumb.jpg 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/olga-2x.jpg 125w">
-                    <span
-                            class="caldate">13</span><span class="title">“Scribble” Image Reveal</span></a>
-            </time>
-            <time datetime="2015-08-14" class="blank"><span class="caldate">14</span></time>
-            <time datetime="2015-08-15" class="blank"><span class="caldate">15</span></time>
-            <time datetime="2015-08-16" class="blank"><span class="caldate">16</span></time>
-            <time datetime="2015-08-17" class="hidden">
-                <a href="http://thenewcode.com/1063/Techniques-and-Treatments-for-Background-Retina-Images"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/birds-on-wire-thumb.png" alt="Techniques and Treatments for Background Retina Images" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/birds-on-wire-thumb.png 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/birds-on-wire-2x-thumb.png 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/birds-on-wire-2x.png 125w">
-                    <span
-                            class="caldate">17</span><span class="title">Background Retina Images</span></a>
-            </time>
-            <time datetime="2015-08-18" class="blank"><span class="caldate">18</span></time>
-            <time datetime="2015-08-19" class="hidden">
-                <a href="http://thenewcode.com/1064/Classical-Greek-Geometric-Borders-In-SVG"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/greek-geometrics-thumb.png" alt="Classical Greek Geometric Borders In SVG" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/greek-geometrics-thumb.png 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/greek-geometrics-2x-thumb.png 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/greek-geometrics-2x.png 125w">
-                    <span
-                            class="caldate">19</span><span class="title">SVG Greek Geometric Borders</span></a>
-            </time>
-            <time datetime="2015-08-20" class="blank"><span class="caldate">20</span></time>
-            <time datetime="2015-08-21" class="blank"><span class="caldate">21</span></time>
-            <time datetime="2015-08-22" class="blank"><span class="caldate">22</span></time>
-            <time datetime="2015-08-23" class="hidden">
-                <a href="http://thenewcode.com/1065/Better-Image-Borders-with-Blend-Modes"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/peugot-thumb.jpg" alt="Better Image Borders with Blend Modes" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/peugot-thumb.jpg 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/peugot-2x-thumb.jpg 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/peugot-2x.jpg 125w">
-                    <span
-                            class="caldate">23</span><span class="title">Blend Mode Borders</span></a>
-            </time>
-            <time datetime="2015-08-24" class="hidden">
-                <a href="http://thenewcode.com/1/Welcome-to-The-New-Code"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/the-new-code-thumb.png" alt="Welcome to The New Code" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/the-new-code-thumb.png 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/the-new-code-2x-thumb.png 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/the-new-code-square-2x.png 125w">
-                    <span
-                            class="caldate">24</span><span class="title">The New Code</span></a>
-            </time>
-            <time datetime="2015-08-25" class="blank"><span class="caldate">25</span></time>
-            <time datetime="2015-08-26" class="hidden">
-                <a href="http://thenewcode.com/2/Precognitive-Pages-Using-Resource-Hints-to-Accelerate-Site-Performance"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/alexander-thumb.jpg" alt="Precognitive Pages: Using Resource Hints to Accelerate Site Performance" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/alexander-thumb.jpg 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/alexander-2x-thumb.jpg 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/alexander-2x.jpg 125w">
-                    <span
-                            class="caldate">26</span><span class="title">Using Resource Hints</span></a>
-            </time>
-            <time datetime="2015-08-27" class="blank"><span class="caldate">27</span></time>
-            <time datetime="2015-08-28" class="hidden">
-                <a href="http://thenewcode.com/4/In-Other-Words-Using-the-blockquote-cite-and-q-elements"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/bertrand-russell-thumb.jpg" alt="In Other Words: Using the blockquote, cite and q elements" srcset="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/bertrand-russell-thumb.jpg 250w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/bertrand-russell-2x-thumb.jpg 500w, https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/bertrand-russell-2x-thumb.jpg 125w">
-                    <span
-                            class="caldate">28</span><span class="title">blockquote, cite and q</span></a>
-            </time>
-            <time datetime="2015-08-29" class="blank"><span class="caldate">29</span></time>
-            <time datetime="2015-08-30" class="blank"><span class="caldate">30</span></time>
-            <time datetime="2015-08-31" class="blank"><span class="caldate">31</span></time>
-            <time datetime="2015-09-01" class="blank"><span class="caldate">01</span></time>
-        </section_cal>
-    </main_cal>
-
-
-
     </div>
 </div>
 
@@ -405,11 +426,10 @@
 <br>
 <br>
 <div class="form-group">
-    <button id="evento" type="evento" class="btn btn-success center-block" ng-click="openEvento();">vai a evento
-    </button>
+    <button id="evento"  type="evento" class="btn btn-success center-block" ng-click="openEvento();">vai a evento</button>
 </div>
 
-<section_cal id="about">
+<section id="about">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -422,7 +442,7 @@
                 <ul class="timeline">
                     <li>
                         <div class="timeline-image">
-                            <img src="images_stagee/download.jpg" class=" img-circle img-responsive" alt="">
+                            <img src="images_stagee/download.jpg" class=" img-circle img-responsive" alt="" >
                             <!--<img class="img-circle img-responsive" src="img/about/1.jpg" alt="">-->
                         </div>
                         <div class="timeline-panel">
@@ -431,15 +451,13 @@
                                 <h4 class="subheading">Our Humble Beginnings</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                                    voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit
-                                    vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                             </div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="images_stagee/download.jpg">
+                            <img class="img-circle img-responsive" src="images_stagee/download.jpg" >
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -447,9 +465,7 @@
                                 <h4 class="subheading">An Agency is Born</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                                    voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit
-                                    vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                             </div>
                         </div>
                     </li>
@@ -463,15 +479,13 @@
                                 <h4 class="subheading">Transition to Full Service</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                                    voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit
-                                    vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                             </div>
                         </div>
                     </li>
                     <li class="timeline-inverted">
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="images_stagee/download.jpg">
+                            <img class="img-circle img-responsive" src="images_stagee/download.jpg" >
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
@@ -479,9 +493,7 @@
                                 <h4 class="subheading">Phase Two Expansion</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut
-                                    voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit
-                                    vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
                             </div>
                         </div>
                     </li>
@@ -496,4 +508,4 @@
             </div>
         </div>
     </div>
-</section_cal>
+</section>
