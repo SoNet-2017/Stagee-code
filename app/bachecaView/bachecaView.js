@@ -19,11 +19,14 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
         })
     }])
 
+
     .run(function($rootScope, NgMap) {
         NgMap.getMap().then(function(map) {
             $rootScope.map = map;
         });
     })
+
+
 
     //prova
 
@@ -36,7 +39,9 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
      */
 
 
-    .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', function($scope, $rootScope, Evento, SingleEvento) {
+    .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', function($scope, $rootScope, Evento, SingleEvento, NgMap) {
+
+
 
         /*
         $rootScope.mouseover = function() {
@@ -57,6 +62,7 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
         $scope.dati.vm = this;
         $scope.dati.vm.positions = [];
         $scope.dati.vm.tags = [];
+        $scope.dati.vm.dettagli = [];
         //set the variable that is used in the main template to show the active button
         $rootScope.dati.currentView = "home";
 
@@ -73,10 +79,15 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
                 $scope.dati.vm.tags.push({tags: tag});
 
 
+
             }
         });
 
 
+        $scope.showTag = function(event, evento_dato) {
+            $scope.selectedTag = evento_dato;
+            $scope.map.showInfoWindow('myInfoWindow', this);
+        };
 
 
     }]);
