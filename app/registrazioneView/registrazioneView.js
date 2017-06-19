@@ -14,13 +14,26 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
 
 
 
-.controller('RegistrazioneCtrl', ['$scope', '$rootScope', 'Auth', 'Users', '$location', function($scope, $rootScope, Auth, Users, $location) {
+.controller('RegistrazioneCtrl', ['$scope', '$rootScope', 'Auth', 'Users', '$location', '$firebaseStorage',
+    function($scope, $rootScope, Auth, Users, $location, $firebaseStorage) {
+
     $scope.user={};
     //set the variable that is used in the main template to show the active button
     $rootScope.dati.currentView = "home";
-    $scope.signUp = function() {
+    $scope.dati.feedback = "";
+    var ctrl = this;
+    $scope.fileToUpload = null;
+    $scope.imgPath= "";
+
+        //initialize the function that will be called when a new file will be specified by the user
+        ctrl.onChange = function onChange(fileList) {
+            $scope.fileToUpload = fileList[0];
+        };
+
+
+        $scope.signUp = function() {
         //check if the second password is equal to the first one
-        if ($scope.user.password!= '' && $scope.user.password === $scope.user.password2) {
+        if ($scope.user.password!== '' && $scope.user.password === $scope.user.password2) {
             //create a new user with specified email and password
             Auth.$createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
                 .then(function (firebaseUser) {
@@ -28,10 +41,41 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                     //(the reason is that we cannot write in the database if we are not logged in ... it is not the best way of doing it but it is ok for our prototype)
                     Auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(internalFirebaseUser) {
                         var userId = internalFirebaseUser.uid;
-                        Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.username, $scope.user.tipo);
-                        Users.registerLogin(userId, $scope.user.email);
-                        // login successful: redirect to the pizza list
-                        $location.path("/profiloView");
+
+                        if ($scope.fileToUpload !== null) {
+                            //get the name of the file
+                            var fileName = $scope.fileToUpload.name;
+                            //specify the path in which the file should be saved on firebase
+                            var storageRef = firebase.storage().ref("profiliImg/" + fileName);
+                            $scope.storage = $firebaseStorage(storageRef);
+                            var uploadTask = $scope.storage.$put($scope.fileToUpload);
+                            uploadTask.$complete(function (snapshot) {
+                                $scope.imgPath = snapshot.downloadURL;
+                                Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.username, $scope.user.tipo, $scope.imgPath);
+                                Users.registerLogin(userId, $scope.user.email);
+                                // login successful: redirect to the profilo
+                                $location.path("/profiloView");
+
+                            });
+                            uploadTask.$error(function (error) {
+                                $scope.dati.error = error + " - Il profilo verrà creato senza un'immagine!";
+                                Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.username, $scope.user.tipo, $scope.imgPath);
+                                Users.registerLogin(userId, $scope.user.email);
+                                // login successful: redirect to the profilo
+                                $location.path("/profiloView");
+                            });
+
+                        }
+                        else {
+                            //do not add the image
+                            Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.username, $scope.user.tipo, $scope.imgPath);
+                            Users.registerLogin(userId, $scope.user.email);
+                            // login successful: redirect to the profilo
+                            $location.path("/profiloView");
+
+                        }
+
+
                     }).catch(function(error) {
                         $scope.error = error;
                         console.log(error.message);
@@ -43,9 +87,14 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
         }
     };
 
+
     $scope.returnToLogin = function() {
 
         $location.path("/loginView");
 
     };
+
+
+
 }]);
+

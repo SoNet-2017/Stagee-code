@@ -19,14 +19,11 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
         })
     }])
 
-
     .run(function($rootScope, NgMap) {
         NgMap.getMap().then(function(map) {
             $rootScope.map = map;
         });
     })
-
-
 
     //prova
 
