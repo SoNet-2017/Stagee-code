@@ -24,11 +24,14 @@ angular.module('myApp.profiloView', ['ngRoute'])
         })
     }])
 
-    .controller('ProfiloCtrl', ['$scope','$location', function($scope, $location) {
+    .controller('ProfiloCtrl', ['$scope', 'Users', 'currentAuth','$firebaseAuth', '$location',
+        function($scope, Users, currentAuth, $firebaseAuth, $location) {
+
         $scope.dati={};
         $scope.user = {
             name: 'Ciao'
         };
+
         $scope.dati.area = 'areaGeografica';
 
         $('#myModal').modal('show');
@@ -81,6 +84,20 @@ angular.module('myApp.profiloView', ['ngRoute'])
                 return false;
             }
         }
+
+        $scope.logout = function() {
+            Users.registerLogout(currentAuth.uid);
+            //sign out
+            $firebaseAuth().$signOut();
+            $firebaseAuth().$onAuthStateChanged(function (firebaseUser) {
+                if (firebaseUser) {
+                    console.log("User is yet signed in as:", firebaseUser.uid);
+                } else {
+                    $location.path("/paginizialeView");
+                }
+            });
+        }
+
     }]);
 
 

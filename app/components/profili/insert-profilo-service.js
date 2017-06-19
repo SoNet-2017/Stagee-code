@@ -22,16 +22,18 @@ angular.module('myApp.profilo.insertProfiloService', [])
                     logged: false
                 });
             },
-            registerNewUserInfo: function (id_profilo, email, nome, cognome, prof_user, tipo) {
+            registerNewUserInfo: function (id_profilo, email, nome, cognome, prof_user, tipo, imgPath) {
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("profili").child(id_profilo);
                 // create a synchronized array
                 ref.set({
+                    id_profilo: id_profilo,
                     email : email,
                     nome: nome,
                     cognome : cognome,
                     prof_user : prof_user,
-                    tipo: tipo
+                    tipo: tipo,
+                    imgPath: imgPath
                 });
             }
         };

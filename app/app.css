@@ -28,15 +28,15 @@
   -webkit-font-smoothing: antialiased;
 }
 
-
-
 form{
 
   text-align: center;
 
 }
 
-
+.registrazioneView{
+  background-color: black;
+}
 
 body{
   font-family: 'Overpass', sans-serif;
@@ -66,9 +66,6 @@ button{/*non va*/
   float:right; !important;
 }
 
-.checkbox-inline{
-  padding-bottom: 20px;
-}
 
 
 @media (min-width: 1200px) {
@@ -332,7 +329,7 @@ filtri>li:visited {
   margin-bottom: 25px;
   width: 80%;
   height: 80%;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 .person:hover {
   border-color: #f1f1f1;
