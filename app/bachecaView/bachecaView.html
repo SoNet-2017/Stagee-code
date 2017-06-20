@@ -257,15 +257,21 @@
                 anchor: [50,50]
                       }"
 
-                title="{{evento.nome_evento}}"
-                on-click="showTag(event, evento.nome_evento)"
+                on-click="showTag(event, evento)"
         >
 
 
-            <info-window id="myInfoWindow">
+            <info-window id="myInfoWindow" max-width="300">
                 <div ng-non-bindable>
                     <div id="siteNotice"></div>
-                    <p>{{selectedTag}}</p>
+
+                    <a href="#!/eventoView/{{selectedTag.id}}">
+                    <b>{{selectedTag.nome_evento}}</b>
+                    </a>
+
+                    <p>{{selectedTag.nome_organizzatore}}</p>
+                    <p>{{selectedTag.data}}</p>
+
                 </div>
             </info-window>
 <!--
