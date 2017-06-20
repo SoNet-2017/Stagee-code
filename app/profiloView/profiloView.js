@@ -3,7 +3,7 @@
 angular.module('myApp.profiloView', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/profiloView', {
+        $routeProvider.when('/profiloView/:id_profilo', {
             templateUrl: 'profiloView/profiloView.html',
             controller: 'ProfiloCtrl',
             resolve: {
@@ -24,13 +24,16 @@ angular.module('myApp.profiloView', ['ngRoute'])
         })
     }])
 
-    .controller('ProfiloCtrl', ['$scope', 'Users', 'currentAuth','$firebaseAuth', '$location',
-        function($scope, Users, currentAuth, $firebaseAuth, $location) {
+    .controller('ProfiloCtrl', ['$scope', 'Users', 'currentAuth','$firebaseAuth', '$location', '$routeParams', 'SingleProfilo',
+        function($scope, Users, currentAuth, $firebaseAuth, $location, $routeParams, SingleProfilo) {
 
         $scope.dati={};
         $scope.user = {
             name: 'Ciao'
         };
+
+        $scope.datiProfili = {};
+
 
         $scope.dati.area = 'areaGeografica';
 
