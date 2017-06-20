@@ -5,11 +5,12 @@ angular.module('myApp.evento.insertEventoService', [])
 
     .factory('InsertEventoService', function($firebaseArray) {
         var NewEventoService = {
-            insertNewEvento: function (address, nome_evento, nome_organizzatore, imgPath, data, ora_inizio, ora_fine) {
+            insertNewEvento: function (eventoId, address, nome_evento, nome_organizzatore, imgPath, data, ora_inizio, ora_fine) {
                 //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("eventi");
+                var ref = firebase.database().ref().child("eventi").child(eventoId);
                 // create a synchronized array
-                return $firebaseArray(ref).$add({
+                ref.set({
+                    eventoId: eventoId,
                     address: address,
                     nome_evento: nome_evento,
                     nome_organizzatore: nome_organizzatore,
@@ -19,6 +20,7 @@ angular.module('myApp.evento.insertEventoService', [])
                     ora_inizio: ora_inizio,
                     ora_fine: ora_fine
                 });
+
             },
             updateEvento: function (eventoId) {
                 //add the user to list of users and set the logged value to true
