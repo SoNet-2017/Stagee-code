@@ -1,10 +1,10 @@
 /**
  * Created by Administrator on 09/06/2017.
  */
-angular.module('myApp.eventoView', ['ngRoute'])
+angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/eventoView', {
+        $routeProvider.when('/eventoView/:eventoId', {
             templateUrl: 'eventoView/eventoView.html',
             controller: 'EventoCtrl',
             resolve: {
@@ -24,7 +24,7 @@ angular.module('myApp.eventoView', ['ngRoute'])
 
         })
     }])
-    .controller('EventoCtrl', ['$scope', '$rootScope', 'Profilo', function($scope, $rootScope, Profilo) {
+    .controller('EventoCtrl',[ '$scope', '$rootScope', '$routeParams', 'Profilo', 'SingleEvento', function($scope, $rootScope, $routeParams, Profilo, SingleEvento) {
 
         $scope.dati = {};
         $scope.dati = this;
@@ -32,7 +32,7 @@ angular.module('myApp.eventoView', ['ngRoute'])
         //set the variable that is used in the main template to show the active button
         $rootScope.dati.currentView = "evento";
 
-        $scope.dati.profili = Profilo.getData();
+        /*$scope.dati.profili = Profilo.getData();
         //when the information about the pizza will be loaded, then the map will be created adding a marker in the Pizzeria location
         $scope.dati.profili.$loaded().then(function () {
             for (var i = 0; i < $scope.dati.profili.length; i++) {
@@ -40,8 +40,47 @@ angular.module('myApp.eventoView', ['ngRoute'])
 
                 var prof_user = $scope.dati.profili[i].prof_user;
                 $scope.dati.elenco.push({prof_user: prof_user});
-
             }
         });
+        */
+        $scope.dati.evento=SingleEvento.getSingleEvento($routeParams.eventoId);//fooorse
+        $scope.dati.area = 'areaGeografica';
+        $scope.redirectToAreageografica = function() {
 
-    }]);
+            $scope.dati.area = 'areaGeografica';
+
+
+        };
+
+        $scope.redirectToAmbito= function() {
+
+            $scope.dati.area = 'ambito';
+
+        };
+
+        $scope.isAreaGeografica = function()
+        {
+            if ($scope.dati.area == 'areaGeografica')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        $scope.isAmbito = function()
+        {
+            if ($scope.dati.area == 'ambito')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+}]);

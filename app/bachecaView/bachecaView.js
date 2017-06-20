@@ -80,6 +80,44 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
             }
         });
 
+        $scope.dati.area = 'areaGeografica';
+        $scope.redirectToAreageografica = function() {
+
+            $scope.dati.area = 'areaGeografica';
+
+
+        };
+
+        $scope.redirectToAmbito= function() {
+
+            $scope.dati.area = 'ambito';
+
+        };
+
+        $scope.isAreaGeografica = function()
+        {
+            if ($scope.dati.area == 'areaGeografica')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        $scope.isAmbito = function()
+        {
+            if ($scope.dati.area == 'ambito')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         $scope.showTag = function(event, evento_dato) {
             $scope.selectedTag = evento_dato;
