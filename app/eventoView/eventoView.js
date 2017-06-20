@@ -18,33 +18,43 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
             }
 
-
-
 // Close the dropdown menu if the user clicks outside of it
 
         })
     }])
-    .controller('EventoCtrl',[ '$scope', '$rootScope', '$routeParams', 'Profilo', 'SingleEvento',
-        function($scope, $rootScope, $routeParams, Profilo, SingleEvento) {
+
+
+
+    .controller('EventoCtrl',[ '$scope', '$rootScope', '$routeParams', 'Evento', 'SingleEvento', function($scope, $rootScope, $routeParams, Evento, SingleEvento) {
 
         $scope.dati = {};
-        $scope.dati = this;
-        $scope.dati.elenco = [];
-        //set the variable that is used in the main template to show the active button
-        $rootScope.dati.currentView = "evento";
+        $scope.datiEventi = {};
+        //$scope.datiEvento = {};
 
-        /*$scope.dati.profili = Profilo.getData();
-        //when the information about the pizza will be loaded, then the map will be created adding a marker in the Pizzeria location
-        $scope.dati.profili.$loaded().then(function () {
-            for (var i = 0; i < $scope.dati.profili.length; i++) {
-                var idSingoloProfilo = $scope.dati.profili[i].id_profilo;
+        $scope.datiEventi = Evento.getData();
+        $scope.datoEvento = [];
 
-                var prof_user = $scope.dati.profili[i].prof_user;
-                $scope.dati.elenco.push({prof_user: prof_user});
-            }
-        });
-        */
-        $scope.dati.evento=SingleEvento.getSingleEvento($routeParams.eventoId);
+        $scope.datiEventi.$loaded().then(function () {
+           var id_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+           console.log(id_corrente);
+
+           for (i = 0; i < $scope.datiEventi.length; i++) {
+               if($scope.datiEventi[i].eventoId === id_corrente){
+                   console.log("Entrato nell'if");
+                   console.log($scope.datiEventi[i].eventoId);
+                   $scope.datoEvento.push({nome_evento: $scope.datiEventi[i].nome_evento, nome_organizzatore: $scope.datiEventi[i].nome_organizzatore});
+               }
+           }
+
+       });
+
+
+       //$scope.datiEvento=SingleEvento.getSingleEvento($routeParams.eventoId);
+
+
+
+
+        //filtri
         $scope.dati.area = 'areaGeografica';
         $scope.redirectToAreageografica = function() {
 

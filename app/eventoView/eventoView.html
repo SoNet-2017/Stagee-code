@@ -42,9 +42,6 @@
     </div>
 </nav>
 
-<!--
-<p>{{dati.evento.id}}</p>
--->
 
 <div ng-controller="EventoCtrl">
     <div class="row">
@@ -79,6 +76,15 @@
     <div>
         <img class="media-object" ng-src=../{{evento.img_url}}"/>
     </div>
+
+
+<p ng-repeat="evento in datoEvento">
+    {{evento.nome_evento}}
+    {{evento.nome_organizzatore}}
+</p>
+
+
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

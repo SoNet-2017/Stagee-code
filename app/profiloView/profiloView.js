@@ -18,9 +18,6 @@ angular.module('myApp.profiloView', ['ngRoute'])
             }
 
 
-
-// Close the dropdown menu if the user clicks outside of it
-
         })
     }])
 
