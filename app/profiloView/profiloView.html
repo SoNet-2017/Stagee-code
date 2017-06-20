@@ -251,16 +251,18 @@
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img src="images_stagee/Artboard1.jpg" class="img-responsive" alt="Immagine profilo">
+                    <img class="media-object" ng-src="../{{datiProfilo.imgPath}}" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="!(datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')) && datiProfilo.imgPath!=''">
+                    <img class="media-object" ng-src="{{datiProfilo.imgPath}}" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')">
+                    <img class="media-object" ng-src="../images_stagee/download.jpg" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath == ''">
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
                 <div class="profile-usertitle">
                     <div class="profile-usertitle-name">
-                        Nome Cognome
+                        {{datiProfilo.nome}} {{datiProfilo.cognome}}
                     </div>
                     <div class="profile-usertitle-job">
-                        Performer/Organizzatore
+                        {{datiProfilo.tipo}}
                     </div>
                 </div>
                 <!-- END SIDEBAR USER TITLE -->
@@ -423,11 +425,12 @@
 </div>
 
 
+<p>{{datiProfilo.nome}}</p>
+
 <br>
 <br>
-<div class="form-group">
-    <button id="evento"  type="evento" class="btn btn-success center-block" ng-click="openEvento();">vai a evento</button>
-</div>
+
+
 
 <section_cal id="about">
     <div class="container">

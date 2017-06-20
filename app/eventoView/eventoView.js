@@ -43,7 +43,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
             }
         });
         */
-        $scope.dati.evento=SingleEvento.getSingleEvento($routeParams.eventoId);//fooorse
+        $scope.dati.evento=SingleEvento.getSingleEvento($routeParams.eventoId);
         $scope.dati.area = 'areaGeografica';
         $scope.redirectToAreageografica = function() {
 

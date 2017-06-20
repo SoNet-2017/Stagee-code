@@ -36,7 +36,8 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
      */
 
 
-    .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', function($scope, $rootScope, Evento, SingleEvento, NgMap) {
+    .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', 'Profilo', 'currentAuth',
+        function($scope, $rootScope, Evento, SingleEvento, Profilo, currentAuth) {
 
 
 
@@ -79,6 +80,10 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
 
             }
         });
+
+        $scope.datiProfili = {};
+        $scope.datiProfili = Profilo.getData();
+        $scope.userId = currentAuth.uid;
 
         $scope.dati.area = 'areaGeografica';
         $scope.redirectToAreageografica = function() {
@@ -123,6 +128,10 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
             $scope.selectedTag = evento_dato;
             $scope.map.showInfoWindow('myInfoWindow', this);
         };
+
+
+
+
 
 
     }]);

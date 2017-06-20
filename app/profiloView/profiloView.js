@@ -32,8 +32,8 @@ angular.module('myApp.profiloView', ['ngRoute'])
             name: 'Ciao'
         };
 
-        $scope.datiProfili = {};
-
+        $scope.datiProfilo = {};
+        $scope.datiProfilo = SingleProfilo.getSingleProfilo($routeParams.id_profilo);
 
         $scope.dati.area = 'areaGeografica';
 
