@@ -1,12 +1,10 @@
 'use strict';
 
-//The service implemented in this module will save information about pizzas
 angular.module('myApp.evento.insertEventoService', [])
 
     .factory('InsertEventoService', function($firebaseArray) {
-        var NewEventoService = {
-            insertNewEvento: function (eventoId, address, nome_evento, nome_organizzatore, descrizione, imgPath, data, ora_inizio, ora_fine, lista) {
-                //add the user to list of users and set the logged value to true
+            return {
+                insertNewEvento: function (eventoId, address, nome_evento, nome_organizzatore, descrizione, imgPath, data, ora_inizio, ora_fine, lista) {
                 var ref = firebase.database().ref().child("eventi").child(eventoId);
                 // create a synchronized array
                 ref.set({
@@ -24,14 +22,17 @@ angular.module('myApp.evento.insertEventoService', [])
                 });
 
             },
-            updateEvento: function (eventoId) {
+                addUserToEvento: function (evento_corrente, nome_corrente, cognome_corrente, profilo_corrente) {
                 //add the user to list of users and set the logged value to true
-                var ref = firebase.database().ref().child("eventi").child(eventoId);
-                // create a synchronized array
-                ref.update({
-                    eventoId: eventoId
-                });
+                var ref = firebase.database().ref().child("eventi").child(evento_corrente).child("lista");
+                    ref.push(
+                        {
+                            partecipante: nome_corrente+" "+cognome_corrente,
+                            id_profilo: profilo_corrente
+
+                        });
+
             }
         };
-        return NewEventoService;
+
     });

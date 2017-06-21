@@ -25,9 +25,11 @@ angular.module('myApp.profiloView', ['ngRoute'])
         function($scope, Users, currentAuth, $firebaseAuth, $location, $routeParams, SingleProfilo) {
 
         $scope.dati={};
-        $scope.user = {
-            name: 'Ciao'
+        $scope.citazione = {
+            valore: 'La tua citazione',
+            autore: 'Autore'
         };
+
 
         $scope.datiProfilo = {};
         $scope.datiProfilo = SingleProfilo.getSingleProfilo($routeParams.id_profilo);

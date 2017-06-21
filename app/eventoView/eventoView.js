@@ -25,7 +25,8 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
 
 
-    .controller('EventoCtrl',[ '$scope', '$rootScope', '$routeParams', 'Evento', 'SingleEvento', function($scope, $rootScope, $routeParams, Evento, SingleEvento) {
+    .controller('EventoCtrl',[ '$scope', '$rootScope','$routeParams','Evento', 'Profilo', 'InsertEventoService', 'Auth',
+        function($scope, $rootScope, $routeParams, Evento, Profilo, InsertEventoService, Auth) {
 
         $scope.dati = {};
         $scope.datiEventi = {};
@@ -52,16 +53,50 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
                    for (k in $scope.datiEventi[i].lista){
 
-                       $scope.listaPartecipanti.push({partecipante: $scope.datiEventi[i].lista[k]});
-                       console.log($scope.datiEventi[i].lista[k]);
+                       $scope.listaPartecipanti.push({partecipante_nome: $scope.datiEventi[i].lista[k].partecipante});
+                       console.log($scope.datiEventi[i].lista[k].partecipante);
 
 
                    }
                }
                 }
 
+            $scope.datiProfili = {};
+            $scope.datiProfili = Profilo.getData();
 
-       });
+
+
+            $scope.partecipa = function () {
+
+                var profilo_corrente = Auth.$getAuth().uid;
+                console.log(profilo_corrente);
+
+                for (j = 0; j < $scope.datiProfili.length; j++) {
+                    console.log("entrato for OK");
+                    if($scope.datiProfili[j].id_profilo === profilo_corrente){
+                        console.log("entrato if OK");
+
+                        var nome_corrente = $scope.datiProfili[j].nome;
+                        var cognome_corrente = $scope.datiProfili[j].cognome;
+
+                        console.log(nome_corrente);
+                        console.log(cognome_corrente);
+
+                        }
+
+                    }
+
+
+                var evento_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+
+
+                InsertEventoService.addUserToEvento(evento_corrente,nome_corrente,cognome_corrente, profilo_corrente);
+
+                }
+
+
+
+        });
 
 
        //$scope.datiEvento=SingleEvento.getSingleEvento($routeParams.eventoId);

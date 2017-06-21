@@ -54,7 +54,8 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                                 Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.username, $scope.user.tipo, $scope.imgPath);
                                 Users.registerLogin(userId, $scope.user.email);
                                 // login successful: redirect to the profilo
-                                $location.path("/profiloView");
+
+
 
                             });
                             uploadTask.$error(function (error) {
@@ -62,7 +63,9 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                                 Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.username, $scope.user.tipo, $scope.imgPath);
                                 Users.registerLogin(userId, $scope.user.email);
                                 // login successful: redirect to the profilo
-                                $location.path("/profiloView");
+
+
+
                             });
 
                         }
@@ -71,7 +74,9 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                             Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.username, $scope.user.tipo, $scope.imgPath);
                             Users.registerLogin(userId, $scope.user.email);
                             // login successful: redirect to the profilo
-                            $location.path("/profiloView");
+
+
+
 
                         }
 
@@ -85,6 +90,8 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                 console.log(error.message);
             });
         }
+
+            $location.path("/profiloView");
     };
 
 

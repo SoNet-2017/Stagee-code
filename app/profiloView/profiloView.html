@@ -247,13 +247,13 @@
 
     <div class="row profile">
         <div class="col-md-1"> </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img class="media-object" ng-src="../{{datiProfilo.imgPath}}" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="!(datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')) && datiProfilo.imgPath!=''">
+                    <img class="media-object" ng-src="images_stagee/Artboard1.jpg" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="!(datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')) && datiProfilo.imgPath!='' && datiProfilo.imgPath!==null">
                     <img class="media-object" ng-src="{{datiProfilo.imgPath}}" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')">
-                    <img class="media-object" ng-src="../images_stagee/download.jpg" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath == ''">
+                    <img class="media-object" ng-src="images_stagee/Artboard1.jpg" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath == '' || datiProfilo.imgPath==null">
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
@@ -276,11 +276,11 @@
 
                 <blockquote class="quote-card yellow card">
                     <p>
-                        Citazione preferita.
+                        <a href="#" editable-text="citazione.valore" >{{ citazione.valore || 'La tua citazione' }}</a>
                     </p>
 
                     <cite>
-                        Autore citazione
+                        <a href="#" editable-text="citazione.autore" >{{ citazione.autore || 'Autore' }}</a>
                     </cite>
                 </blockquote>
 
@@ -289,16 +289,10 @@
             </div>
         </div>
 
-        <div class="col-md-1">
-        </div>
         <div class="col-md-4">
 
-                Ciao
-                    <a href="#" editable-text="user.name" data-e-label="User Name">{{ user.name || 'empty' }}</a>
 
 
-
-        <!-- CALENDARIO
 
             <div class="datepicker hasDatepicker" id="dp1497624745244">
                 <div class="datepicker-header"></div>
@@ -424,7 +418,7 @@
     </div>
 </div>
 
--->
+
 <br>
 <br>
 
