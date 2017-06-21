@@ -47,8 +47,15 @@
     <div class="row">
         <div class="col-md-1"> </div>
             <div class="col-md-10">
-                <h1>Masterc</h1>
-                <img src="images_stagee/masterclass.jpg" style="min-width: 80%">
+                <h1>
+                    <p ng-repeat="evento in datoEvento">
+                        {{evento.nome_evento}}
+                        {{evento.nome_organizzatore}}
+                    </p>
+                </h1>
+            <img src="images_stagee/michele_placido.jpg">
+                <!--<img class="media-object" ng-repeat="evento in datoEvento" ng-src="..{{evento.img_url}}"> -->
+
             </div>
         </div>
 
@@ -58,13 +65,9 @@
 <div class="row">
     <div class="col-md-1"> </div>
     <div class="col-md-6">
-        <p>Insegnate tra le più amate della scuola di "Amici di Maria De Filippi", in cui ha insegnato dizione e
-            recitazione per numerose edizioni, tiene Masterclass alla Lee Strasberg Theatre di New York, insegnerà come
-            diventare attori di teatro, di cinema, di televisione. Due lezioni sulla Commedia dell’arte, dopo la New
-            York University, Fioretta Mari è ospite del “Lee Strasberg Theatre and Film Institute”, la scuola di
-            recitazione fondata dal leggendario Lee Strasberg, dove hanno studiato tra i più grandi attori della storia
-            di Hollywood come Al Pacino, Marylin Monroe per dirne alcuni, ma che ha dato spazio di recente anche a
-            giovani italiani come il volto Disney Channel “Gianfranco Terrin”.</p>
+        <p ng-repeat="evento in datoEvento">
+            {{evento.descrizione}}
+        </p>
     </div>
     <div class="col-md-1"> </div>
     <div class="col-md-4">
@@ -72,18 +75,6 @@
         </p>
     </div>
 </div>
-
-    <div>
-        <img class="media-object" ng-src=../{{evento.img_url}}"/>
-    </div>
-
-
-<p ng-repeat="evento in datoEvento">
-    {{evento.nome_evento}}
-    {{evento.nome_organizzatore}}
-</p>
-
-
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
