@@ -33,6 +33,8 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
         $scope.datiEventi = Evento.getData();
         $scope.datoEvento = [];
+        $scope.listaPartecipanti = [];
+
 
         $scope.datiEventi.$loaded().then(function () {
            var id_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
@@ -42,9 +44,22 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                if($scope.datiEventi[i].eventoId === id_corrente){
                    console.log("Entrato nell'if");
                    console.log($scope.datiEventi[i].eventoId);
-                   $scope.datoEvento.push({nome_evento: $scope.datiEventi[i].nome_evento, nome_organizzatore: $scope.datiEventi[i].nome_organizzatore});
+                   $scope.datoEvento.push({nome_evento: $scope.datiEventi[i].nome_evento, nome_organizzatore: $scope.datiEventi[i].nome_organizzatore,
+                       data_evento: $scope.datiEventi[i].data, descrizione: $scope.datiEventi[i].descrizione, img_url: $scope.datiEventi[i].img_url,
+                       img_alt: $scope.datiEventi[i].img_alt, ora_inizio: $scope.datiEventi[i].ora_inizio, ora_fine: $scope.datiEventi[i].ora_fine,
+                        lista: $scope.datiEventi[i].lista});
+
+
+                   for (k in $scope.datiEventi[i].lista){
+
+                       $scope.listaPartecipanti.push({partecipante: $scope.datiEventi[i].lista[k]});
+                       console.log($scope.datiEventi[i].lista[k]);
+
+
+                   }
                }
-           }
+                }
+
 
        });
 
@@ -79,7 +94,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
             {
                 return false;
             }
-        }
+        };
 
         $scope.isAmbito = function()
         {
@@ -91,7 +106,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
             {
                 return false;
             }
-        }
+        };
 
 
 }]);
