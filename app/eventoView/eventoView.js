@@ -51,6 +51,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                         lista: $scope.datiEventi[i].lista});
 
 
+
                    for (k in $scope.datiEventi[i].lista){
 
                        $scope.listaPartecipanti.push({partecipante_nome: $scope.datiEventi[i].lista[k].partecipante});
@@ -70,6 +71,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
                 var profilo_corrente = Auth.$getAuth().uid;
                 console.log(profilo_corrente);
+                var evento_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 
                 for (j = 0; j < $scope.datiProfili.length; j++) {
                     console.log("entrato for OK");
@@ -87,10 +89,10 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                     }
 
 
-                var evento_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 
 
                 InsertEventoService.addUserToEvento(evento_corrente,nome_corrente,cognome_corrente, profilo_corrente);
+
 
                 }
 
