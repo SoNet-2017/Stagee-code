@@ -308,9 +308,10 @@
     </ng-map>
 </div>
 
+<br>
 
-<div class="form-group">
-    <button id="crea" class="btn btn-custom center-block" ng-click="redirectToNewEvento()" >Crea evento</button>
+<div class="form-group" ng-show="datoProfilo.tipo == 'organizzatore'">
+    <button id="crea" class="btn btn-custom center-block" ng-click="redirectToNewEvento()">Crea evento</button>
 </div>
 
 

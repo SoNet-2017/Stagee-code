@@ -36,8 +36,8 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
      */
 
 
-    .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', 'Profilo', 'currentAuth', '$location',
-        function($scope, $rootScope, Evento, SingleEvento, Profilo, currentAuth, $location) {
+    .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', 'Profilo', 'currentAuth', '$location', 'SingleProfilo',
+        function($scope, $rootScope, Evento, SingleEvento, Profilo, currentAuth, $location, SingleProfilo) {
 
 
 
@@ -83,7 +83,13 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
 
         $scope.datiProfili = {};
         $scope.datiProfili = Profilo.getData();
+
         $scope.userId = currentAuth.uid;
+        console.log($scope.userId);
+
+        $scope.datoProfilo = {};
+        $scope.datoProfilo = SingleProfilo.getSingleProfilo($scope.userId);
+
 
         $scope.dati.area = 'areaGeografica';
         $scope.redirectToAreageografica = function() {
