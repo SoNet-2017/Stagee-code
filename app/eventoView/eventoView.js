@@ -30,11 +30,15 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
         $scope.dati = {};
         $scope.datiEventi = {};
-        //$scope.datiEvento = {};
 
         $scope.datiEventi = Evento.getData();
         $scope.datoEvento = [];
         $scope.listaPartecipanti = [];
+
+        var nomeEvento;
+        var dataEvento;
+        var descrizioneEvento;
+        var imgEvento;
 
 
         $scope.datiEventi.$loaded().then(function () {
@@ -49,6 +53,15 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                        data_evento: $scope.datiEventi[i].data, descrizione: $scope.datiEventi[i].descrizione, img_url: $scope.datiEventi[i].img_url,
                        img_alt: $scope.datiEventi[i].img_alt, ora_inizio: $scope.datiEventi[i].ora_inizio, ora_fine: $scope.datiEventi[i].ora_fine,
                         lista: $scope.datiEventi[i].lista});
+
+
+
+
+                   nomeEvento = $scope.datiEventi[i].nome_evento;
+                   dataEvento = $scope.datiEventi[i].data;
+                   descrizioneEvento = $scope.datiEventi[i].descrizione;
+                   imgEvento = $scope.datiEventi[i].img_url;
+
 
 
 
@@ -86,12 +99,15 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
                         }
 
+
+
                     }
 
 
 
 
-                InsertEventoService.addUserToEvento(evento_corrente,nome_corrente,cognome_corrente, profilo_corrente);
+                InsertEventoService.addUserToEvento(evento_corrente,nome_corrente,cognome_corrente,
+                    profilo_corrente,nomeEvento,dataEvento,descrizioneEvento,imgEvento);
 
 
                 }

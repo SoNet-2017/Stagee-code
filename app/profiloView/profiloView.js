@@ -21,8 +21,8 @@ angular.module('myApp.profiloView', ['ngRoute'])
         })
     }])
 
-    .controller('ProfiloCtrl', ['$scope', 'Users', 'currentAuth','$firebaseAuth', '$location', '$routeParams', 'SingleProfilo',
-        function($scope, Users, currentAuth, $firebaseAuth, $location, $routeParams, SingleProfilo) {
+    .controller('ProfiloCtrl', ['$scope', 'Users', 'currentAuth','$firebaseAuth', '$location', '$routeParams', 'SingleProfilo', 'Evento',
+        function($scope, Users, currentAuth, $firebaseAuth, $location, $routeParams, SingleProfilo, Evento) {
 
         $scope.dati={};
         $scope.citazione = {
@@ -33,6 +33,8 @@ angular.module('myApp.profiloView', ['ngRoute'])
 
         $scope.datiProfilo = {};
         $scope.datiProfilo = SingleProfilo.getSingleProfilo($routeParams.id_profilo);
+        
+        
 
         $scope.dati.area = 'areaGeografica';
 
