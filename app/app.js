@@ -27,7 +27,8 @@ angular.module('myApp', [
     'myApp.authentication',
     'myApp.profilo',
     'myApp.CvView',
-    'myApp.fileUpload'
+    'myApp.fileUpload',
+    'myApp.creaEventoView'
    // 'myApp.filtriView'
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

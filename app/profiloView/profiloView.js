@@ -33,10 +33,9 @@ angular.module('myApp.profiloView', ['ngRoute'])
 
         $scope.datiProfilo = {};
         $scope.datiProfilo = SingleProfilo.getSingleProfilo($routeParams.id_profilo);
-        
-        
 
-        $scope.dati.area = 'areaGeografica';
+
+            $scope.dati.area = 'areaGeografica';
 
         $('#myModal').modal('show');
 

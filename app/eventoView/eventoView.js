@@ -99,8 +99,6 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
                         }
 
-
-
                     }
 
 

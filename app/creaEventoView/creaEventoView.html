@@ -1,0 +1,49 @@
+
+<div container style="background: #72b5ff">
+
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
+
+        <div ng-controller="CreaEventoCtrl as $ctrl">
+
+            <form id="frmLogin" role="form" ng-submit="registraEvento()" class="center-block">
+                <h2>Crea il tuo evento!</h2>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" id="nome_evento" placeholder="Titolo dell'evento" name="nome_evento" ng-model="event.nome_evento" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="data" placeholder="Data dell'evento, formato DD/MM/YYYY" name="data" ng-model="event.data" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="ora_inizio" placeholder="Ora di inizio, formato HH:MM" name="ora_inizio" ng-model="event.ora_inizio" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="ora_fine" placeholder="Ora di fine, formato HH:MM" name="ora_fine" ng-model="event.ora_fine" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="luogo" placeholder="Luogo dell'evento" name="address" ng-model="event.address" required="required"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="descrizione" placeholder="Descrizione dell'evento" name="descrizione" ng-model="event.descrizione" required="required"/>
+                </div>
+
+                <div class="form-group">
+                    <p>Aggiungi un'immagine cover per il tuo evento!</p>
+                    <file-upload on-change="$ctrl.onChange">
+                    </file-upload>
+                </div>
+
+                <button type="submit" class="btn btn-custom center-block" >Crea l'evento</button>
+
+            </form>
+
+        </div>
+
+
+
+    </div>
+
+</div>

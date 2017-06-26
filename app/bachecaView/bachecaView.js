@@ -36,8 +36,8 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
      */
 
 
-    .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', 'Profilo', 'currentAuth',
-        function($scope, $rootScope, Evento, SingleEvento, Profilo, currentAuth) {
+    .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', 'Profilo', 'currentAuth', '$location',
+        function($scope, $rootScope, Evento, SingleEvento, Profilo, currentAuth, $location) {
 
 
 
@@ -130,7 +130,11 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
         };
 
 
+            $scope.redirectToNewEvento = function() {
 
+                $location.path("/creaEventoView");
+
+            };
 
 
 
