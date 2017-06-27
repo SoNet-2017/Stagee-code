@@ -23,7 +23,7 @@ angular.module('myApp.evento.insertEventoService', [])
 
             },
                 addUserToEvento: function (evento_corrente, nome_corrente, cognome_corrente, profilo_corrente,
-                                           nomeEvento, dataEvento, descrizioneEvento, imgEvento) {
+                                           nomeEvento, dataEvento, descrizioneEvento, imgEvento, categoriaEvento) {
                 //add the user to list of users and set the logged value to true
                 var ref = firebase.database().ref().child("eventi").child(evento_corrente).child("lista").child(profilo_corrente);
                     ref.set(
@@ -38,7 +38,8 @@ angular.module('myApp.evento.insertEventoService', [])
                             nomeEvento: nomeEvento,
                             dataEvento: dataEvento,
                             descrizioneEvento: descrizioneEvento,
-                            imgEvento: imgEvento
+                            imgEvento: imgEvento,
+                            categoriaEvento: categoriaEvento
                         });
 
             }

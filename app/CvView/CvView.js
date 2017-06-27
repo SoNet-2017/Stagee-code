@@ -7,7 +7,7 @@ angular.module('myApp.CvView', ['ngRoute'])
         $routeProvider.when('/CvView', {
             templateUrl: 'CvView/CvView.html',
             controller: 'CvCtrl',
-           /* resolve: {
+           resolve: {
                 // controller will not be loaded until $requireSignIn resolves
                 // Auth refers to our $firebaseAuth wrapper in the factory below
                 "currentAuth": ["Auth", function(Auth) {
@@ -16,7 +16,7 @@ angular.module('myApp.CvView', ['ngRoute'])
                     return Auth.$requireSignIn();
                 }]
 
-            }*/
+            }
 
 
 
@@ -24,7 +24,15 @@ angular.module('myApp.CvView', ['ngRoute'])
 
         })
     }])
-    .controller('CvCtrl', ['$scope', function($scope) {
+
+
+
+    .controller('CvCtrl', ['$scope', 'SingleProfilo', 'Auth', function($scope, SingleProfilo, Auth) {
+
+        $scope.datiProfiloCV = {};
+        $scope.datiProfiloCV = SingleProfilo.getSingleProfilo(Auth.$getAuth().uid);
+
+
 
         $scope.dati.area = 'areaGeografica';
         $scope.redirectToAreageografica = function() {

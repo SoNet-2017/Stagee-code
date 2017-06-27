@@ -236,9 +236,11 @@
 </form>
 
 
-<!-- Page Content -->
-<div class="container">
-    <!-- Page Heading -->
+<div ng-controller="CvCtrl">
+
+
+    <div class="container">
+
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
@@ -246,118 +248,82 @@
             </h1>
         </div>
     </div>
-    <!-- /.row -->
 
-    <!-- Project One -->
-    <div class="row">
-        <div class="col-md-3">
-            <a href="#">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-            </a>
-        </div>
-        <div class="col-md-6">
-            <h3>Project One</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.</p>
-            <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-        <div class="col-md-3">
-            <a href="#">
-                <img class="img-circle img img-responsive" src="images_stagee/Artboard1.jpg" alt="">
-            </a>
-        </div>
-    </div>
-    <!-- /.row -->
+     <div ng-repeat="calendar in datiProfiloCV">
 
-    <hr>
-
-    <!-- Project Two -->
-    <div class="row">
-        <div class="col-md-3">
-            <a href="#">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-            </a>
+        <div class="row" ng-repeat="evento in calendar">
+            <div ng-show="evento.categoriaEvento == 'Masterclass' || evento.categoriaEvento == 'Workshop'">
+                <div class="col-md-3">
+                    <a href="#!/eventoView/{{evento.id_evento}}">
+                        <img class="img-responsive cv-image" ng-src="images_stagee/download.jpg" ng-if="!(evento.imgEvento.includes('https://firebasestorage.googleapis.com')) && evento.imgEvento!=='' && evento.imgEvento!==null">
+                        <img class="img-responsive cv-image" ng-src="{{evento.imgEvento}}" ng-if="evento.imgEvento.includes('https://firebasestorage.googleapis.com')">
+                        <img class="img-responsive cv-image" ng-src="images_stagee/download.jpg" ng-if="evento.imgEvento == '' || evento.imgEvento==null">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <h3>{{evento.nomeEvento}}</h3>
+                    <h4>{{evento.dataEvento}}</h4>
+                    <p class="descrizione">{{evento.descrizioneEvento}}</p>
+                    <a class="btn btn-primary" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#">
+                        <img class="img-circle img img-responsive" src="images_stagee/Artboard1.jpg" alt="">
+                    </a>
+                </div>
+                <hr>
+            </div>
         </div>
-        <div class="col-md-6">
-            <h3>Project Two</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, odit velit cumque vero doloremque repellendus distinctio maiores rem expedita a nam vitae modi quidem similique ducimus! Velit, esse totam tempore.</p>
-            <a class="btn btn-primary" href="#">Vai all'evento <span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
-
-    <!-- Project Three -->
-    <div class="row">
-        <div class="col-md-3">
-            <a href="#">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-            </a>
-        </div>
-        <div class="col-md-5">
-            <h3>Project Three</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, temporibus, dolores, at, praesentium ut unde repudiandae voluptatum sit ab debitis suscipit fugiat natus velit excepturi amet commodi deleniti alias possimus!</p>
-            <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                <small>Esperienze Lavorative</small>
-            </h1>
-        </div>
-    </div>
-    <!-- Project Four -->
-    <div class="row">
-
-        <div class="col-md-3">
-            <a href="#">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-            </a>
-        </div>
-        <div class="col-md-5">
-            <h3>Project Four</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, quidem, consectetur, officia rem officiis illum aliquam perspiciatis aspernatur quod modi hic nemo qui soluta aut eius fugit quam in suscipit?</p>
-            <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
-
-    <!-- Project Five -->
-    <div class="row">
-        <div class="col-md-3">
-            <a href="#">
-                <img class="img-responsive" src="http://placehold.it/700x300" alt="">
-            </a>
-        </div>
-        <div class="col-md-5">
-            <h3>Project Five</h3>
-            <h4>Subheading</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, quo, minima, inventore voluptatum saepe quos nostrum provident ex quisquam hic odio repellendus atque porro distinctio quae id laboriosam facilis dolorum.</p>
-            <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </div>
-    <!-- /.row -->
-
-    <hr>
-
+     </div>
 
 
 </div>
-<!-- /.container -->
 
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
+    <hr>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <small>Esperienze Lavorative</small>
+                </h1>
+            </div>
+        </div>
+
+        <div ng-repeat="calendar in datiProfiloCV">
+
+            <div class="row" ng-repeat="evento in calendar">
+                <div ng-show="evento.categoriaEvento == 'Casting' || evento.categoriaEvento == 'Spettacolo'">
+                    <div class="col-md-3">
+                        <a href="#!/eventoView/{{evento.id_evento}}">
+                            <img class="img-responsive cv-image" ng-src="images_stagee/download.jpg" ng-if="!(evento.imgEvento.includes('https://firebasestorage.googleapis.com')) && evento.imgEvento!=='' && evento.imgEvento!==null">
+                            <img class="img-responsive cv-image" ng-src="{{evento.imgEvento}}" ng-if="evento.imgEvento.includes('https://firebasestorage.googleapis.com')">
+                            <img class="img-responsive cv-image" ng-src="images_stagee/download.jpg" ng-if="evento.imgEvento == '' || evento.imgEvento==null">
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>{{evento.nomeEvento}}</h3>
+                        <h4>{{evento.dataEvento}}</h4>
+                        <p class="descrizione">{{evento.descrizioneEvento}}</p>
+                        <a class="btn btn-primary" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#">
+                            <img class="img-circle img img-responsive" src="images_stagee/Artboard1.jpg" alt="">
+                        </a>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
 

@@ -39,6 +39,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
         var dataEvento;
         var descrizioneEvento;
         var imgEvento;
+        var categoriaEvento;
 
 
         $scope.datiEventi.$loaded().then(function () {
@@ -61,6 +62,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                    dataEvento = $scope.datiEventi[i].data;
                    descrizioneEvento = $scope.datiEventi[i].descrizione;
                    imgEvento = $scope.datiEventi[i].img_url;
+                   categoriaEvento = $scope.datiEventi[i].categoria;
 
 
 
@@ -71,8 +73,8 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                        console.log($scope.datiEventi[i].lista[k].partecipante);
 
 
-                   }
-               }
+                        }
+                    }
                 }
 
             $scope.datiProfili = {};
@@ -105,7 +107,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
 
                 InsertEventoService.addUserToEvento(evento_corrente,nome_corrente,cognome_corrente,
-                    profilo_corrente,nomeEvento,dataEvento,descrizioneEvento,imgEvento);
+                    profilo_corrente,nomeEvento,dataEvento,descrizioneEvento,imgEvento,categoriaEvento);
 
 
                 }
