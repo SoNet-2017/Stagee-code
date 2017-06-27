@@ -1,5 +1,5 @@
 
-<div container style="background: #72b5ff">
+<div container>
 
     <div class="col-md-4">
     </div>
@@ -15,19 +15,31 @@
                     <input type="text" class="form-control" id="nome_evento" placeholder="Titolo dell'evento" name="nome_evento" ng-model="event.nome_evento" required="required"/>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="data" placeholder="Data dell'evento, formato DD/MM/YYYY" name="data" ng-model="event.data" required="required"/>
+                    <label for="data">Data dell'evento</label>
+                    <input type="date" class="form-control" id="data" placeholder="Data dell'evento, formato DD/MM/YYYY" name="data" ng-model="event.data" required="required"/>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="ora_inizio" placeholder="Ora di inizio, formato HH:MM" name="ora_inizio" ng-model="event.ora_inizio" required="required"/>
+                    <label for="ora_inizio">Ora di inizio</label>
+                    <input type="time" class="form-control" id="ora_inizio" placeholder="Ora di inizio, formato HH:MM" name="ora_inizio" ng-model="event.ora_inizio" required="required"/>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" id="ora_fine" placeholder="Ora di fine, formato HH:MM" name="ora_fine" ng-model="event.ora_fine" required="required"/>
+                    <label for="ora_fine">Ora di fine</label>
+                    <input type="time" class="form-control" id="ora_fine" placeholder="Ora di fine, formato HH:MM" name="ora_fine" ng-model="event.ora_fine" required="required"/>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="luogo" placeholder="Luogo dell'evento" name="address" ng-model="event.address" required="required"/>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" id="descrizione" placeholder="Descrizione dell'evento" name="descrizione" ng-model="event.descrizione" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="categoria">Tipo di evento</label>
+                    <select class="form-control" id="categoria" placeholder="Categoria di evento" name="categoria" ng-model="event.categoria" required="required">
+                        <option>Masterclass</option>
+                        <option>Workshop</option>
+                        <option>Casting</option>
+                        <option>Spettacolo</option>
+                    </select>
                 </div>
 
                 <div class="form-group">

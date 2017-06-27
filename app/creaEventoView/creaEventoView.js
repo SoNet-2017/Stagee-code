@@ -15,8 +15,8 @@ angular.module('myApp.creaEventoView', ['ngRoute'])
 
 
 
-    .controller('CreaEventoCtrl', ['$scope', '$rootScope', 'Auth', 'InsertEventoService', '$location', '$firebaseStorage','$routeParams', 'Profilo',
-        function($scope, $rootScope, Auth, InsertEventoService, $location, $firebaseStorage, $routeParams, Profilo) {
+    .controller('CreaEventoCtrl', ['$scope', '$rootScope', 'Auth', 'InsertEventoService', '$location', '$firebaseStorage','$routeParams', 'Profilo', '$filter',
+        function($scope, $rootScope, Auth, InsertEventoService, $location, $firebaseStorage, $routeParams, Profilo, $filter) {
 
             $scope.event={};
             var ctrl = this;
@@ -50,9 +50,10 @@ angular.module('myApp.creaEventoView', ['ngRoute'])
                 }
 
 
+
+
             $scope.registraEvento = function() {
                 //check if the second password is equal to the first one
-
 
 
                 if ($scope.fileToUpload !== null) {
@@ -66,22 +67,25 @@ angular.module('myApp.creaEventoView', ['ngRoute'])
                         $scope.imgPath = snapshot.downloadURL;
 
                         InsertEventoService.insertNewEvento($scope.event.address, $scope.event.nome_evento, nome_org, $scope.event.descrizione,
-                            $scope.imgPath, $scope.event.data, $scope.event.ora_inizio, $scope.event.ora_fine);
+                            $scope.imgPath, $filter('date')($scope.event.data, 'dd/MM/yyyy'), $scope.event.ora_inizio = $filter('date')($scope.event.ora_inizio, 'HH:mm'),
+                            $scope.event.ora_fine = $filter('date')($scope.event.ora_fine, 'HH:mm'), $scope.event.categoria);
 
 
                     });
                     uploadTask.$error(function (error) {
                         $scope.dati.error = error + " - L'evento verrà creato senza un'immagine!";
-                        InsertEventoService.insertNewEvento($scope.event.address, $scope.event.nome_evento, $scope.event.nome_organizzatore, $scope.event.descrizione,
-                            $scope.imgPath, $scope.event.data, $scope.event.ora_inizio, $scope.event.ora_fine);
+                        InsertEventoService.insertNewEvento($scope.event.address, $scope.event.nome_evento, nome_org, $scope.event.descrizione,
+                            $scope.imgPath, $filter('date')($scope.event.data, 'dd/MM/yyyy'), $scope.event.ora_inizio = $filter('date')($scope.event.ora_inizio, 'HH:mm'),
+                            $scope.event.ora_fine = $filter('date')($scope.event.ora_fine, 'HH:mm'), $scope.event.categoria);
 
 
                     });
 
                 }
                 else {
-                    InsertEventoService.insertNewEvento($scope.event.address, $scope.event.nome_evento, $scope.event.nome_organizzatore, $scope.event.descrizione,
-                        $scope.imgPath, $scope.event.data, $scope.event.ora_inizio, $scope.event.ora_fine);
+                    InsertEventoService.insertNewEvento($scope.event.address, $scope.event.nome_evento, nome_org, $scope.event.descrizione,
+                        $scope.imgPath, $filter('date')($scope.event.data, 'dd/MM/yyyy'), $scope.event.ora_inizio = $filter('date')($scope.event.ora_inizio, 'HH:mm'),
+                        $scope.event.ora_fine = $filter('date')($scope.event.ora_fine, 'HH:mm'), $scope.event.categoria);
 
 
                                 }

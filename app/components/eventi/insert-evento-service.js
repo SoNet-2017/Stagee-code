@@ -4,7 +4,7 @@ angular.module('myApp.evento.insertEventoService', [])
 
     .factory('InsertEventoService', function($firebaseArray) {
             return {
-                insertNewEvento: function (address, nome_evento, nome_organizzatore, descrizione, imgPath, data, ora_inizio, ora_fine) {
+                insertNewEvento: function (address, nome_evento, nome_organizzatore, descrizione, imgPath, data, ora_inizio, ora_fine, categoria) {
                 var ref = firebase.database().ref().child("eventi").push();
                 var key = ref.key;
                 ref.set({
@@ -17,7 +17,8 @@ angular.module('myApp.evento.insertEventoService', [])
                     img_alt: nome_evento+" "+nome_organizzatore,
                     data: data,
                     ora_inizio: ora_inizio,
-                    ora_fine: ora_fine
+                    ora_fine: ora_fine,
+                    categoria: categoria
                 });
 
             },

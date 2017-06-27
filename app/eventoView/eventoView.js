@@ -52,7 +52,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                    $scope.datoEvento.push({nome_evento: $scope.datiEventi[i].nome_evento, nome_organizzatore: $scope.datiEventi[i].nome_organizzatore,
                        data_evento: $scope.datiEventi[i].data, descrizione: $scope.datiEventi[i].descrizione, img_url: $scope.datiEventi[i].img_url,
                        img_alt: $scope.datiEventi[i].img_alt, ora_inizio: $scope.datiEventi[i].ora_inizio, ora_fine: $scope.datiEventi[i].ora_fine,
-                        lista: $scope.datiEventi[i].lista});
+                        lista: $scope.datiEventi[i].lista, categoria: $scope.datiEventi[i].categoria});
 
 
 

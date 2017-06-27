@@ -60,6 +60,10 @@
                     {{evento.data_evento}} dalle {{evento.ora_inizio}} alle {{evento.ora_fine}}
                 </h3>
 
+                <h4 ng-repeat="evento in datoEvento">
+                    Categoria: {{evento.categoria}}
+                </h4>
+
             <div ng-repeat="evento in datoEvento">
                 <img ng-src="images_stagee/Artboard1.jpg" class="img-rounded" alt="{{evento.img_alt}}" width="100%" height="100%" ng-if="!(evento.img_url.includes('https://firebasestorage.googleapis.com')) && evento.img_url!=='' && evento.img_url!==null">
                 <img ng-src="{{evento.img_url}}" class="img-rounded" alt="{{evento.img_alt}}" width="100%" height="100%" ng-if="evento.img_url.includes('https://firebasestorage.googleapis.com')">
