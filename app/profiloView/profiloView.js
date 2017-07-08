@@ -21,14 +21,19 @@ angular.module('myApp.profiloView', ['ngRoute'])
         })
     }])
 
-    .controller('ProfiloCtrl', ['$scope', 'Users', 'currentAuth','$firebaseAuth', '$location', '$routeParams', 'SingleProfilo', 'Evento',
-        function($scope, Users, currentAuth, $firebaseAuth, $location, $routeParams, SingleProfilo, Evento) {
+    .controller('ProfiloCtrl', ['$scope', '$rootScope', 'Users', 'currentAuth','$firebaseAuth', '$location', '$routeParams','SingleEvento', 'SingleProfilo', 'Evento',
+        function($scope, $rootScope, Users, currentAuth, $firebaseAuth, $location, $routeParams, SingleEvento, SingleProfilo, Evento) {
 
         $scope.dati={};
         $scope.citazione = {
             valore: 'La tua citazione',
             autore: 'Autore'
         };
+
+        //   INSERIRE 1
+        $scope.datiEvento = {};
+
+
 
 
         $scope.datiProfilo = {};
@@ -103,6 +108,65 @@ angular.module('myApp.profiloView', ['ngRoute'])
             });
         }
 
-    }]);
+
+        //   CALENDARIO
+
+        //  INSERIRE 2
+
+
+
+            /*Controller Calendario*/
+            $scope.changeTo = 'Italian';
+
+            /* event source that pulls from google.com */
+            $scope.eventSource = {
+                url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
+                className: 'gcal-event',           // an option!
+                currentTimezone: 'America/Chicago' // an option!
+            };
+            /* event source that contains custom events on the scope */
+
+            /* https://fullcalendar.io/docs/text/timeFormat/ DOCUMENTAZIONE FULLCALENDAR*/
+
+
+
+            //   INSERIRE 3
+
+            //funzione per cancellare testo default in textarea
+
+
+
+
+        }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

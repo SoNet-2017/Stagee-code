@@ -234,8 +234,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Salva modifiche</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
                     <!-- qui c era secondary anzichè primary-->
                 </div>
             </div>
@@ -245,7 +245,8 @@
 
 
     <div class="row profile">
-        <div class="col-md-1"> </div>
+        <div class="col-md-1">
+        </div>
         <div class="col-md-4">
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
@@ -273,25 +274,21 @@
                 </div>
                 <!-- END SIDEBAR BUTTONS -->
 
-                <blockquote class="quote-card yellow card">
-                    <p>
-                        <a href="#" editable-text="citazione.valore" >{{ citazione.valore || 'La tua citazione' }}</a>
-                    </p>
+                    <blockquote class="quote-card yellow card">
+                        <p>
+                            <a href="#" editable-text="citazione.valore" >{{ citazione.valore || 'La tua citazione' }}</a>
+                        </p>
 
-                    <cite>
-                        <a href="#" editable-text="citazione.autore" >{{ citazione.autore || 'Autore' }}</a>
-                    </cite>
-                </blockquote>
-
-
-
+                        <cite>
+                            <a href="#" editable-text="citazione.autore" >{{ citazione.autore || 'Autore' }}</a>
+                        </cite>
+                    </blockquote>
             </div>
         </div>
 
+        <!-- calendario vecchio
+
         <div class="col-md-4">
-
-
-
             <div class="datepicker hasDatepicker" id="dp1497624745244">
                 <div class="datepicker-header"></div>
                 <div class="ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"
@@ -411,8 +408,19 @@
                     </table>
                 </div>
             </div>
-
         </div>
+
+        -->
+
+        <!-- CALENDARIO NUOVO -->
+        <div class="col-md-6">
+            <div class="modal-body">
+                <section id="directives-calendar">
+                    <div ui-calendar="{{uiConfig.calendar}}" calendar="myCalendar" class="span8 calendar" ng-model="eventSources"> </div>
+                </section>
+            </div>
+        </div>
+
     </div>
 
 
@@ -421,6 +429,12 @@
 <br>
 
 
+
+
+
+
+
+<!-- TIMELINE -->
 
     <div class="container">
         <div class="row">
@@ -455,4 +469,46 @@
                     </div>
                 </div>
             </div>
+
+
+<!-- VALUTAZIONE EVENTI-->
+
+<div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div  class="modal-content" class="col-xs-8" >
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <p class="modal-title">
+                <h4 align="center">valutazione evento</h4>
+            </p>
+            <p class="modal-title">
+                <h2 align="center">'collegare evento corretto'</h2>
+            </p>
+        </div>
+            <div align="center" >
+                <div  class="stars" >
+                    <form action="" >
+                        <input class="star star-5" id="star-5" type="radio" name="star"/>
+                        <label class="star star-5" for="star-5"></label>
+                        <input class="star star-4" id="star-4" type="radio" name="star"/>
+                        <label class="star star-4" for="star-4"></label>
+                        <input class="star star-3" id="star-3" type="radio" name="star"/>
+                        <label class="star star-3" for="star-3"></label>
+                        <input class="star star-2" id="star-2" type="radio" name="star"/>
+                        <label class="star star-2" for="star-2"></label>
+                        <input class="star star-1" id="star-1" type="radio" name="star"/>
+                        <label class="star star-1" for="star-1"></label>
+                    </form>
+                </div>
+            </div>
+        <div align="center">
+            <textarea rows="4" cols="80" align="left" placeholder=" Aiuta l'organizzatore con un tuo commento"></textarea>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Invia</button>
+        </div>
+    </div>
+</div>
 

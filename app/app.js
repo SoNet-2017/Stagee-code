@@ -14,6 +14,8 @@ firebase.initializeApp(config);
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
     "firebase",
+    'ui.bootstrap',   //importare
+    'myApp.calendar',
     "xeditable",
     'ngMap',
     'ngRoute',
