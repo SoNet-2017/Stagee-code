@@ -114,7 +114,6 @@ angular.module('myApp.profiloView', ['ngRoute'])
         //  INSERIRE 2
 
 
-
             /*Controller Calendario*/
             $scope.changeTo = 'Italian';
 
