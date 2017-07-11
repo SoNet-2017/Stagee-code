@@ -25,8 +25,8 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
 
 
-    .controller('EventoCtrl',[ '$scope', '$rootScope','$routeParams','Evento', 'Profilo', 'InsertEventoService', 'Auth',
-        function($scope, $rootScope, $routeParams, Evento, Profilo, InsertEventoService, Auth) {
+    .controller('EventoCtrl',[ '$scope', '$rootScope','$routeParams','Evento', 'Profilo','$location', 'InsertEventoService', 'Auth',
+        function($scope, $rootScope, $routeParams, Evento, Profilo, $location, InsertEventoService, Auth) {
 
         $scope.datiEventi = {};
         $scope.datiEventi = Evento.getData();
@@ -109,12 +109,19 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
 
 
-
+            var i=0;
             $scope.partecipa = function () {
 
                 var profilo_corrente = Auth.$getAuth().uid;
                 console.log(profilo_corrente);
                 var evento_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+                i=i+1;
+
+                if(i>1){
+                    var button= $('#partecipa');
+                    button.prop('disabled', true);
+                    var valid=true;
+                }
 
                 for (j = 0; j < $scope.datiProfili.length; j++) {
                     console.log("entrato for OK");
@@ -133,13 +140,23 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
 
 
+
+
+
                 InsertEventoService.addUserToEvento(evento_corrente,nome_corrente,cognome_corrente,
                     profilo_corrente,nomeEvento,dataEvento,descrizioneEvento,imgEvento,categoriaEvento);
 
 
                 }
 
+            $scope.disabilita = function () {
 
+                /*var button= $('#partecipa');
+                button.prop('disabled', true);
+                var valid=true;*/
+
+
+            }
 
 
 
@@ -193,4 +210,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
         };
 
 
+        $scope.returnToProfile = function () {
+            $location.path("/profiloView");
+        }
 }]);

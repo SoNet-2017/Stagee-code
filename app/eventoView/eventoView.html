@@ -1,4 +1,3 @@
-<link href="../lib/bootstrap/css/navbar-fixed-top.css" rel="stylesheet">
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -15,10 +14,11 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#!/bachecaView"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="#!/profiloView"><span class="glyphicon glyphicon-user"></span></a>
-
+                <li><a href="#!/profiloView" ><span class="glyphicon glyphicon-user"></span></a></li>
+<!--onclick="event.preventDefault();" ng-click="returnToProfile();"-->
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"onclick="event.preventDefault();" data-target="#modalnotifiche" data-toggle="modal"><span class="glyphicon glyphicon-bell" ></span> </a></li>
                 <li class="dropdown">
                     <a href="#" onclick="event.preventDefault();" class="dropdown-toggle" data-toggle="dropdown"
                        role="button" aria-haspopup="true" aria-expanded="false"> <span
@@ -28,10 +28,7 @@
                         <li><a href="#" onclick="event.preventDefault();" data-target="#myModal" data-toggle="modal">Filtri</a>
                         </li>
                         <li><a href="#">Logout</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
+
                     </ul>
                 </li>
                 <li><a href="#!/chat" onclick="event.preventDefault();"><span
@@ -73,7 +70,7 @@
                 <img ng-src="images_stagee/Artboard1.jpg" class="img-rounded" alt="{{evento.img_alt}}" width="100%" height="100%" ng-if="evento.img_url == '' || evento.img_url==null">
             </div>
                 <br>
-                <button id="partecipa" class="btn btn-custom center-block" ng-click="partecipa()">Partecipa</button>
+                <button id="partecipa" class="btn btn-custom center-block" ng-click="partecipa()"  data-target="#modalpartecipa" data-toggle="modal">Partecipa</button>
 
             </div>
         </div>
@@ -105,6 +102,17 @@
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="modal fade" id="modalpartecipa">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                </br>
+                <h5 class="modal-title" >Ti sei iscritto all'evento!</h5>
+                </br>
+            </div>
+        </div>
+    </div>
+</div>
 
     <form id="frmProfilo" role="form" ng-submit="signIn()">
         <div class="modal fade" id="myModal">
@@ -277,7 +285,8 @@
                                         <label class="checkbox-inline">
                                             <input type="checkbox" value="">Danza
                                         </label>
-
+                                        <br/>
+                                        <br/>
                                         <label class="checkbox-inline">
                                             <input type="checkbox" value="">Trasformismo
                                         </label>

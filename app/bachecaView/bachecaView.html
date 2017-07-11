@@ -1,7 +1,5 @@
 <div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}</div>
 
-<link href="../lib/bootstrap/css/navbar-fixed-top.css" rel="stylesheet">
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -16,20 +14,16 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#!/bachecaView"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li ><a href="#!/profiloView/{{userId}}"><span class="glyphicon glyphicon-user"></span></a>
-
+                <li ><a href="#!/profiloView/{{userId}}"><span class="glyphicon glyphicon-user"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"onclick="event.preventDefault();" data-target="#modalnotifiche" data-toggle="modal"><span class="glyphicon glyphicon-bell" ></span> </a></li>
                 <li class="dropdown">
                     <a href="#" onclick="event.preventDefault();" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-cog" ></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Privacy</a></li>
                         <li><a href="#" onclick="event.preventDefault();" data-target="#myModal" data-toggle="modal" >Filtri</a></li>
                         <li><a href="#">Logout</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
                     </ul>
                 </li>
                 <li><a href="#!/chat" onclick="event.preventDefault();"><span class="glyphicon glyphicon-comment"></span></a></li></li>
@@ -38,11 +32,31 @@
     </div>
 </nav>
 
-<a >
-
-</a>
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<div class="modal fade" id="modalnotifiche">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ricordati di valutare l'evento a cui hai partecipato!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-header">
+                <h5 class="modal-title">Tre persone hanno cominciato a seguirti</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-header">
+                <h5 class="modal-title">Hai due eventi suggeriti </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <form id="frmProfilo" role="form" ng-submit="signIn()">
     <div class="modal fade" id="myModal">
@@ -214,7 +228,8 @@
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="">Danza
                                     </label>
-
+                                    <br/>
+                                    <br/>
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="">Trasformismo
                                     </label>

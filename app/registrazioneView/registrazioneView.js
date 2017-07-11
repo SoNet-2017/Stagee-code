@@ -108,6 +108,10 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
 
     };
 
+    $scope.returnToProfile = function () {
+        $location.path("/profiloView");
+    }
+
 
 
 }]);
