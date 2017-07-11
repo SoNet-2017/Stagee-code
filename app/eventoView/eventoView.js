@@ -25,8 +25,8 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
 
 
-    .controller('EventoCtrl',[ '$scope', '$rootScope','$routeParams','Evento', 'Profilo','$location', 'InsertEventoService', 'Auth',
-        function($scope, $rootScope, $routeParams, Evento, Profilo, $location, InsertEventoService, Auth) {
+    .controller('EventoCtrl',[ '$scope', '$rootScope','$routeParams','Evento', 'Profilo','$location', 'InsertEventoService', 'Auth', 'Users', '$firebaseAuth',
+        function($scope, $rootScope, $routeParams, Evento, Profilo, $location, InsertEventoService, Auth, Users, $firebaseAuth) {
 
         $scope.datiEventi = {};
         $scope.datiEventi = Evento.getData();
@@ -213,4 +213,18 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
         $scope.returnToProfile = function () {
             $location.path("/profiloView");
         }
+
+
+            $scope.logout = function() {
+                Users.registerLogout($scope.current_profile);
+                //sign out
+                $firebaseAuth().$signOut();
+                $firebaseAuth().$onAuthStateChanged(function (firebaseUser) {
+                    if (firebaseUser) {
+                        console.log("User is yet signed in as:", firebaseUser.uid);
+                    } else {
+                        $location.path("/paginizialeView");
+                    }
+                });
+            }
 }]);

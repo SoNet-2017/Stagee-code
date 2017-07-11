@@ -24,7 +24,6 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
     var ctrl = this;
     $scope.fileToUpload = null;
     $scope.imgPath= "";
-    var currentId;
 
 
         //initialize the function that will be called when a new file will be specified by the user
@@ -95,8 +94,6 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                 console.log(error.message);
             });
         }
-
-            currentId = Auth.$getAuth().uid;
 
     };
 

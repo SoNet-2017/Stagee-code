@@ -27,12 +27,27 @@ angular.module('myApp.CvView', ['ngRoute'])
 
 
 
-    .controller('CvCtrl', ['$scope', 'SingleProfilo', 'Auth', function($scope, SingleProfilo, Auth) {
+    .controller('CvCtrl', ['$scope', 'SingleProfilo', 'Auth', 'Users', '$firebaseAuth', '$location',
+        function($scope, SingleProfilo, Auth, Users, $firebaseAuth, $location ) {
+
+        $scope.currentId = Auth.$getAuth().uid;
 
         $scope.datiProfiloCV = {};
         $scope.datiProfiloCV = SingleProfilo.getSingleProfilo(Auth.$getAuth().uid);
 
 
+            $scope.logout = function() {
+                Users.registerLogout($scope.currentId);
+                //sign out
+                $firebaseAuth().$signOut();
+                $firebaseAuth().$onAuthStateChanged(function (firebaseUser) {
+                    if (firebaseUser) {
+                        console.log("User is yet signed in as:", firebaseUser.uid);
+                    } else {
+                        $location.path("/paginizialeView");
+                    }
+                });
+            }
 
         $scope.dati.area = 'areaGeografica';
         $scope.redirectToAreageografica = function() {

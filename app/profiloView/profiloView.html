@@ -10,12 +10,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Stagee</a>
+            <a class="navbar-brand">Stagee</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#!/bachecaView"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li class="active"><a href="#!/profiloView"><span class="glyphicon glyphicon-user"></span></a>
+                <li class="active"><a href="#" onclick="event.preventDefault();"><span class="glyphicon glyphicon-user"></span></a>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -25,10 +25,10 @@
                        role="button" aria-haspopup="true" aria-expanded="false"> <span
                             class="glyphicon glyphicon-cog"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#" onclick="event.preventDefault();">Privacy</a></li>
                         <li><a href="#" onclick="event.preventDefault();" data-target="#myModal" data-toggle="modal">Filtri</a>
                         </li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="#" onclick="event.preventDefault();" ng-click="logout()">Logout</a></li>
 
                     </ul>
                 </li>
@@ -277,9 +277,9 @@
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img class="media-object" ng-src="images_stagee/Artboard1.jpg" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="!(datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')) && datiProfilo.imgPath!='' && datiProfilo.imgPath!==null">
-                    <img class="media-object" ng-src="{{datiProfilo.imgPath}}" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')">
-                    <img class="media-object" ng-src="images_stagee/Artboard1.jpg" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath == '' || datiProfilo.imgPath==null">
+                    <img class="media-object img-responsive" ng-src="images_stagee/Artboard1.jpg" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="!(datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')) && datiProfilo.imgPath!='' && datiProfilo.imgPath!==null">
+                    <img class="media-object img-responsive" ng-src="{{datiProfilo.imgPath}}" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')">
+                    <img class="media-object img-responsive" ng-src="images_stagee/Artboard1.jpg" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath == '' || datiProfilo.imgPath==null">
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->

@@ -36,8 +36,8 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
      */
 
 
-    .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', 'Profilo', 'currentAuth', '$location', 'SingleProfilo',
-        function($scope, $rootScope, Evento, SingleEvento, Profilo, currentAuth, $location, SingleProfilo) {
+    .controller('mapCtrl',['$scope','$rootScope', 'Evento', 'SingleEvento', 'Profilo', 'currentAuth', '$location', 'SingleProfilo', 'Users', '$firebaseAuth',
+        function($scope, $rootScope, Evento, SingleEvento, Profilo, currentAuth, $location, SingleProfilo, Users, $firebaseAuth) {
 
 
 
@@ -61,11 +61,9 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
         $scope.dati.vm.positions = [];
         $scope.dati.vm.tags = [];
         $scope.dati.vm.dettagli = [];
-        //set the variable that is used in the main template to show the active button
-        $rootScope.dati.currentView = "home";
 
         $scope.dati.eventi = Evento.getData();
-        //when the information about the pizza will be loaded, then the map will be created adding a marker in the Pizzeria location
+
         $scope.dati.eventi.$loaded().then(function () {
             for (var i = 0; i < $scope.dati.eventi.length; i++) {
                 var idSingoloEvento = $scope.dati.eventi[i].id;
@@ -141,6 +139,20 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
                 $location.path("/creaEventoView");
 
             };
+
+
+            $scope.logout = function() {
+                Users.registerLogout(currentAuth.uid);
+                //sign out
+                $firebaseAuth().$signOut();
+                $firebaseAuth().$onAuthStateChanged(function (firebaseUser) {
+                    if (firebaseUser) {
+                        console.log("User is yet signed in as:", firebaseUser.uid);
+                    } else {
+                        $location.path("/paginizialeView");
+                    }
+                });
+            }
 
 
 

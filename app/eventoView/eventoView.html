@@ -14,8 +14,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="#!/bachecaView"><span class="glyphicon glyphicon-home"></span></a></li>
-                <li><a href="#!/profiloView" ><span class="glyphicon glyphicon-user"></span></a></li>
-<!--onclick="event.preventDefault();" ng-click="returnToProfile();"-->
+                <li ><a href="#!/profiloView/{{current_profile}}"><span class="glyphicon glyphicon-user"></span></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"onclick="event.preventDefault();" data-target="#modalnotifiche" data-toggle="modal"><span class="glyphicon glyphicon-bell" ></span> </a></li>
@@ -24,10 +23,10 @@
                        role="button" aria-haspopup="true" aria-expanded="false"> <span
                             class="glyphicon glyphicon-cog"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#" onclick="event.preventDefault();">Privacy</a></li>
                         <li><a href="#" onclick="event.preventDefault();" data-target="#myModal" data-toggle="modal">Filtri</a>
                         </li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="#" onclick="event.preventDefault();" ng-click="logout()">Logout</a></li>
 
                     </ul>
                 </li>
