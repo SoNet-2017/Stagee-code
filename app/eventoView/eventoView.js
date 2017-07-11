@@ -104,25 +104,37 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
                     }
 
-
-
-
-
-
                 InsertEventoService.addUserToEvento(evento_corrente,nome_corrente,cognome_corrente,
                     profilo_corrente,nomeEvento,dataEvento,descrizioneEvento,imgEvento,categoriaEvento);
 
 
                 }
 
+/*
+            $scope.controllo = function() {
+                var controller_iscritto = false;
+                var profilo_corr = Auth.$getAuth().uid;
+                for(c=0; c < $scope.listaPartecipanti.length; c++) {
+                    if($scope.listaPartecipanti[c] == profilo_corr) {
+                        var controller_iscritto = true;
+                    }
+                }
+                if(controller_iscritto == true) {
+                    partecipa.disabled=true;
+                    //return true;
+                }
+                if(controller_iscritto == false) {
+                    partecipa.disabled=false;
+                    //return false;
+                }
+            }
+*/
+
             $scope.disabilita = function () {
 
                 var button= $('#partecipa');
                 button.prop('disabled', true);
                 var valid=true;
-
-
-
             }
 
         });
