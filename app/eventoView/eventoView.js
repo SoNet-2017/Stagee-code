@@ -50,7 +50,6 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
            var id_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
            console.log(id_corrente);
 
-
            for (i = 0; i < $scope.datiEventi.length; i++) {
                if($scope.datiEventi[i].eventoId === id_corrente){
                    console.log("Entrato nell'if");
@@ -99,6 +98,8 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                    }
                    $scope.avg = sum/$scope.listaPunteggi.length;
 
+            $scope.datiProfili = {};
+            $scope.datiProfili = Profilo.getData();
 
 
                }
@@ -138,16 +139,31 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
                     }
 
-
-
-
-
-
                 InsertEventoService.addUserToEvento(evento_corrente,nome_corrente,cognome_corrente,
                     profilo_corrente,nomeEvento,dataEvento,descrizioneEvento,imgEvento,categoriaEvento);
 
 
                 }
+
+/*
+            $scope.controllo = function() {
+                var controller_iscritto = false;
+                var profilo_corr = Auth.$getAuth().uid;
+                for(c=0; c < $scope.listaPartecipanti.length; c++) {
+                    if($scope.listaPartecipanti[c] == profilo_corr) {
+                        var controller_iscritto = true;
+                    }
+                }
+                if(controller_iscritto == true) {
+                    partecipa.disabled=true;
+                    //return true;
+                }
+                if(controller_iscritto == false) {
+                    partecipa.disabled=false;
+                    //return false;
+                }
+            }
+*/
 
             $scope.disabilita = function () {
 
@@ -158,16 +174,12 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
             }
 
-
-
-
-
         });
 
 
-
-
        //$scope.datiEvento=SingleEvento.getSingleEvento($routeParams.eventoId);
+
+
 
 
         //filtri
