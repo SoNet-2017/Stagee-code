@@ -21,8 +21,9 @@ angular.module('myApp.profiloView', ['ngRoute'])
         })
     }])
 
-    .controller('ProfiloCtrl', ['$scope', '$rootScope', '$routeParams', 'Users', 'currentAuth','$firebaseAuth', '$location', 'SingleEvento', 'SingleProfilo', 'Evento',
-        function($scope, $rootScope, $routeParams, Users, currentAuth, $firebaseAuth, $location, SingleEvento, SingleProfilo, Evento) {
+    .controller('ProfiloCtrl', ['$scope', '$rootScope', 'Users', 'currentAuth','$firebaseAuth', '$location', '$routeParams','SingleEvento', 'SingleProfilo', 'InsertEventoService',
+        function($scope, $rootScope, Users, currentAuth, $firebaseAuth, $location, $routeParams, SingleEvento, SingleProfilo, InsertEventoService) {
+
 
         $scope.dati={};
         $scope.citazione = {
@@ -31,13 +32,11 @@ angular.module('myApp.profiloView', ['ngRoute'])
         };
 
         //   INSERIRE 1
+        $scope.datiEvento = {};
 
 
 
-
-
-
-            $scope.datiProfilo = {};
+        $scope.datiProfilo = {};
         $scope.datiProfilo = SingleProfilo.getSingleProfilo($routeParams.id_profilo);
 
 
@@ -45,7 +44,7 @@ angular.module('myApp.profiloView', ['ngRoute'])
 
             $scope.dati.area = 'areaGeografica';
 
-        $('#myModal').modal('show');
+        //$('#myModal').modal('show');
 
         $scope.openEvento= function() {
 

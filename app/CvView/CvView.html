@@ -1,4 +1,4 @@
-<link href="../lib/bootstrap/css/navbar-fixed-top.css" rel="stylesheet">
+
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -18,6 +18,7 @@
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"onclick="event.preventDefault();" data-target="#modalnotifiche" data-toggle="modal"><span class="glyphicon glyphicon-bell" ></span> </a></li>
                 <li class="dropdown">
                     <a href="#" onclick="event.preventDefault();" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="glyphicon glyphicon-cog" ></span></a>
                     <ul class="dropdown-menu">
@@ -33,7 +34,30 @@
 </nav>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<div class="modal fade" id="modalnotifiche">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ricordati di valutare l'evento a cui hai partecipato!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-header">
+                <h5 class="modal-title">Tre persone hanno cominciato a seguirti</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-header">
+                <h5 class="modal-title">Hai due eventi suggeriti </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <form id="frmProfilo" role="form" ng-submit="signIn()">
     <div class="modal fade" id="myModal">
         <div class="modal-dialog" role="document">
@@ -249,7 +273,7 @@
      <div ng-repeat="calendar in datiProfiloCV">
 
         <div class="row" ng-repeat="evento in calendar">
-            <div ng-show="evento.categoriaEvento == 'Masterclass' || evento.categoriaEvento == 'Workshop'">
+            <div ng-show="evento.valutato == 'true' && (evento.categoriaEvento == 'Masterclass' || evento.categoriaEvento == 'Workshop')">
                 <div class="col-md-3">
                     <a href="#!/eventoView/{{evento.id_evento}}">
                         <img class="img-responsive cv-image" ng-src="images_stagee/download.jpg" ng-if="!(evento.imgEvento.includes('https://firebasestorage.googleapis.com')) && evento.imgEvento!=='' && evento.imgEvento!==null">
@@ -263,12 +287,6 @@
                     <p class="descrizione">{{evento.descrizioneEvento}}</p>
                     <a class="btn btn-primary" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <img class="img-circle img img-responsive" src="images_stagee/Artboard1.jpg" alt="">
-                    </a>
-                </div>
-                <hr>
             </div>
         </div>
      </div>
@@ -292,7 +310,7 @@
         <div ng-repeat="calendar in datiProfiloCV">
 
             <div class="row" ng-repeat="evento in calendar">
-                <div ng-show="evento.categoriaEvento == 'Casting' || evento.categoriaEvento == 'Spettacolo'">
+                <div ng-show="evento.valutato == 'true' && (evento.categoriaEvento == 'Casting' || evento.categoriaEvento == 'Spettacolo')">
                     <div class="col-md-3">
                         <a href="#!/eventoView/{{evento.id_evento}}">
                             <img class="img-responsive cv-image" ng-src="images_stagee/download.jpg" ng-if="!(evento.imgEvento.includes('https://firebasestorage.googleapis.com')) && evento.imgEvento!=='' && evento.imgEvento!==null">
@@ -306,12 +324,7 @@
                         <p class="descrizione">{{evento.descrizioneEvento}}</p>
                         <a class="btn btn-primary" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
                     </div>
-                    <div class="col-md-3">
-                        <a href="#">
-                            <img class="img-circle img img-responsive" src="images_stagee/Artboard1.jpg" alt="">
-                        </a>
-                    </div>
-                    <hr>
+
                 </div>
             </div>
 

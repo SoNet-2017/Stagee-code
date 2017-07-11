@@ -28,12 +28,16 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
     .controller('EventoCtrl',[ '$scope', '$rootScope','$routeParams','Evento', 'Profilo','$location', 'InsertEventoService', 'Auth',
         function($scope, $rootScope, $routeParams, Evento, Profilo, $location, InsertEventoService, Auth) {
 
-        $scope.dati = {};
         $scope.datiEventi = {};
-
         $scope.datiEventi = Evento.getData();
         $scope.datoEvento = [];
         $scope.listaPartecipanti = [];
+        $scope.listaPunteggi = [];
+
+        $scope.datiProfili = {};
+        $scope.datiProfili = Profilo.getData();
+        $scope.current_profile = Auth.$getAuth().uid;
+        $scope.avg = 0;
 
         var nomeEvento;
         var dataEvento;
@@ -53,7 +57,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                    $scope.datoEvento.push({nome_evento: $scope.datiEventi[i].nome_evento, nome_organizzatore: $scope.datiEventi[i].nome_organizzatore,
                        data_evento: $scope.datiEventi[i].data, descrizione: $scope.datiEventi[i].descrizione, img_url: $scope.datiEventi[i].img_url,
                        img_alt: $scope.datiEventi[i].img_alt, ora_inizio: $scope.datiEventi[i].ora_inizio, ora_fine: $scope.datiEventi[i].ora_fine,
-                        lista: $scope.datiEventi[i].lista, categoria: $scope.datiEventi[i].categoria});
+                        lista: $scope.datiEventi[i].lista, categoria: $scope.datiEventi[i].categoria, valutazioni: $scope.datiEventi[i].valutazioni});
 
 
 
@@ -74,20 +78,51 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
 
                         }
-                    }
-                }
+
+                   for (l in $scope.datiEventi[i].valutazioni){
+
+                       $scope.listaPunteggi.push($scope.datiEventi[i].valutazioni[l].punteggio);
+
+                       //console.log($scope.datiEventi[i].valutazioni[l].punteggio);
+
+
+                   }
+
+                   console.log($scope.listaPunteggi);
+
+                   var sum = 0;
+                   for(var p = 0; p < $scope.listaPunteggi.length; p++ ){
+                           sum += parseInt($scope.listaPunteggi[p]);
+                           console.log(sum);
+
+                   }
+                   $scope.avg = sum/$scope.listaPunteggi.length;
 
             $scope.datiProfili = {};
             $scope.datiProfili = Profilo.getData();
 
 
+               }
 
+
+
+                }
+
+
+
+            var i=0;
             $scope.partecipa = function () {
 
                 var profilo_corrente = Auth.$getAuth().uid;
                 console.log(profilo_corrente);
                 var evento_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+                i=i+1;
 
+                if(i>1){
+                    var button= $('#partecipa');
+                    button.prop('disabled', true);
+                    var valid=true;
+                }
 
                 for (j = 0; j < $scope.datiProfili.length; j++) {
                     console.log("entrato for OK");
@@ -132,9 +167,11 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
             $scope.disabilita = function () {
 
-                var button= $('#partecipa');
+                /*var button= $('#partecipa');
                 button.prop('disabled', true);
-                var valid=true;
+                var valid=true;*/
+
+
             }
 
         });
