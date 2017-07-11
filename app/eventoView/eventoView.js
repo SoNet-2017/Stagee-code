@@ -25,8 +25,8 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
 
 
-    .controller('EventoCtrl',[ '$scope', '$rootScope','$routeParams','Evento', 'Profilo', 'InsertEventoService', 'Auth',
-        function($scope, $rootScope, $routeParams, Evento, Profilo, InsertEventoService, Auth) {
+    .controller('EventoCtrl',[ '$scope', '$rootScope','$routeParams','Evento', 'Profilo','$location', 'InsertEventoService', 'Auth',
+        function($scope, $rootScope, $routeParams, Evento, Profilo, $location, InsertEventoService, Auth) {
 
         $scope.dati = {};
         $scope.datiEventi = {};
@@ -88,6 +88,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                 console.log(profilo_corrente);
                 var evento_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 
+
                 for (j = 0; j < $scope.datiProfili.length; j++) {
                     console.log("entrato for OK");
                     if($scope.datiProfili[j].id_profilo === profilo_corrente){
@@ -106,13 +107,23 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
 
 
+
+
                 InsertEventoService.addUserToEvento(evento_corrente,nome_corrente,cognome_corrente,
                     profilo_corrente,nomeEvento,dataEvento,descrizioneEvento,imgEvento,categoriaEvento);
 
 
                 }
 
+            $scope.disabilita = function () {
 
+                var button= $('#partecipa');
+                button.prop('disabled', true);
+                var valid=true;
+
+
+
+            }
 
         });
 
@@ -162,4 +173,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
         };
 
 
+        $scope.returnToProfile = function () {
+            $location.path("/profiloView");
+        }
 }]);
