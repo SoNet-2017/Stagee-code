@@ -81,13 +81,19 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
             $scope.datiProfili = Profilo.getData();
 
 
-
+            var i=0;
             $scope.partecipa = function () {
 
                 var profilo_corrente = Auth.$getAuth().uid;
                 console.log(profilo_corrente);
                 var evento_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+                i=i+1;
 
+                if(i>1){
+                    var button= $('#partecipa');
+                    button.prop('disabled', true);
+                    var valid=true;
+                }
 
                 for (j = 0; j < $scope.datiProfili.length; j++) {
                     console.log("entrato for OK");
@@ -117,10 +123,9 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
 
             $scope.disabilita = function () {
 
-                var button= $('#partecipa');
+                /*var button= $('#partecipa');
                 button.prop('disabled', true);
-                var valid=true;
-
+                var valid=true;*/
 
 
             }
