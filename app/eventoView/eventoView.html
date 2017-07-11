@@ -64,6 +64,9 @@
                     Categoria: {{evento.categoria}}
                 </h4>
 
+                <h4>Valutazione media: {{avg}}</h4>
+
+
             <div ng-repeat="evento in datoEvento">
                 <img ng-src="images_stagee/Artboard1.jpg" class="img-rounded" alt="{{evento.img_alt}}" width="100%" height="100%" ng-if="!(evento.img_url.includes('https://firebasestorage.googleapis.com')) && evento.img_url!=='' && evento.img_url!==null">
                 <img ng-src="{{evento.img_url}}" class="img-rounded" alt="{{evento.img_alt}}" width="100%" height="100%" ng-if="evento.img_url.includes('https://firebasestorage.googleapis.com')">
@@ -96,8 +99,10 @@
             </div>
         </div>
     </div>
-</div>
-</div>
+
+
+
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -300,18 +305,3 @@
     </form>
 
 
-    <!--COME SI FA? -->
-
-
-    <!-- prova Matteo LASCIARLA COSI'
-
-    <p>Prova Matteo - Lasciarla temporaneamente così!</p>
-
-    <table ng-controller="EventoCtrl" border="1">
-        <tr ng-repeat="prof in dati.elenco">
-            <td>{{prof.prof_user}}</td>
-        </tr>
-    </table>
-
-
-    -->

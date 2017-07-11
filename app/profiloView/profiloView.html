@@ -28,7 +28,7 @@
                             class="glyphicon glyphicon-cog"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Privacy</a></li>
-                        <li><a href="#" onclick="event.preventDefault();" data-target="#myModal" data-toggle="modal" >Filtri</a>
+                        <li><a href="#" onclick="event.preventDefault();" data-target="#myModal" data-toggle="modal">Filtri</a>
                         </li>
                         <li><a href="#">Logout</a></li>
 
@@ -300,11 +300,6 @@
     </div>
 
 
-
-<br>
-<br>
-
-
 <!-- TIMELINE -->
 
     <div class="container">
@@ -331,6 +326,7 @@
                                             </div>
                                             <div class="timeline-body">
                                                 <p class="text-muted">{{evento.descrizioneEvento}}</p>
+                                                <a href="#!/valutazioneView/{{evento.id_evento}}">Valuta l'evento</a>
                                             </div>
                                         </div>
                                     </li>
@@ -342,44 +338,5 @@
             </div>
 
 
-<!-- VALUTAZIONE EVENTI-->
 
-<div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div  class="modal-content" class="col-xs-8" >
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <p class="modal-title">
-                <h4 align="center">valutazione evento</h4>
-            </p>
-            <p class="modal-title">
-                <h2 align="center">'collegare evento corretto'</h2>
-            </p>
-        </div>
-            <div align="center" >
-                <div  class="stars" >
-                    <form action="" >
-                        <input class="star star-5" id="star-5" type="radio" name="star"/>
-                        <label class="star star-5" for="star-5"></label>
-                        <input class="star star-4" id="star-4" type="radio" name="star"/>
-                        <label class="star star-4" for="star-4"></label>
-                        <input class="star star-3" id="star-3" type="radio" name="star"/>
-                        <label class="star star-3" for="star-3"></label>
-                        <input class="star star-2" id="star-2" type="radio" name="star"/>
-                        <label class="star star-2" for="star-2"></label>
-                        <input class="star star-1" id="star-1" type="radio" name="star"/>
-                        <label class="star star-1" for="star-1"></label>
-                    </form>
-                </div>
-            </div>
-        <div align="center">
-            <textarea rows="4" cols="80" align="left" placeholder=" Aiuta l'organizzatore con un tuo commento"></textarea>
-        </div>
-
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Invia</button>
-        </div>
-    </div>
-</div>
 

@@ -42,7 +42,25 @@ angular.module('myApp.evento.insertEventoService', [])
                             categoriaEvento: categoriaEvento
                         });
 
-            }
+            },
+                addValutazioneToEvento: function (punteggio, evento_corrente, commento, profilo_corrente){
+                    var ref = firebase.database().ref().child("eventi").child(evento_corrente).child("valutazioni").child(profilo_corrente);
+                    ref.set(
+                        {
+                            punteggio: punteggio,
+                            commento: commento
+
+                        });
+                    var ref2 = firebase.database().ref().child("profili").child(profilo_corrente).child("calendario").child(evento_corrente);
+                    ref2.update(
+                        {
+                            valutato: "true"
+                        });
+
+
+                }
+
+
         };
 
     });

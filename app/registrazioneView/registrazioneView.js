@@ -24,6 +24,8 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
     var ctrl = this;
     $scope.fileToUpload = null;
     $scope.imgPath= "";
+    var currentId;
+
 
         //initialize the function that will be called when a new file will be specified by the user
         ctrl.onChange = function onChange(fileList) {
@@ -56,6 +58,7 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                                 // login successful: redirect to the profilo
 
 
+                                $('#conferma').modal('show');
 
                             });
                             uploadTask.$error(function (error) {
@@ -66,6 +69,8 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
 
 
 
+                                $('#conferma').modal('show');
+
                             });
 
                         }
@@ -75,7 +80,7 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                             Users.registerLogin(userId, $scope.user.email);
                             // login successful: redirect to the profilo
 
-
+                            $('#conferma').modal('show');
 
 
                         }
@@ -91,8 +96,10 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
             });
         }
 
-            $location.path("/profiloView");
+            currentId = Auth.$getAuth().uid;
+
     };
+
 
 
     $scope.returnToLogin = function() {

@@ -252,7 +252,7 @@
      <div ng-repeat="calendar in datiProfiloCV">
 
         <div class="row" ng-repeat="evento in calendar">
-            <div ng-show="evento.categoriaEvento == 'Masterclass' || evento.categoriaEvento == 'Workshop'">
+            <div ng-show="evento.valutato == 'true' && (evento.categoriaEvento == 'Masterclass' || evento.categoriaEvento == 'Workshop')">
                 <div class="col-md-3">
                     <a href="#!/eventoView/{{evento.id_evento}}">
                         <img class="img-responsive cv-image" ng-src="images_stagee/download.jpg" ng-if="!(evento.imgEvento.includes('https://firebasestorage.googleapis.com')) && evento.imgEvento!=='' && evento.imgEvento!==null">
@@ -266,12 +266,6 @@
                     <p class="descrizione">{{evento.descrizioneEvento}}</p>
                     <a class="btn btn-primary" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <img class="img-circle img img-responsive" src="images_stagee/Artboard1.jpg" alt="">
-                    </a>
-                </div>
-                <hr>
             </div>
         </div>
      </div>
@@ -295,7 +289,7 @@
         <div ng-repeat="calendar in datiProfiloCV">
 
             <div class="row" ng-repeat="evento in calendar">
-                <div ng-show="evento.categoriaEvento == 'Casting' || evento.categoriaEvento == 'Spettacolo'">
+                <div ng-show="evento.valutato == 'true' && (evento.categoriaEvento == 'Casting' || evento.categoriaEvento == 'Spettacolo')">
                     <div class="col-md-3">
                         <a href="#!/eventoView/{{evento.id_evento}}">
                             <img class="img-responsive cv-image" ng-src="images_stagee/download.jpg" ng-if="!(evento.imgEvento.includes('https://firebasestorage.googleapis.com')) && evento.imgEvento!=='' && evento.imgEvento!==null">
@@ -309,12 +303,7 @@
                         <p class="descrizione">{{evento.descrizioneEvento}}</p>
                         <a class="btn btn-primary" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
                     </div>
-                    <div class="col-md-3">
-                        <a href="#">
-                            <img class="img-circle img img-responsive" src="images_stagee/Artboard1.jpg" alt="">
-                        </a>
-                    </div>
-                    <hr>
+
                 </div>
             </div>
 

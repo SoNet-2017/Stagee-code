@@ -21,8 +21,9 @@ angular.module('myApp.profiloView', ['ngRoute'])
         })
     }])
 
-    .controller('ProfiloCtrl', ['$scope', '$rootScope', 'Users', 'currentAuth','$firebaseAuth', '$location', '$routeParams','SingleEvento', 'SingleProfilo', 'Evento',
-        function($scope, $rootScope, Users, currentAuth, $firebaseAuth, $location, $routeParams, SingleEvento, SingleProfilo, Evento) {
+    .controller('ProfiloCtrl', ['$scope', '$rootScope', 'Users', 'currentAuth','$firebaseAuth', '$location', '$routeParams','SingleEvento', 'SingleProfilo', 'InsertEventoService',
+        function($scope, $rootScope, Users, currentAuth, $firebaseAuth, $location, $routeParams, SingleEvento, SingleProfilo, InsertEventoService) {
+
 
         $scope.dati={};
         $scope.citazione = {
@@ -35,7 +36,6 @@ angular.module('myApp.profiloView', ['ngRoute'])
 
 
 
-
         $scope.datiProfilo = {};
         $scope.datiProfilo = SingleProfilo.getSingleProfilo($routeParams.id_profilo);
 
@@ -44,7 +44,7 @@ angular.module('myApp.profiloView', ['ngRoute'])
 
             $scope.dati.area = 'areaGeografica';
 
-        $('#myModal').modal('show');
+        //$('#myModal').modal('show');
 
         $scope.openEvento= function() {
 
@@ -109,6 +109,8 @@ angular.module('myApp.profiloView', ['ngRoute'])
         }
 
 
+
+
         //   CALENDARIO
 
         //  INSERIRE 2
@@ -132,7 +134,6 @@ angular.module('myApp.profiloView', ['ngRoute'])
             //   INSERIRE 3
 
             //funzione per cancellare testo default in textarea
-
 
 
 

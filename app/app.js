@@ -22,6 +22,7 @@ angular.module('myApp', [
     'myApp.profiloView',
     'myApp.evento',
     'myApp.loginView',
+    'myApp.valutazioneView',
     'myApp.paginizialeView',
     'myApp.registrazioneView',
     'myApp.bachecaView',
@@ -31,6 +32,7 @@ angular.module('myApp', [
     'myApp.CvView',
     'myApp.fileUpload',
     'myApp.creaEventoView'
+
    // 'myApp.filtriView'
 ])
 .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
