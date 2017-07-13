@@ -1,64 +1,60 @@
 <div ng-controller="ValutazioneCtrl">
     <div ng-repeat="evento in datoEvento">
-<!-- VALUTAZIONE EVENTI-->
+        <!-- VALUTAZIONE EVENTI-->
 
-<div class="modal-dialog">
+        <div class="modal-dialog">
 
-        <!-- Modal content-->
-        <div class="modal-content" class="col-xs-8" >
-            <div class="modal-header">
-                <a href="#!/profiloView/{{profilo_corrente}}">Ritorna al profilo</a>
-                <p class="modal-title">
-                <h4 align="center">Valutazione Evento</h4>
-                </p>
-                <p class="modal-title">
-                    <a href="#!/eventoView/{{evento.eventoId}}">
-                        <h2 style="text-align: center">
-                            {{evento.nome_evento}}
-                        </h2>
-                    </a>
-                </p>
-            </div>
-            <br>
-            <form id="frmValuta" role="form" ng-submit="valutaEvento()" class="center-block">
-               <div align="center">
-                   <!--
-                   <label class="radio-inline"><input type="radio" value="1" ng-model="rank.punteggio"/>1</label>
-                   <label class="radio-inline"><input type="radio" value="2" ng-model="rank.punteggio"/>2</label>
-                   <label class="radio-inline"><input type="radio" value="3" ng-model="rank.punteggio"/>3</label>
-                   <label class="radio-inline"><input type="radio" value="4" ng-model="rank.punteggio"/>4</label>
-                   <label class="radio-inline"><input type="radio" value="5" ng-model="rank.punteggio"/>5</label>
-                   -->
-
-                    <div  class="stars">
-
-                              <input class="star star-5" id="star-5" type="radio" name="star" value="5" ng-model="rank.punteggio"/>
-                              <label class="star star-5" for="star-5"></label>
-                              <input class="star star-4" id="star-4" type="radio" name="star" value="4" ng-model="rank.punteggio"/>
-                              <label class="star star-4" for="star-4"></label>
-                              <input class="star star-3" id="star-3" type="radio" name="star" value="3" ng-model="rank.punteggio"/>
-                              <label class="star star-3" for="star-3"></label>
-                              <input class="star star-2" id="star-2" type="radio" name="star" value="2" ng-model="rank.punteggio"/>
-                              <label class="star star-2" for="star-2"></label>
-                              <input class="star star-1" id="star-1" type="radio" name="star" value="1" ng-model="rank.punteggio"/>
-                              <label class="star star-1" for="star-1"></label>
-
-                      </div>
-
+            <!-- Modal content-->
+            <div class="modal-content" class="col-xs-8">
+                <div class="modal-header">
+                    <a href="#!/profiloView/{{profilo_corrente}}">Ritorna al profilo</a>
+                    <p class="modal-title">
+                    <h4 align="center">Valutazione Evento</h4>
+                    </p>
+                    <p class="modal-title">
+                        <a href="#!/eventoView/{{evento.eventoId}}">
+                            <h2 style="text-align: center">
+                                {{evento.nome_evento}}
+                            </h2>
+                        </a>
+                    </p>
                 </div>
                 <br>
-                <div align="center">
-                    <textarea rows="4" cols="80" align="left" placeholder=" Aiuta l'organizzatore con un tuo commento" ng-model="rank.commento" required="required"></textarea>
-                </div>
+                <form id="frmValuta" role="form" ng-submit="valutaEvento()" class="center-block">
+                    <div align="center">
+                        <div class="stars">
 
+                            <input class="star star-5" id="star-5" type="radio" name="star" value="5"
+                                   ng-model="rank.punteggio"/>
+                            <label class="star star-5" for="star-5"></label>
+                            <input class="star star-4" id="star-4" type="radio" name="star" value="4"
+                                   ng-model="rank.punteggio"/>
+                            <label class="star star-4" for="star-4"></label>
+                            <input class="star star-3" id="star-3" type="radio" name="star" value="3"
+                                   ng-model="rank.punteggio"/>
+                            <label class="star star-3" for="star-3"></label>
+                            <input class="star star-2" id="star-2" type="radio" name="star" value="2"
+                                   ng-model="rank.punteggio"/>
+                            <label class="star star-2" for="star-2"></label>
+                            <input class="star star-1" id="star-1" type="radio" name="star" value="1"
+                                   ng-model="rank.punteggio"/>
+                            <label class="star star-1" for="star-1"></label>
 
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-custom">Invia</button>
-                </div>
+                        </div>
 
-            </form>
+                    </div>
+                    <br>
+                    <div align="center">
+                        <textarea rows="4" cols="80" align="left"
+                                  placeholder=" Aiuta l'organizzatore con un tuo commento" ng-model="rank.commento"
+                                  required="required"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-custom">Invia</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
     </div>
 </div>
 
