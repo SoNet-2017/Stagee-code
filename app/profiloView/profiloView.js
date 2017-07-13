@@ -21,8 +21,8 @@ angular.module('myApp.profiloView', ['ngRoute'])
         })
     }])
 
-    .controller('ProfiloCtrl', ['$scope', '$rootScope', 'Users', 'currentAuth','$firebaseAuth', '$location', '$routeParams','SingleEvento', 'SingleProfilo', 'InsertEventoService',
-        function($scope, $rootScope, Users, currentAuth, $firebaseAuth, $location, $routeParams, SingleEvento, SingleProfilo, InsertEventoService) {
+    .controller('ProfiloCtrl', ['$scope', '$rootScope', 'Users', 'Evento', 'SingleEvento', 'currentAuth','$firebaseAuth', '$location', '$routeParams', 'SingleProfilo', 'InsertEventoService',
+        function($scope, $rootScope, Users, Evento, SingleEvento, currentAuth, $firebaseAuth, $location, $routeParams, SingleProfilo, InsertEventoService) {
 
 
         $scope.dati={};
@@ -31,9 +31,22 @@ angular.module('myApp.profiloView', ['ngRoute'])
             autore: 'Autore'
         };
 
-        //   INSERIRE 1
-        $scope.datiEvento = {};
+        //evento
+/*        $scope.datiEventi = {};
+        $scope.datiEventi = Evento.getData();
+        $scope.datoEvento = [];
+            var nomeEvento;
+            var dataEvento;
+            var descrizioneEvento;
+            var imgEvento;
+            var categoriaEvento;
 
+            $scope.evento = function (eventoId) {
+                if (eventoId = $scope.dati.evento.eventoId){
+                    return eventoId;
+                }
+            };
+*/
 
 
         $scope.datiProfilo = {};
@@ -110,9 +123,88 @@ angular.module('myApp.profiloView', ['ngRoute'])
 
 
 
+//inserimento eventi nel calendario
+
+  /*          $scope.dati.evento = function (eventoIdAttuale) {
+                //var id_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
+                //console.log(id_corrente);
+
+                for (var i = 0; i < $scope.datiEventi.length; i++) {
+                    if($scope.datiEventi[i].eventoId === eventoIdAttuale){
+                        console.log("Entrato nell'if");
+                        console.log($scope.datiEventi[i].eventoId);
+                        $scope.dati.evento.push({nome_evento: $scope.datiEventi[i].nome_evento,
+                                                nome_organizzatore: $scope.datiEventi[i].nome_organizzatore,
+                                                data_evento: $scope.datiEventi[i].data,
+                                                descrizione: $scope.datiEventi[i].descrizione,
+                                                img_url: $scope.datiEventi[i].img_url,
+                                                img_alt: $scope.datiEventi[i].img_alt,
+                                                ora_inizio: $scope.datiEventi[i].ora_inizio,
+                                                ora_fine: $scope.datiEventi[i].ora_fine,
+                                                lista: $scope.datiEventi[i].lista,
+                                                categoria: $scope.datiEventi[i].categoria,
+                                                valutazioni: $scope.datiEventi[i].valutazioni});
+
+                        nomeEvento = $scope.datiEventi[i].nome_evento;
+                        dataEvento = $scope.datiEventi[i].data;
+                        descrizioneEvento = $scope.datiEventi[i].descrizione;
+                        imgEvento = $scope.datiEventi[i].img_url;
+                        categoriaEvento = $scope.datiEventi[i].categoria;
+                    }
+                }
+            };
 
 
-        //   CALENDARIO
+            $scope.events = [];
+            $scope.dati.Ini=""
+            $scope.dati.Fin= "";
+            $scope.dati.Gio="";
+            $scope.dati.date = function () {
+                var inizio = $scope.dati.evento.ora_inizio;
+                var fine = $scope.dati.evento.ora_fine;
+                var giorno = $scope.dati.evento.data;
+                $scope.dati.Ini = inizio;
+                $scope.dati.Fin = fine;
+                $scope.dati.Gio = giorno;
+                $scope.events.push(
+                    {title: 'Orario',start: inizio, end: fine,allDay: false},
+                    {title :'Giorno',start: giorno});
+            };
+
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+
+            console.log($scope.events)
+
+            $scope.eventsF = function (start, end, timezone, callback) {
+                var s = new Date(start).getTime() / 1000;
+                var e = new Date(end).getTime() / 1000;
+                var m = new Date(start).getMonth();
+                var events = [{title: 'Feed Me ' + m,start: s + (50000),end: s + (100000),allDay: false, className: ['customFeed']}];
+                callback(events);
+            };
+
+            $scope.calEventsExt = {
+                color: '#f00',
+                textColor: 'yellow',
+                events: [
+                    {type:'party',title: 'Lunch',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
+                    {type:'party',title: 'Lunch 2',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
+                    {type:'party',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+                ]
+            };
+
+
+            $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
+            $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
+
+*/
+
+
+
+            //   CALENDARIO
 
         //  INSERIRE 2
 
