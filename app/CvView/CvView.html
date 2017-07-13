@@ -259,7 +259,6 @@
 
 <div ng-controller="CvCtrl">
 
-
     <div class="container">
 
     <div class="row">
@@ -270,9 +269,9 @@
         </div>
     </div>
 
-     <div ng-repeat="calendar in datiProfiloCV">
+     <div ng-repeat="calendario in datiProfiloCV">
 
-        <div class="row" ng-repeat="evento in calendar">
+        <div class="row" ng-repeat="evento in calendario">
             <div ng-show="evento.valutato == 'true' && (evento.categoriaEvento == 'Masterclass' || evento.categoriaEvento == 'Workshop')">
                 <div class="col-md-3">
                     <a href="#!/eventoView/{{evento.id_evento}}">
@@ -285,7 +284,7 @@
                     <h3>{{evento.nomeEvento}}</h3>
                     <h4>{{evento.dataEvento}}</h4>
                     <p class="descrizione">{{evento.descrizioneEvento}}</p>
-                    <a class="btn btn-primary" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn btn-custom" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
             </div>
         </div>
@@ -307,9 +306,9 @@
             </div>
         </div>
 
-        <div ng-repeat="calendar in datiProfiloCV">
+        <div ng-repeat="calendario in datiProfiloCV">
 
-            <div class="row" ng-repeat="evento in calendar">
+            <div class="row" ng-repeat="evento in calendario">
                 <div ng-show="evento.valutato == 'true' && (evento.categoriaEvento == 'Casting' || evento.categoriaEvento == 'Spettacolo')">
                     <div class="col-md-3">
                         <a href="#!/eventoView/{{evento.id_evento}}">
@@ -322,16 +321,121 @@
                         <h3>{{evento.nomeEvento}}</h3>
                         <h4>{{evento.dataEvento}}</h4>
                         <p class="descrizione">{{evento.descrizioneEvento}}</p>
-                        <a class="btn btn-primary" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <a class="btn btn-custom" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
                     </div>
 
                 </div>
             </div>
 
 
+
+        </div>
+
+
+    </div>
+
+    <hr>
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    <small>Esperienze Aggiunte Alla Carriera</small> <br> <button id="crea_tappa" class="btn btn-custom" data-target="#ModalTappa" data-toggle="modal">Aggiungi tappa alla carriera</button>
+                </h1>
+            </div>
+        </div>
+
+
+
+        <div ng-repeat="tappe in datiProfiloCV">
+
+            <div class="row" ng-repeat="tappa in tappe">
+
+                    <div class="col-md-3">
+
+                            <img class="img-responsive cv-image" ng-src="{{tappa.imgPath}}" ng-if="tappa.imgPath.includes('https://firebasestorage.googleapis.com')">
+
+                    </div>
+                    <div class="col-md-6">
+                        <h3>{{tappa.nome_tappa}}</h3>
+                        <p>{{tappa.descrizione_tappa}}</p>
+                    </div>
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+    <div class="modal fade text-center" id="ModalTappa">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Aggiungi una tappa alla tua carriera!</h2>
+                </div>
+
+
+                <div ng-controller="CvCtrl as $ctrl">
+
+                    <form id="frmLogin" role="form" ng-submit="registraTappa()" class="center-block">
+
+                        <div class="modal-body" style="text-align: center">
+
+                            <div class="form-group">
+                                <label for="nome_tappa">Titolo dell'evento</label>
+                                <input type="text" class="form-control" id="nome_tappa" name="nome_tappa" ng-model="tappa.nome_tappa" required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="descrizione_tappa">Descrizione dell'evento</label>
+                                <textarea rows="4" cols="80" class="form-control" id="descrizione_tappa" name="descrizione_tappa" ng-model="tappa.descrizione_tappa" required="required">
+                            </textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <p>Aggiungi un'immagine cover per l'evento!</p>
+                                <file-upload on-change="$ctrl.onChange">
+                                </file-upload>
+                            </div>
+
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-custom center-block" >Crea l'evento</button>
+                            <button type="button" class="btn btn-warning right-block" data-dismiss="modal">Annulla</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
         </div>
     </div>
 
+    <div class="modal fade" id="confermaTappa">
+        <div class="modal-dialog" role="document">
+
+            <!-- Modal content-->
+            <div align="center" class="modal-content" class="col-xs-8">
+                <div class="modal-header">
+                    <p class="modal-title">
+                    <h2 text-align="center">Evento aggiunto alla carriera!</h2>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning right-block" data-dismiss="modal">Chiudi</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 
 </div>
 

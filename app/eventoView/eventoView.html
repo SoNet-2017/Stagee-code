@@ -65,16 +65,33 @@
                 <h4 class="evento_valutazione">Valutazione media: {{avg}}</h4>
                 </div>
             </div>
+                <div class="evento_costo">
+                <h4 ng-repeat="evento in datoEvento">Costo di partecipazione: {{evento.costo}}€</h4>
+                </div>
+
             <div ng-repeat="evento in datoEvento">
                 <img ng-src="images_stagee/Artboard1.jpg" class="img-rounded" alt="{{evento.img_alt}}" width="100%" height="100%" ng-if="!(evento.img_url.includes('https://firebasestorage.googleapis.com')) && evento.img_url!=='' && evento.img_url!==null">
                 <img ng-src="{{evento.img_url}}" class="img-rounded" alt="{{evento.img_alt}}" width="100%" height="100%" ng-if="evento.img_url.includes('https://firebasestorage.googleapis.com')">
                 <img ng-src="images_stagee/Artboard1.jpg" class="img-rounded" alt="{{evento.img_alt}}" width="100%" height="100%" ng-if="evento.img_url == '' || evento.img_url==null">
             </div>
                 <br>
-                <button id="partecipa" class="btn btn-custom center-block" ng-click="partecipa()"  data-target="#modalpartecipa" data-toggle="modal">Partecipa</button>
+                <div ng-repeat="evento in datoEvento">
+                    <div ng-show="evento.partecipazione === 'Aperto a tutti'">
+                        <button id="partecipa" class="btn btn-custom center-block" ng-click="partecipa()" data-target="#modalpartecipa" data-toggle="modal">Partecipa</button>
+                    </div>
+                </div>
+                <div ng-repeat="evento in datoEvento">
+                    <div ng-show="evento.partecipazione === 'Su invito'">
+                        <h3 class="evento_categoria">Evento su invito. Contattare l'organizzatore dell'evento.</h3>
+                    </div>
+                </div>
 
             </div>
         </div>
+
+
+
+
 
 
 <br>
@@ -89,7 +106,7 @@
     <div class="col-md-1">
     </div>
     <div class="col-md-4">
-        <h4>Lista partecipanti:</h4>
+        <h4 class="evento_categoria">Lista partecipanti:</h4>
         <div ng-repeat="partecipante_el in listaPartecipanti track by $index">
                 <p style="text-align: left" ng-repeat="value in partecipante_el track by $index">
                     {{value}}

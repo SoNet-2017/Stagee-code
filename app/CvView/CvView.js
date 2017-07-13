@@ -27,13 +27,64 @@ angular.module('myApp.CvView', ['ngRoute'])
 
 
 
-    .controller('CvCtrl', ['$scope', 'SingleProfilo', 'Auth', 'Users', '$firebaseAuth', '$location',
-        function($scope, SingleProfilo, Auth, Users, $firebaseAuth, $location ) {
+    .controller('CvCtrl', ['$scope', 'SingleProfilo', 'InsertEventoService','Auth', 'Users', '$firebaseAuth', '$firebaseStorage','$location',
+        function($scope, SingleProfilo, InsertEventoService, Auth, Users, $firebaseAuth, $firebaseStorage, $location ) {
 
         $scope.currentId = Auth.$getAuth().uid;
 
         $scope.datiProfiloCV = {};
         $scope.datiProfiloCV = SingleProfilo.getSingleProfilo(Auth.$getAuth().uid);
+
+            $scope.tappa={};
+            var ctrl = this;
+            $scope.fileToUpload = null;
+            $scope.imgPath= "";
+
+            //initialize the function that will be called when a new file will be specified by the user
+            ctrl.onChange = function onChange(fileList) {
+                $scope.fileToUpload = fileList[0];
+            };
+
+            var prof_corrente = Auth.$getAuth().uid;
+
+
+
+
+            $scope.registraTappa = function() {
+                //check if the second password is equal to the first one
+
+
+                if ($scope.fileToUpload !== null) {
+                    //get the name of the file
+                    var fileName = $scope.fileToUpload.name;
+                    //specify the path in which the file should be saved on firebase
+                    var storageRef = firebase.storage().ref("eventiImg/" + fileName);
+                    $scope.storage = $firebaseStorage(storageRef);
+                    var uploadTask = $scope.storage.$put($scope.fileToUpload);
+                    uploadTask.$complete(function (snapshot) {
+                        $scope.imgPath = snapshot.downloadURL;
+
+                        InsertEventoService.insertNewTappa($scope.tappa.nome_tappa, $scope.tappa.descrizione_tappa, prof_corrente, $scope.imgPath);
+
+
+                    });
+                    uploadTask.$error(function (error) {
+                        $scope.dati.error = error + " - L'evento verrà creato senza un'immagine!";
+                        InsertEventoService.insertNewTappa($scope.tappa.nome_tappa, $scope.tappa.descrizione_tappa, prof_corrente, $scope.imgPath);
+
+
+                    });
+
+                }
+                else {
+                    InsertEventoService.insertNewTappa($scope.tappa.nome_tappa, $scope.tappa.descrizione_tappa, prof_corrente, $scope.imgPath);
+
+                }
+
+                $('#ModalTappa').modal('hide');
+                $('#confermaTappa').modal('show');
+            };
+
 
 
             $scope.logout = function() {
@@ -86,5 +137,7 @@ angular.module('myApp.CvView', ['ngRoute'])
                 return false;
             }
         }
+
+
 
     }]);

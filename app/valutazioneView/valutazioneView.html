@@ -1,12 +1,13 @@
 <div ng-controller="ValutazioneCtrl">
     <div ng-repeat="evento in datoEvento">
 <!-- VALUTAZIONE EVENTI-->
-    <div class="modal-dialog" role="document">
+
+<div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content" class="col-xs-8" >
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <a href="#!/profiloView/{{profilo_corrente}}">Ritorna al profilo</a>
                 <p class="modal-title">
                 <h4 align="center">Valutazione Evento</h4>
                 </p>
@@ -52,9 +53,7 @@
 
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Invia</button>
-                    <br>
-                    <a href="#!/profiloView/{{profilo_corrente}}">Ritorna al profilo</a>
+                    <button type="submit" class="btn btn-custom">Invia</button>
                 </div>
 
             </form>
@@ -62,3 +61,4 @@
     </div>
     </div>
 </div>
+

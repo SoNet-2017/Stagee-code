@@ -1,15 +1,14 @@
+<body>
 
-<div container>
-
-    <div class="col-md-4">
-    </div>
-
-    <div class="col-md-4">
+<div class="modal-header">
+    <h2>Crea il tuo evento!</h2>
+</div>
 
         <div ng-controller="CreaEventoCtrl as $ctrl">
 
             <form id="frmLogin" role="form" ng-submit="registraEvento()" class="center-block">
-                <h2>Crea il tuo evento!</h2>
+
+                <div class="modal-body container" style="text-align: center">
 
                 <div class="form-group">
                     <input type="text" class="form-control" id="nome_evento" placeholder="Titolo dell'evento" name="nome_evento" ng-model="event.nome_evento" required="required"/>
@@ -49,14 +48,19 @@
                     </file-upload>
                 </div>
 
+                </div>
+
+                <div class="modal-footer">
+
                 <button type="submit" class="btn btn-custom center-block" >Crea l'evento</button>
+
+                </div>
 
             </form>
 
         </div>
 
+</body>
 
 
-    </div>
 
-</div>

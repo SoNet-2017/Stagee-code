@@ -4,7 +4,7 @@ angular.module('myApp.evento.insertEventoService', [])
 
     .factory('InsertEventoService', function($firebaseArray) {
             return {
-                insertNewEvento: function (address, nome_evento, nome_organizzatore, descrizione, imgPath, data, ora_inizio, ora_fine, categoria) {
+                insertNewEvento: function (address, nome_evento, nome_organizzatore, descrizione, imgPath, data, ora_inizio, ora_fine, categoria, costo, partecipazione) {
                 var ref = firebase.database().ref().child("eventi").push();
                 var key = ref.key;
                 ref.set({
@@ -18,7 +18,9 @@ angular.module('myApp.evento.insertEventoService', [])
                     data: data,
                     ora_inizio: ora_inizio,
                     ora_fine: ora_fine,
-                    categoria: categoria
+                    categoria: categoria,
+                    costo: costo,
+                    partecipazione: partecipazione
                 });
 
             },
@@ -58,7 +60,18 @@ angular.module('myApp.evento.insertEventoService', [])
                         });
 
 
-                }
+                },
+
+                insertNewTappa: function (nome_tappa, descrizione_tappa, profilo_corrente, imgPath) {
+                    var ref = firebase.database().ref().child("profili").child(profilo_corrente).child("tappe").push();
+                    var key = ref.key;
+                    ref.set({
+                        nome_tappa: nome_tappa,
+                        descrizione_tappa: descrizione_tappa,
+                        imgPath: imgPath
+                    });
+
+                },
 
 
         };

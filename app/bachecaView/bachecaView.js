@@ -164,3 +164,4 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
 
 
     }]);
+
