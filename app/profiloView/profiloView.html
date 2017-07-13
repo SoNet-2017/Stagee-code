@@ -277,9 +277,7 @@
             <div class="profile-sidebar">
                 <!-- SIDEBAR USERPIC -->
                 <div class="profile-userpic">
-                    <img class="media-object img-responsive" ng-src="images_stagee/Artboard1.jpg" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="!(datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')) && datiProfilo.imgPath!='' && datiProfilo.imgPath!==null">
                     <img class="media-object img-responsive" ng-src="{{datiProfilo.imgPath}}" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath.includes('https://firebasestorage.googleapis.com')">
-                    <img class="media-object img-responsive" ng-src="images_stagee/Artboard1.jpg" alt="Immagine profilo di {{datiProfilo.nome}}" ng-if="datiProfilo.imgPath == '' || datiProfilo.imgPath==null">
                 </div>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
@@ -318,9 +316,9 @@
 
 
         <!-- CALENDARIO NUOVO -->
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="modal-body">
-                <section id="directives-calendar">
+                <section class="calendar" id="directives-calendar">
                     <div ui-calendar="{{uiConfig.calendar}}" calendar="myCalendar" class="span8 calendar" ng-model="eventSources"> </div>
                 </section>
             </div>
