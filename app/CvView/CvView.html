@@ -259,8 +259,6 @@
 
 <div ng-controller="CvCtrl">
 
-    <button id="crea_tappa" class="btn btn-custom center-block" data-target="#ModalTappa" data-toggle="modal">Aggiungi tappa alla carriera</button>
-
     <div class="container">
 
     <div class="row">
@@ -286,7 +284,7 @@
                     <h3>{{evento.nomeEvento}}</h3>
                     <h4>{{evento.dataEvento}}</h4>
                     <p class="descrizione">{{evento.descrizioneEvento}}</p>
-                    <a class="btn btn-primary" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn btn-custom" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
                 </div>
             </div>
         </div>
@@ -323,7 +321,7 @@
                         <h3>{{evento.nomeEvento}}</h3>
                         <h4>{{evento.dataEvento}}</h4>
                         <p class="descrizione">{{evento.descrizioneEvento}}</p>
-                        <a class="btn btn-primary" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
+                        <a class="btn btn-custom" href="#!/eventoView/{{evento.id_evento}}">Vai all'evento<span class="glyphicon glyphicon-chevron-right"></span></a>
                     </div>
 
                 </div>
@@ -338,17 +336,18 @@
 
     <hr>
 
-    <br>
 
     <div class="container">
 
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    <small>Esperienze Aggiunte Alla Carriera</small>
+                    <small>Esperienze Aggiunte Alla Carriera</small> <br> <button id="crea_tappa" class="btn btn-custom" data-target="#ModalTappa" data-toggle="modal">Aggiungi tappa alla carriera</button>
                 </h1>
             </div>
         </div>
+
+
 
         <div ng-repeat="tappe in datiProfiloCV">
 
