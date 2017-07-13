@@ -140,6 +140,12 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
 
             };
 
+            $scope.redirectToProfile = function() {
+
+                $location.path("/profiloView");
+
+            };
+
 
             $scope.logout = function() {
                 Users.registerLogout(currentAuth.uid);
