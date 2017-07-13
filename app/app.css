@@ -194,8 +194,18 @@ filtri>li:visited {
 .profile-userpic img {
   float: none;
   margin: 0 auto;
-  height: 300px;
-  width: 300px;
+  height: 270px;
+  width: 270px;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-photo img {
+  float: none;
+  margin: 0 auto;
+  height: 170px;
+  width: 170px;
   -webkit-border-radius: 50% !important;
   -moz-border-radius: 50% !important;
   border-radius: 50% !important;
@@ -356,6 +366,9 @@ section {
   padding: 150px 0;
 }
 
+.calendar{
+  padding: 10px 0px 10px 0px;
+}
 
 section, summary {
   display: block;
