@@ -53,7 +53,7 @@
 
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-custom">Invia</button>
+                    <button type="submit" class="btn btn-custom" ng-click="redirectToProfilo">Invia</button>
                 </div>
 
             </form>
@@ -61,4 +61,28 @@
     </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="confermaVal">
+    <div class="modal-dialog" role="document">
+
+        <!-- Modal content-->
+        <div align="center" class="modal-content" class="col-xs-8">
+            <div class="modal-header">
+                <p class="modal-title">
+                <h2 text-align="center">Valutazione completata, grazie! Ora l'evento sarà aggiunto alla tua carriera,
+            puoi visualizzarlo nella sezione CV del tuo profilo!</h2>
+                </p>
+            </div>
+            <br>
+            <a href="#!/profiloView/{{profilo_corrente}}" onclick="$('.modal').modal('hide')">
+                <h3 style="align-content: center" >Ritorna al profilo</h3>
+
+            </a>
+
+
+        </div>
+    </div>
+</div>
+
 
