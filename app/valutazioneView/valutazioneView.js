@@ -39,6 +39,8 @@ angular.module('myApp.valutazioneView', ['ngRoute'])
             $scope.profilo_corrente = Auth.$getAuth().uid;
             var id_corrente = window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 
+            $scope.valutazione = true;
+
             $scope.datiEventi.$loaded().then(function () {
 
                 console.log(id_corrente);

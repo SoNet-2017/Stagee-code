@@ -42,6 +42,7 @@ angular.module('myApp.profiloView', ['ngRoute'])
 
 
 
+
             $scope.dati.area = 'areaGeografica';
 
         //$('#myModal').modal('show');

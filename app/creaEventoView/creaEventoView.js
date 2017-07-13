@@ -1,6 +1,4 @@
-/**
- * Created by Matteo on 26/06/17.
- */
+
 
 'use strict';
 
@@ -68,7 +66,7 @@ angular.module('myApp.creaEventoView', ['ngRoute'])
 
                         InsertEventoService.insertNewEvento($scope.event.address, $scope.event.nome_evento, nome_org, $scope.event.descrizione,
                             $scope.imgPath, $filter('date')($scope.event.data, 'dd/MM/yyyy'), $scope.event.ora_inizio = $filter('date')($scope.event.ora_inizio, 'HH:mm'),
-                            $scope.event.ora_fine = $filter('date')($scope.event.ora_fine, 'HH:mm'), $scope.event.categoria);
+                            $scope.event.ora_fine = $filter('date')($scope.event.ora_fine, 'HH:mm'), $scope.event.categoria, $scope.event.costo, $scope.event.partecipazione);
 
 
                     });
@@ -76,7 +74,7 @@ angular.module('myApp.creaEventoView', ['ngRoute'])
                         $scope.dati.error = error + " - L'evento verrà creato senza un'immagine!";
                         InsertEventoService.insertNewEvento($scope.event.address, $scope.event.nome_evento, nome_org, $scope.event.descrizione,
                             $scope.imgPath, $filter('date')($scope.event.data, 'dd/MM/yyyy'), $scope.event.ora_inizio = $filter('date')($scope.event.ora_inizio, 'HH:mm'),
-                            $scope.event.ora_fine = $filter('date')($scope.event.ora_fine, 'HH:mm'), $scope.event.categoria);
+                            $scope.event.ora_fine = $filter('date')($scope.event.ora_fine, 'HH:mm'), $scope.event.categoria, $scope.event.costo, $scope.event.partecipazione);
 
 
                     });
@@ -85,13 +83,13 @@ angular.module('myApp.creaEventoView', ['ngRoute'])
                 else {
                     InsertEventoService.insertNewEvento($scope.event.address, $scope.event.nome_evento, nome_org, $scope.event.descrizione,
                         $scope.imgPath, $filter('date')($scope.event.data, 'dd/MM/yyyy'), $scope.event.ora_inizio = $filter('date')($scope.event.ora_inizio, 'HH:mm'),
-                        $scope.event.ora_fine = $filter('date')($scope.event.ora_fine, 'HH:mm'), $scope.event.categoria);
+                        $scope.event.ora_fine = $filter('date')($scope.event.ora_fine, 'HH:mm'), $scope.event.categoria, $scope.event.costo, $scope.event.partecipazione);
 
 
                                 }
 
-
-                $location.path("/bachecaView");
+                $('#ModalCreate').modal('hide');
+                $('#confermaEvento').modal('show');
             };
 
             });
