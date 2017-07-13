@@ -25,8 +25,8 @@ angular.module('myApp.valutazioneView', ['ngRoute'])
 
 
 
-    .controller('ValutazioneCtrl',[ '$scope', '$rootScope','$routeParams','Evento', 'Profilo', 'InsertEventoService', 'Auth',
-        function($scope, $rootScope, $routeParams, Evento, Profilo, InsertEventoService, Auth) {
+    .controller('ValutazioneCtrl',[ '$scope', '$rootScope','$routeParams','Evento', 'Profilo', 'InsertEventoService', 'Auth', '$location',
+        function($scope, $rootScope, $routeParams, Evento, Profilo, InsertEventoService, Auth, $location) {
 
             $scope.rank={};
             $scope.datiEventi = {};
@@ -66,7 +66,9 @@ angular.module('myApp.valutazioneView', ['ngRoute'])
                 console.log($scope.rank.commento);
                 InsertEventoService.addValutazioneToEvento($scope.rank.punteggio, id_corrente, $scope.rank.commento, current_profile);
 
+                $('#confermaVal').modal('show');
             }
+
 
 
 

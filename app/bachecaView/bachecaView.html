@@ -284,9 +284,7 @@
                 </div>
             </div>
             <div class="form-group" ng-show="datoProfilo.tipo == 'performer/organizzatore'">
-                <button id="crea" class="btn btn-custom center-block" data-target="#ModalCreate" data-toggle="modal">
-                    Crea evento
-                </button>
+                <button id="crea" class="btn btn-custom center-block" data-target="#ModalCreate" data-toggle="modal">Crea evento</button>
             </div>
         </div>
         <img class="foto_bacheca" src="images_stagee/pins_OK.png">
@@ -340,114 +338,100 @@
     <div class="col-md-1">
     </div>
 
-    <div class="modal fade text-center" id="ModalCreate">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>Crea il tuo evento!</h2>
-                </div>
+<div class="modal fade text-center" id="ModalCreate">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Crea il tuo evento!</h2>
+            </div>
 
 
-                <div ng-controller="CreaEventoCtrl as $ctrl">
+            <div ng-controller="CreaEventoCtrl as $ctrl">
 
-                    <form id="frmLogin" role="form" ng-submit="registraEvento()" class="center-block">
+                <form id="frmLogin" role="form" ng-submit="registraEvento()" class="center-block">
 
-                        <div class="modal-body" style="text-align: center">
+                    <div class="modal-body" style="text-align: center">
 
-                            <div class="form-group">
-                                <label for="nome_evento">Titolo dell'evento</label>
-                                <input type="text" class="form-control" id="nome_evento" name="nome_evento"
-                                       ng-model="event.nome_evento" required="required"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="data">Data dell'evento</label>
-                                <input type="date" class="form-control" id="data"
-                                       placeholder="Data dell'evento, formato DD/MM/YYYY" name="data"
-                                       ng-model="event.data" required="required"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="ora_inizio">Ora di inizio</label>
-                                <input type="time" class="form-control" id="ora_inizio"
-                                       placeholder="Ora di inizio, formato HH:MM" name="ora_inizio"
-                                       ng-model="event.ora_inizio" required="required"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="ora_fine">Ora di fine</label>
-                                <input type="time" class="form-control" id="ora_fine"
-                                       placeholder="Ora di fine, formato HH:MM" name="ora_fine"
-                                       ng-model="event.ora_fine" required="required"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="luogo">Luogo dell'evento</label>
-                                <input type="text" class="form-control" id="luogo" name="address"
-                                       ng-model="event.address" required="required"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="costo">Costo di partecipazione (in Euro)</label>
-                                <input type="text" class="form-control" id="costo" name="costo" ng-model="event.costo"
-                                       required="required"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="descrizione">Descrizione dell'evento</label>
-                                <textarea rows="4" cols="80" class="form-control" id="descrizione" name="descrizione"
-                                          ng-model="event.descrizione" required="required">
+                        <div class="form-group">
+                            <label for="nome_evento">Titolo dell'evento</label>
+                            <input type="text" class="form-control" id="nome_evento" name="nome_evento" ng-model="event.nome_evento" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="data">Data dell'evento</label>
+                            <input type="date" class="form-control" id="data" placeholder="Data dell'evento, formato DD/MM/YYYY" name="data" ng-model="event.data" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="ora_inizio">Ora di inizio</label>
+                            <input type="time" class="form-control" id="ora_inizio" placeholder="Ora di inizio, formato HH:MM" name="ora_inizio" ng-model="event.ora_inizio" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="ora_fine">Ora di fine</label>
+                            <input type="time" class="form-control" id="ora_fine" placeholder="Ora di fine, formato HH:MM" name="ora_fine" ng-model="event.ora_fine" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="luogo">Luogo dell'evento</label>
+                            <input type="text" class="form-control" id="luogo" name="address" ng-model="event.address" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="costo">Costo di partecipazione (in Euro)</label>
+                            <input type="text" class="form-control" id="costo" name="costo" ng-model="event.costo" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="descrizione">Descrizione dell'evento</label>
+                    <textarea rows="4" cols="80" class="form-control" id="descrizione" name="descrizione" ng-model="event.descrizione" required="required">
                     </textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="categoria">Tipo di evento</label>
-                                <select class="form-control" id="categoria" placeholder="Categoria di evento"
-                                        name="categoria" ng-model="event.categoria" required="required">
-                                    <option>Masterclass</option>
-                                    <option>Workshop</option>
-                                    <option>Casting</option>
-                                    <option>Spettacolo</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="partecipazione">Tipo di partecipazione</label>
-                                <select class="form-control" id="partecipazione" name="partecipazione"
-                                        ng-model="event.partecipazione" required="required">
-                                    <option>Aperto a tutti</option>
-                                    <option>Su invito</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <p>Aggiungi un'immagine cover per il tuo evento!</p>
-                                <file-upload on-change="$ctrl.onChange">
-                                </file-upload>
-                            </div>
-
+                        </div>
+                        <div class="form-group">
+                            <label for="categoria">Tipo di evento</label>
+                            <select class="form-control" id="categoria" placeholder="Categoria di evento" name="categoria" ng-model="event.categoria" required="required">
+                                <option>Masterclass</option>
+                                <option>Workshop</option>
+                                <option>Casting</option>
+                                <option>Spettacolo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="partecipazione">Tipo di partecipazione</label>
+                            <select class="form-control" id="partecipazione" name="partecipazione" ng-model="event.partecipazione" required="required">
+                                <option>Aperto a tutti</option>
+                                <option>Su invito</option>
+                            </select>
                         </div>
 
-                        <div class="modal-footer">
-
-                            <button type="submit" class="btn btn-custom center-block">Crea l'evento</button>
-                            <button type="button" class="btn btn-warning right-block" data-dismiss="modal">Annulla
-                            </button>
+                        <div class="form-group">
+                            <p>Aggiungi un'immagine cover per il tuo evento!</p>
+                            <file-upload on-change="$ctrl.onChange">
+                            </file-upload>
                         </div>
 
-                    </form>
+                    </div>
 
-                </div>
+                    <div class="modal-footer">
+
+                        <button type="submit" class="btn btn-custom center-block" >Crea l'evento</button>
+                        <button type="button" class="btn btn-custom right-block" data-dismiss="modal">Annulla</button>
+                    </div>
+
+                </form>
 
             </div>
+
         </div>
     </div>
+</div>
 
-    <div class="modal fade" id="confermaEvento">
-        <div class="modal-dialog" role="document">
+<div class="modal fade" id="confermaEvento">
+    <div class="modal-dialog" role="document">
 
-            <!-- Modal content-->
-            <div align="center" class="modal-content" class="col-xs-8">
-                <div class="modal-header">
-                    <p class="modal-title">
-                    <h2 text-align="center">Evento creato con successo!</h2>
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning right-block" data-dismiss="modal">Chiudi</button>
-                </div>
+        <!-- Modal content-->
+        <div align="center" class="modal-content" class="col-xs-8">
+            <div class="modal-header">
+                <p class="modal-title">
+                <h2 text-align="center">Evento creato con successo!</h2>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning right-block" data-dismiss="modal">Chiudi</button>
             </div>
         </div>
     </div>

@@ -68,24 +68,16 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                         lista: $scope.datiEventi[i].lista, categoria: $scope.datiEventi[i].categoria, valutazioni: $scope.datiEventi[i].valutazioni,
                         costo: $scope.datiEventi[i].costo, partecipazione: $scope.datiEventi[i].partecipazione});
 
-
-
-
                    nomeEvento = $scope.datiEventi[i].nome_evento;
                    dataEvento = $scope.datiEventi[i].data;
                    descrizioneEvento = $scope.datiEventi[i].descrizione;
                    imgEvento = $scope.datiEventi[i].img_url;
                    categoriaEvento = $scope.datiEventi[i].categoria;
 
-
-
-
                    for (k in $scope.datiEventi[i].lista){
 
                        $scope.listaPartecipanti.push({partecipante_nome: $scope.datiEventi[i].lista[k].partecipante});
                        console.log($scope.datiEventi[i].lista[k].partecipante);
-
-
 
                         }
 
@@ -94,7 +86,6 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                        $scope.listaPunteggi.push($scope.datiEventi[i].valutazioni[l].punteggio);
 
                        //console.log($scope.datiEventi[i].valutazioni[l].punteggio);
-
 
                    }
 

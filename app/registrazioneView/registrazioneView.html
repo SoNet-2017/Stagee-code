@@ -1,6 +1,7 @@
 <div class="alert alert-success alert-dismissible" role="alert" ng-if="dati.feedback">{{ dati.feedback }}</div>
 <div class="alert alert-danger alert-dismissible" role="alert" ng-if="dati.error">{{ dati.error }}</div>
 
+
 <div container>
 
 <div class="col-md-4">
@@ -11,8 +12,8 @@
 <div ng-controller="RegistrazioneCtrl as $ctrl">
 
 <form id="frmLogin" role="form" ng-submit="signUp()" class="center-block">
-    <h2>Stagee</h2>
-    <h3>Partecipa, organizza, condividi e certifica esperienze lavorative e formative.</h3>
+    <img src="images_stagee/Stagee_logoesteso.png" style="width: 70%">
+    <h3 class="intro">Partecipa, organizza, condividi e certifica esperienze lavorative e formative.</h3>
 
     <div class="form-group">
         <button type="submit" class="btn btn-custom">Accedi con Facebook</button>
@@ -89,3 +90,4 @@
         </div>
     </div>
 </div>
+
