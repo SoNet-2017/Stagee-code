@@ -28,6 +28,7 @@ angular.module('myApp.paginizialeView', ['ngRoute'])
         };
 
        */
+
         $scope.redirectToLogin = function() {
 
             $location.path("/loginView");

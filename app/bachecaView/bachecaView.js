@@ -61,7 +61,9 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
         $scope.dati.vm.positions = [];
         $scope.dati.vm.tags = [];
         $scope.dati.vm.dettagli = [];
-
+        $scope.EventiWorkshop = [];
+        $scope.EventiSpettacolo = [];
+        $scope.EventiMasterclass = [];
         $scope.dati.eventi = Evento.getData();
 
         $scope.dati.eventi.$loaded().then(function () {
@@ -74,8 +76,10 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
                 var tag = $scope.dati.eventi[i].nome_evento;
                 $scope.dati.vm.tags.push({tags: tag});
 
-
-
+                var categoria = $scope.dati.eventi[i].categoria;
+                if(categoria == "Workshop") $scope.EventiWorkshop.push({eventi: $scope.dati.eventi[i]});
+                if(categoria == "Spettacolo") $scope.EventiSpettacolo.push({eventi: $scope.dati.eventi[i]});
+                if(categoria == "Masterclass") $scope.EventiMasterclass.push({eventi: $scope.dati.eventi[i]});
             }
         });
 
@@ -113,6 +117,28 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
             {
                 return false;
             }
+        }
+
+        $scope.isMasterclass = function($index){
+            if ($scope.dati.eventi[$index].categoria.toString().localeCompare("Masterclass")==0) {
+                console.log($scope.dati.eventi[$index].categoria.toString());
+                return true;
+            }
+            return false;
+        }
+        $scope.isWorkshop = function($index) {
+            if ($scope.dati.eventi[$index].categoria.toString().localeCompare("Workshop")==0){
+                console.log($scope.dati.eventi[$index].categoria.toString());
+                return true;
+            }
+            return false;
+        }
+        $scope.isSpettacolo = function($index){
+            if ($scope.dati.eventi[$index].categoria.toString().localeCompare("Spettacolo")==0){
+                console.log($scope.dati.eventi[$index].categoria.toString());
+                return true;
+            }
+            return false;
         }
 
         $scope.isAmbito = function()
