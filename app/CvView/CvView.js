@@ -138,6 +138,9 @@ angular.module('myApp.CvView', ['ngRoute'])
             }
         }
 
+        $scope.scompari = function () {
 
+
+        }
 
     }]);

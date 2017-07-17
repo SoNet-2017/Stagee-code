@@ -255,7 +255,17 @@
     </div>
 </form>
 
-
+<div ng-repeat="calendario in datiProfiloCV">
+    <div class="row" ng-repeat="evento in calendario">
+        <div ng-show="evento.valutato == 'false'">
+            <h class="valuta">Ricordati di valutare l'evento: "{{evento.descrizioneEvento}}"
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </h>
+        </div>
+    </div>
+</div>
 <div ng-controller="CvCtrl">
     <div class="container">
         <div class="row">
@@ -269,6 +279,7 @@
         <div ng-repeat="calendario in datiProfiloCV">
 
             <div class="row" ng-repeat="evento in calendario">
+
                 <div ng-show="evento.valutato == 'true' && (evento.categoriaEvento == 'Masterclass' || evento.categoriaEvento == 'Workshop')">
                     <div class="col-md-3">
                         <a href="#!/eventoView/{{evento.id_evento}}">

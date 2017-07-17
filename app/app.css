@@ -191,6 +191,9 @@ filtri>li:visited {
   text-align: center;
   padding-top: 20px
 }
+.valuta{
+    padding-left: 10%;
+}
 
 .btn-filtri{
   background-color: transparent;
