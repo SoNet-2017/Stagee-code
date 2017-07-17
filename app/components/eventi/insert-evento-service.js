@@ -71,7 +71,7 @@ angular.module('myApp.evento.insertEventoService', [])
                         imgPath: imgPath
                     });
 
-                },
+                }
 
 
         };

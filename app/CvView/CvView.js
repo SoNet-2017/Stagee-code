@@ -33,7 +33,9 @@ angular.module('myApp.CvView', ['ngRoute'])
         $scope.currentId = Auth.$getAuth().uid;
 
         $scope.datiProfiloCV = {};
-        $scope.datiProfiloCV = SingleProfilo.getSingleProfilo(Auth.$getAuth().uid);
+        $scope.datiProfiloCV = Users.getCal(Auth.$getAuth().uid);
+        $scope.datiTappeCV = {};
+        $scope.datiTappeCV = Users.getTappa(Auth.$getAuth().uid);
 
             $scope.tappa={};
             var ctrl = this;
