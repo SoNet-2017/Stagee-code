@@ -255,17 +255,27 @@
     </div>
 </form>
 
-<div ng-repeat="calendario in datiProfiloCV">
-    <div class="row" ng-repeat="evento in calendario">
-        <div ng-show="evento.valutato != 'true'">
-            <h class="valuta">Ricordati di valutare l'evento: "{{evento.nomeEvento}}"
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </h>
+<div ng-show="isVisible">
+     <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div ng-repeat="calendario in datiProfiloCV">
+                <div ng-repeat="evento in calendario">
+                    <div ng-show="evento.valutato != 'true'">
+                            <div class="modal-content">
+                                <h5>
+                                <a href="#!/valutazioneView/{{evento.id_evento}}" class="modal-title">Ricordati di valutare l'evento: "{{evento.nomeEvento}}</a>
+                                </h5>
+                            </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+         <div class="modal-footer">
+         <button class="btn btn-custom" ng-click='toggleDiv($event)'>Chiudi</button>
+         </div>
+     </div>
 </div>
+
 <div ng-controller="CvCtrl">
     <div class="container">
         <div class="row">

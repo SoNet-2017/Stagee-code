@@ -47,7 +47,22 @@ angular.module('myApp.CvView', ['ngRoute'])
 
             var prof_corrente = Auth.$getAuth().uid;
 
+            $scope.isVisible = true;
 
+            $scope.toggleDiv = function(event)
+            {
+                event.preventDefault(); // included to show how to prevent default behavior
+                event.stopPropagation(); // included to show how to stop propagation
+
+                if ($scope.isVisible == false)
+                {
+                    $scope.isVisible = true;
+                }
+                else
+                {
+                    $scope.isVisible = false;
+                }
+            }
 
 
             $scope.registraTappa = function() {
