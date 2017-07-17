@@ -138,5 +138,5 @@ angular.module('myApp.CvView', ['ngRoute'])
             }
         }
 
-       
+
     }]);

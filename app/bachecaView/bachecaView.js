@@ -64,6 +64,7 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
         $scope.EventiWorkshop = [];
         $scope.EventiSpettacolo = [];
         $scope.EventiMasterclass = [];
+        $scope.EventiCasting = [];
         $scope.dati.eventi = Evento.getData();
 
         $scope.dati.eventi.$loaded().then(function () {
@@ -80,6 +81,7 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
                 if(categoria == "Workshop") $scope.EventiWorkshop.push({eventi: $scope.dati.eventi[i]});
                 if(categoria == "Spettacolo") $scope.EventiSpettacolo.push({eventi: $scope.dati.eventi[i]});
                 if(categoria == "Masterclass") $scope.EventiMasterclass.push({eventi: $scope.dati.eventi[i]});
+                if(categoria == "Casting") $scope.EventiCasting.push({eventi: $scope.dati.eventi[i]});
             }
         });
 
@@ -132,6 +134,13 @@ angular.module('myApp.bachecaView', ['ngRoute','myApp.evento'])
                 return true;
             }
             return false;
+        }
+        $scope.isCasting = function($index){
+                if ($scope.dati.eventi[$index].categoria.toString().localeCompare("Casting")==0) {
+                    console.log($scope.dati.eventi[$index].categoria.toString());
+                    return true;
+                }
+                return false;
         }
         $scope.isSpettacolo = function($index){
             if ($scope.dati.eventi[$index].categoria.toString().localeCompare("Spettacolo")==0){

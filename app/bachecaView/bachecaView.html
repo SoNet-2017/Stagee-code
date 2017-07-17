@@ -349,6 +349,33 @@
                         </div>
                     </info-window>
                 </marker>
+                <marker ng-repeat="evento in EventiCasting track by $index"
+                        position="{{evento.eventi.address}}"
+                        optimized="false"
+                        icon="{
+                url:'images_stagee/pin-rosso.png',
+                scaledSize:[40,40],
+                origin: [0,0],
+                anchor: [50,50]
+                      }"
+
+                        on-click="showTag(event, evento.eventi)"
+                >
+
+                    <info-window id="myInfoWindow4" max-width="300">
+                        <div ng-non-bindable>
+                            <div id="siteNotice4"></div>
+
+                            <a href="#!/eventoView/{{selectedTag.eventoId}}">
+                                <b>{{selectedTag.nome_evento}}</b>
+                            </a>
+
+                            <p>{{selectedTag.nome_organizzatore}}</p>
+                            <p>{{selectedTag.data}}</p>
+
+                        </div>
+                    </info-window>
+                </marker>
 
                 <marker ng-repeat="evento in EventiWorkshop track by $index"
                         position="{{evento.eventi.address}}"

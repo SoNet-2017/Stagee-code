@@ -257,8 +257,8 @@
 
 <div ng-repeat="calendario in datiProfiloCV">
     <div class="row" ng-repeat="evento in calendario">
-        <div ng-show="evento.valutato == 'false'">
-            <h class="valuta">Ricordati di valutare l'evento: "{{evento.descrizioneEvento}}"
+        <div ng-show="evento.valutato != 'true'">
+            <h class="valuta">Ricordati di valutare l'evento: "{{evento.nomeEvento}}"
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
