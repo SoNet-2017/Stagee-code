@@ -28,4 +28,20 @@ angular.module('myApp.loginView', ['ngRoute'])
             $log.error(error.message);
         });
     };
+
+    $scope.resetPassword = function() {
+
+        $scope.auth.$sendPasswordResetEmail($scope.user.mailReset).then(function () {
+            $('#ModalReset').modal('hide');
+            $('#confermaReset').modal('show');
+            // Email sent.
+        }, function (error) {
+            $scope.isVisibleError = true;
+
+            // An error happened.
+        });
+
+
+    };
+
 }]);
