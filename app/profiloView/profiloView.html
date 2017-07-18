@@ -313,10 +313,6 @@
         </div>
     </div>
 
-    <div class="col-md-1">
-
-    </div>
-
 
     <!-- CALENDARIO NUOVO -->
     <div class="col-md-6">
@@ -341,10 +337,10 @@
         </div>
     </div>
     <br>
-    <div class="row" ng-repeat="calendario in datiProfilo track by $index">
-        <div class="col-lg-12" ng-repeat="evento in calendario">
+    <div class="row">
+        <div class="col-lg-12">
             <ul class="timeline">
-                <li>
+                <li ng-repeat="evento in datiCalendario">
                     <a href="#!/eventoView/{{evento.id_evento}}">
                         <img class="timeline-image" ng-src="images_stagee/download.jpg"
                              ng-if="!(evento.imgEvento.includes('https://firebasestorage.googleapis.com')) && evento.imgEvento!=='' && evento.imgEvento!==null">

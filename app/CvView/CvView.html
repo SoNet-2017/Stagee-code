@@ -267,15 +267,14 @@
                                     <a class="valuta" href="#!/valutazioneView/{{evento.id_evento}}" class="modal-title">Ricordati di valutare l'evento: "{{evento.nomeEvento}}"</a>
                                     <button class="btn btn-custom" ng-click='toggleDiv($event)'>x</button>
                                 </h5>
-
-
-
                             </div>
                     </div>
                 </div>
             </div>
         </div>
-
+         <div class="modal-footer">
+         <button class="btn btn-custom" ng-click='toggleDiv($event)'>Chiudi</button>
+         </div>
      </div>
 </div>
 
@@ -289,9 +288,8 @@
             </div>
         </div>
 
-        <div ng-repeat="calendario in datiProfiloCV">
 
-            <div class="row" ng-repeat="evento in calendario">
+            <div class="row" ng-repeat="evento in datiProfiloCV">
 
                 <div ng-show="evento.valutato == 'true' && (evento.categoriaEvento == 'Masterclass' || evento.categoriaEvento == 'Workshop')">
                     <div class="col-md-3">
@@ -331,9 +329,9 @@
             </div>
         </div>
 
-        <div ng-repeat="calendario in datiProfiloCV">
 
-            <div class="row" ng-repeat="evento in calendario">
+
+            <div class="row" ng-repeat="evento in datiProfiloCV">
                 <div ng-show="evento.valutato == 'true' && (evento.categoriaEvento == 'Casting' || evento.categoriaEvento == 'Spettacolo')">
                     <div class="col-md-3">
                         <a href="#!/eventoView/{{evento.id_evento}}">
@@ -380,9 +378,8 @@
         </div>
 
 
-        <div ng-repeat="tappe in datiProfiloCV">
 
-            <div class="row" ng-repeat="tappa in tappe">
+            <div class="row" ng-repeat="tappa in datiTappeCV">
 
                 <div class="col-md-3">
 
@@ -394,7 +391,7 @@
                     <p>{{tappa.descrizione_tappa}}</p>
                 </div>
             </div>
-        </div>
+
     </div>
 
     <div class="modal fade text-center" id="ModalTappa">

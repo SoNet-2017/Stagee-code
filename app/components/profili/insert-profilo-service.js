@@ -3,7 +3,7 @@
 //The service implemented in this module will save information about pizzas
 angular.module('myApp.profilo.insertProfiloService', [])
 
-    .factory('Users', function($firebaseArray) {
+    .factory('Users', function($firebaseArray, $firebaseObject) {
         return {
             registerLogin: function (id_profilo, email) {
                 //add the user to list of users and set the logged value to true
@@ -35,6 +35,16 @@ angular.module('myApp.profilo.insertProfiloService', [])
                     tipo: tipo,
                     imgPath: imgPath
                 });
+            },
+            getCal: function (id_profilo) {
+                var ref = firebase.database().ref().child("profili").child(id_profilo).child("calendario");
+                // download the data into a local object
+                return $firebaseObject(ref);
+            },
+            getTappa: function (id_profilo) {
+                var ref = firebase.database().ref().child("profili").child(id_profilo).child("tappe");
+                // download the data into a local object
+                return $firebaseObject(ref);
             }
         };
     });
