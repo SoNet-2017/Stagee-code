@@ -360,7 +360,7 @@
                         </div>
                         <div class="timeline-body">
                             <p class="text-muted">{{evento.descrizioneEvento}}</p>
-                            <a href="#!/valutazioneView/{{evento.id_evento}}">Valuta l'evento</a>
+                            <a href="#!/valutazioneView/{{evento.id_evento}}" ng-show="evento.valutato != 'true'">Valuta l'evento</a>
                         </div>
                     </div>
                 </li>
