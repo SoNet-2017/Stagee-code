@@ -195,6 +195,12 @@ filtri>li:visited {
     padding-left: 10%;
 }
 
+.img_eventi{
+    object-fit: cover;
+    /*padding-right: 35%;*/
+    width: 98%;
+    height: 313px;
+}
 .btn-filtri{
   background-color: transparent;
   color: transparent;
