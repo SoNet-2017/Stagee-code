@@ -34,6 +34,7 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
         $scope.datoEvento = [];
         $scope.listaPartecipanti = [];
         $scope.listaPunteggi = [];
+        $scope.listaCommenti = [];
 
         $scope.datiProfili = {};
         $scope.datiProfili = Profilo.getData();
@@ -80,6 +81,13 @@ angular.module('myApp.eventoView', ['ngRoute','myApp.evento'])
                        console.log($scope.datiEventi[i].lista[k].partecipante);
 
                         }
+
+                   for (m in $scope.datiEventi[i].valutazioni){
+
+                       $scope.listaCommenti.push({commento: $scope.datiEventi[i].valutazioni[m].commento});
+                       console.log($scope.datiEventi[i].valutazioni[m].commento);
+
+                   }
 
                    for (l in $scope.datiEventi[i].valutazioni){
 
