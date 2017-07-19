@@ -201,6 +201,9 @@ filtri>li:visited {
     width: 98%;
     height: 313px;
 }
+.button_partecipa {
+  background-color: transparent;
+}
 .btn-filtri{
   background-color: transparent;
   color: transparent;

@@ -19,8 +19,9 @@ angular.module('myApp.loginView', ['ngRoute'])
         $scope.error = null;
 
         $scope.auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
-            var userEmail = firebaseUser.email;
-            location.href = "mailto:" + userEmail;
+           /* mettere controllo mail qua che abbiamo tutto. se vede che c'è nell'elenco degli eventi passati e valutato != true
+           var userEmail = firebaseUser.email;
+            location.href = "mailto:" + userEmail;*/
             var userId = firebaseUser.uid;
 
             Users.registerLogin(userId, $scope.user.email);

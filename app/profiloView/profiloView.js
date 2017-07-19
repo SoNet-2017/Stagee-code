@@ -52,13 +52,14 @@ angular.module('myApp.profiloView', ['ngRoute'])
         $scope.redirectToCv= function() {
 
             $location.path("/CvView");
-/*
-            var email = user.email;
+            /* var userEmail = firebaseUser.email;
+             location.href = "mailto:" + userEmail;*/
+            /*var email = user.email;
             var oggetto = "valuta evento!";
-            var messaggio = "Ricordati di valutare l'evento";
+            var messaggio = "Ricordati di valutare l'evento";*/
 
             location.href = "mailto:" + email + "?Subject=" + oggetto + "&Body=" + messaggio;
-*/
+
         };
 
 
