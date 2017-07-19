@@ -52,8 +52,16 @@ angular.module('myApp.profiloView', ['ngRoute'])
         $scope.redirectToCv= function() {
 
             $location.path("/CvView");
+/*
+            var email = user.email;
+            var oggetto = "valuta evento!";
+            var messaggio = "Ricordati di valutare l'evento";
 
+            location.href = "mailto:" + email + "?Subject=" + oggetto + "&Body=" + messaggio;
+*/
         };
+
+
 
         $scope.redirectToAreageografica = function() {
 
@@ -62,12 +70,18 @@ angular.module('myApp.profiloView', ['ngRoute'])
 
         };
 
+
         $scope.redirectToAmbito= function() {
 
             $scope.dati.area = 'ambito';
 
         };
+/*
+        $scope.Email = function() {
 
+
+        }
+*/
         $scope.isAreaGeografica = function()
         {
             if ($scope.dati.area == 'areaGeografica')
@@ -191,35 +205,3 @@ angular.module('myApp.profiloView', ['ngRoute'])
             //console.log(datiCalendarioSorted);
 
         }]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

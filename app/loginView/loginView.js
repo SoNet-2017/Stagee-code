@@ -19,7 +19,10 @@ angular.module('myApp.loginView', ['ngRoute'])
         $scope.error = null;
 
         $scope.auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
+            var userEmail = firebaseUser.email;
+            location.href = "mailto:" + userEmail;
             var userId = firebaseUser.uid;
+
             Users.registerLogin(userId, $scope.user.email);
             // login successful: redirect to bacheca
             $location.path("/bachecaView");

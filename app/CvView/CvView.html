@@ -265,6 +265,7 @@
                             <div class="modal-content">
                                 <h5>
                                     <a class="valuta" href="#!/valutazioneView/{{evento.id_evento}}" class="modal-title">Ricordati di valutare l'evento: "{{evento.nomeEvento}}"</a>
+                                  <!-- mettere in a il riferimento al js che dice di mandare la mail -->
                                     <button class="btn btn-custom" ng-click='toggleDiv($event)'>x</button>
                                 </h5>
                             </div>
@@ -391,7 +392,7 @@
                     <p>{{tappa.descrizione_tappa}}</p>
                 </div>
             </div>
-
+        </div>
     </div>
 
     <div class="modal fade text-center" id="ModalTappa">
