@@ -75,7 +75,8 @@ angular.module('myApp.eventoView', ['ngRoute', 'myApp.evento'])
                             categoria: $scope.datiEventi[i].categoria,
                             valutazioni: $scope.datiEventi[i].valutazioni,
                             costo: $scope.datiEventi[i].costo,
-                            partecipazione: $scope.datiEventi[i].partecipazione
+                            partecipazione: $scope.datiEventi[i].partecipazione,
+                            id: $scope.datiEventi[i].eventoId
                         });
 
                         nomeEvento = $scope.datiEventi[i].nome_evento;
@@ -121,7 +122,27 @@ angular.module('myApp.eventoView', ['ngRoute', 'myApp.evento'])
 
 
                 }
+                $scope.gia_iscritto =function (event) {
+                    for(evento in $scope.datiProfiloCorrente.calendario){
+                        console.log(event.id_evento);
+                        console.log(evento);/*giusto!*/
 
+                        console.log(event.nomeEvento);
+                        console.log(evento.nome_evento);
+
+                        console.log(event.nome_evento); /*ok!!*/
+                        console.log(evento.name);
+                        console.log(evento.nome);
+
+                        console.log(event.id);/*giusto!*/
+
+                        console.log($scope.datiProfiloCorrente.calendario);
+                        if(evento === event.id){
+                            return false;
+                        }
+                    }
+                    return true;
+                }
 
                 $scope.partecipa = function () {
 
