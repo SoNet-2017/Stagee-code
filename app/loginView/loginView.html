@@ -17,9 +17,63 @@
     <div class="form-group">
         <label for="txtPass">Password</label>
         <input type="password" class="form-control" id="txtPass" placeholder="Password" name="password" ng-model="user.password" />
-        <a>Ho dimenticato la password</a>
     </div>
     <button type="login" class="btn btn-custom center-block" ng-click="signIn();">Login</button>
 </form>
+    <br>
+    <button id="reset" class="btn btn-custom center-block" data-target="#ModalReset" data-toggle="modal">
+        Ho dimenticato la password
+    </button>
 
+</div>
+
+
+
+<div class="modal fade text-center" id="ModalReset">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Inserisci la mail fornita in fase di registrazione per resettare la tua password.</h4>
+            </div>
+
+            <div ng-controller="LoginCtrl as $ctrl">
+                <form id="frmReset" role="form" ng-submit="resetPassword()" class="center-block">
+                    <div class="modal-body" style="text-align: center">
+                        <div class="form-group">
+                            <label for="mailReset">Mail</label>
+                            <input type="email" class="form-control" id="mailReset" name="mailReset"
+                                   ng-model="user.mailReset" required="required"/>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-custom center-block">Invia</button>
+                        <button type="button" class="btn btn-custom right-block" data-dismiss="modal">Annulla</button>
+                        <div ng-show="isVisibleError">
+                            <br>
+                            <h4 style="text-align: center">Sembra che ci sia un errore, la mail inserita non è presente nel nostro database.
+                            Riprova, altrimenti per registrare un nuovo account clicca</h4>
+                            <a href="#!/registrazioneView" onclick="$('.modal').modal('hide')"><h4 style="text-align: center">qui.</h4></a>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confermaReset">
+    <div class="modal-dialog" role="document">
+
+        <!-- Modal content-->
+        <div align="center" class="modal-content" class="col-xs-8">
+            <div class="modal-header">
+                <p class="modal-title">
+                <h4 text-align="center">Mail di reset inviata! Controlla la tua casella di posta.</h4>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-custom right-block" data-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+    </div>
 </div>

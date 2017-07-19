@@ -94,15 +94,21 @@
             <p style="text-align: justify" ng-repeat="evento in datoEvento">
                 {{evento.descrizione}}
             </p>
-        </div>
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-4">
-            <h4 class="evento_categoria">Lista partecipanti:</h4>
-            <div ng-repeat="partecipante_el in listaPartecipanti track by $index">
-                <p style="text-align: left" ng-repeat="value in partecipante_el track by $index">
-                    {{value}}
+        <br>
+            <h4 class="evento_categoria">Recensioni:</h4>
+            <div ng-repeat="commento_el in listaCommenti track by $index">
+                <p style="text-align: left" ng-repeat="commento in commento_el track by $index">
+                    "{{commento}}"
                 </p>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+            <h4 class="evento_valutazione">Lista partecipanti:</h4>
+            <div ng-repeat="partecipante_el in listaPartecipanti track by $index">
+                <h5 style="text-align: right" ng-repeat="value in partecipante_el track by $index">
+                    {{value}}
+                </h5>
             </div>
         </div>
     </div>

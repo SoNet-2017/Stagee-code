@@ -257,10 +257,8 @@
 
 <div ng-show="isVisible">
      <div class="modal-dialog" role="document">
-        <div class="modal-content">
 
-            <div ng-repeat="calendario in datiProfiloCV">
-                <div ng-repeat="evento in calendario">
+                <div ng-repeat="evento in datiProfiloCV">
                     <div ng-show="evento.valutato != 'true'">
                             <div class="modal-content">
                                 <h5>
@@ -271,11 +269,6 @@
                             </div>
                     </div>
                 </div>
-            </div>
-        </div>
-         <div class="modal-footer">
-         <button class="btn btn-custom" ng-click='toggleDiv($event)'>Chiudi</button>
-         </div>
      </div>
 </div>
 
