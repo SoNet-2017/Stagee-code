@@ -52,7 +52,7 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                             var uploadTask = $scope.storage.$put($scope.fileToUpload);
                             uploadTask.$complete(function (snapshot) {
                                 $scope.imgPath = snapshot.downloadURL;
-                                Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.username, $scope.user.tipo, $scope.imgPath);
+                                Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.tipo, $scope.imgPath);
                                 Users.registerLogin(userId, $scope.user.email);
                                 // login successful: redirect to the profilo
 
@@ -62,7 +62,7 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                             });
                             uploadTask.$error(function (error) {
                                 $scope.dati.error = error + " - Il profilo verrà creato senza un'immagine!";
-                                Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.username, $scope.user.tipo, $scope.imgPath);
+                                Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.tipo, $scope.imgPath);
                                 Users.registerLogin(userId, $scope.user.email);
                                 // login successful: redirect to the profilo
 
@@ -75,7 +75,7 @@ angular.module('myApp.registrazioneView', ['ngRoute'])
                         }
                         else {
                             //do not add the image
-                            Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.username, $scope.user.tipo, $scope.imgPath);
+                            Users.registerNewUserInfo(userId, $scope.user.email, $scope.user.nome, $scope.user.cognome, $scope.user.tipo, $scope.imgPath);
                             Users.registerLogin(userId, $scope.user.email);
                             // login successful: redirect to the profilo
 
