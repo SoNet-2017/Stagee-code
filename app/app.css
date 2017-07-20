@@ -212,6 +212,14 @@ filtri>li:visited {
   height: 100%;
 
 }
+
+.messaggio_profilo{
+  padding-left: 5%;
+
+  color:#1b6d85;
+  font-size: 24px;
+
+}
 /* Profile container */
 .profile {
   margin: 20px 0;

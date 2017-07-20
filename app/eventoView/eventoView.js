@@ -124,19 +124,7 @@ angular.module('myApp.eventoView', ['ngRoute', 'myApp.evento'])
                 }
                 $scope.gia_iscritto =function (event) {
                     for(evento in $scope.datiProfiloCorrente.calendario){
-                        console.log(event.id_evento);
-                        console.log(evento);/*giusto!*/
 
-                        console.log(event.nomeEvento);
-                        console.log(evento.nome_evento);
-
-                        console.log(event.nome_evento); /*ok!!*/
-                        console.log(evento.name);
-                        console.log(evento.nome);
-
-                        console.log(event.id);/*giusto!*/
-
-                        console.log($scope.datiProfiloCorrente.calendario);
                         if(evento === event.id){
                             return false;
                         }
